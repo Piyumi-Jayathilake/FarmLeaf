@@ -10,7 +10,7 @@ const FloatingParticle = ({count=40}) => {
   return (
     <div className='absolute inset-0 overflow-hidden pointer-events-none'>
         {particle.map((p,i) =>(
-            <div key={i} className='absolute w-1 h-1 bg-[#048b0b] rounded-full'
+            <div key={i} className='absolute w-1 h-1 bg-[#8b5704] rounded-full'
                 style={{
                     top:`${p.top}%`,left:`${p.left}%`,
                     animation:`float ${p.duration}s infinite`

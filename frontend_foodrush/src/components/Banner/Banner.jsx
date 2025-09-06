@@ -44,20 +44,20 @@ const Banner = () => {
                 className='w-full py-4 pr-6 bg-transparent outline-none placeholder-[#21800e] text-md
                 font-medium tracking-wide' />
                 <button type='submit' className='mr-4 px-6 py-3 bg-gradient-to-r from-[#048b0b] to-[#04720b]
-                rounded-lg font-semibold text-[#d6f6c4] hover:from-[#4ae02c] hover:to-[#17c703]
+                rounded-lg font-semibold text-[#d6f6c4] hover:from-[#4ae02c] hover:to-[#0f8002]
                 transition-all duration-300 shadow-lg hover:shadow-amber-300/20'>
                   Search
                 </button>
               </div>
             </form>
             <div className='flex flex-wrap gap-4 justify-center md:justify-start mt-6'>
-              <button className='group flex items-center gap-3 bg-gradient-to-r from-[#048b0b] to-[#04720b] hover:from-[#4ae02c] hover:to-[#17c703] px-6
+              <button className='group flex items-center gap-3 bg-gradient-to-r from-[#048b0b] to-[#04720b] hover:from-[#4ae02c] hover:to-[#0f8002] px-6
               py-3 rounded-xl transition-all duration-300 hover:border-[#447204] backdrop-blur-sm'>
                 <FaDownload className='text-xl text-[#d6f6c4] group-hover:animate-bounce'/>
                 <span className='text-lg text-[#d6f6c4] font-semibold'>Download App</span>
               </button>
               <button onClick={() => setShowVideo(true)} className='group flex items-center gap-3  bg-gradient-to-r from-[#048b0b] to-[#04720b]
-               hover:from-[#4ae02c] hover:to-[#17c703] px-6 py-3 rounded-xl transition-all duration-300 shadow-lg
+               hover:from-[#4ae02c] hover:to-[#0f8002] px-6 py-3 rounded-xl transition-all duration-300 shadow-lg
                hover:shadow-amber-300/20'>
                 <FaPlay className='text-xl text-[#d6f6c4]'/>
                 <span className='text-lg text-[#d6f6c4] font-semibold'>Watch Video</span>

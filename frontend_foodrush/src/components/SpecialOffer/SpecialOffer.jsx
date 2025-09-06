@@ -3,7 +3,6 @@ import { cardData,additionalData, addButtonBase, addButtonHover, commonTransitio
 import { useCart } from '../../CartContext/CartContext';
 import { FaFire, FaHeart, FaPlus, FaStar } from 'react-icons/fa';
 import { HiMinus, HiPlus} from 'react-icons/hi'
-import { replace } from 'react-router-dom';
 import FloatingParticle from '../FloatingParticle/FloatingParticle';
 
 const SpecialOffer = () => {
@@ -63,9 +62,9 @@ const SpecialOffer = () => {
                                                 : removeFromCart(item.id)
                                             }} className='w-8 h-8 rounded-full bg-[#048b0b] flex items-center justify-center hover:bg-[#4cf452]
                                             transition-all duration-200 active:scale-95'>
-                                                <HiMinus/>
+                                                <HiMinus className='w-4 h-4 text-[#d6f6c4] '/>
                                             </button>
-                                            <span className='w-8 text-center text-[#d6f6c4] font-cinzel'>
+                                            <span className='w-8 text-center text-[#1f201f] font-cinzel font-bold'>
                                                 {quantity}
                                             </span>
                                             <button onClick={() => updateQuantity(item.id,quantity+1)}
@@ -75,7 +74,7 @@ const SpecialOffer = () => {
                                             </button>
                                         </div>
                                     ):(
-                                        <button onClick={() => addToCart({...item,name:item.title, price:parseFloat(item.price,replace('Rs',''))},1)}
+                                        <button onClick={() => addToCart({...item,name:item.title, price:parseFloat(item.price.replace('Rs ', ''))},1)}
                                         className={`${addButtonBase} ${addButtonHover} ${commonTransition}`}>
                                             <div className='absolute inset-0 bg-gradient-to-r from-[#048b0b] to-transparent 
                                             opacity-0 hover:opacity-100 transition-opacity duration-300'/>
@@ -98,14 +97,15 @@ const SpecialOffer = () => {
             <div className='mt-12 flex justify-center'>
                 <button onClick={() => setShowAll(!showAll)}
                     className='flex items-center gap-3 bg-gradient-to-r from-[#048b0b] to-[#04720b] 
-                    hover:from-[#4ae02c] hover:to-[#17c703] text-[#d6f6c4] px-8 py-4 rounded-2xl
+                    hover:from-[#4ae02c] hover:to-[#0f8002] text-[#d6f6c4] px-8 py-4 rounded-2xl 
                     transform hover:gap-4 hover:scale-105 transition-all duration-300 text-lg uppercase tracking-wider 
-                    font-bold hover:shadow-[#048b0b]/50 hover:shadow-xl group border-2 border-[#04720b] relative
+                    font-bold hover:shadow-[#048b0b]/10 hover:shadow-xl group border-2 border-[#04720b]/30 relative
                     overflow-hidden'>
-                        <div className='absolute inset-0 bg-gradient-to-r fill-[#048b0b] via-transparent to-[#04720b]
+                        <div className='absolute inset-0 bg-gradient-to-r fill-[#048b0b]/20 via-transparent to-[#04720b]/10 
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300'/>
                         <FaFire className='text-xl animate-pulse'/>
-                    {showAll ? 'Show Less' : 'View All Offers'}
+                    <span>{showAll ? 'Show Less' : 'View All Offers'}</span>
+                    <div className='h-full w-1 bg-[#048b0b]/30 absolute right-0 top-0 group-hover:animate-border-pulse'/>
                 </button>
             </div>
         </div>

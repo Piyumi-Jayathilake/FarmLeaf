@@ -123,10 +123,10 @@ export const teamMembers = [
 
 // ABOUT HOMEPAGE
 export const aboutfeature = [
-    { icon: FaBolt, title: "Instant Ordering", text: "Seamless digital experience", color: "from-amber-400 to-orange-500" },
-    { icon: FaRegClock, title: "Always Open", text: "24/7 premium service", color: "from-rose-400 to-pink-600" },
-    { icon: FaCalendarCheck, title: "Exclusive Booking", text: "Priority reservations", color: "from-emerald-400 to-cyan-600" },
-    { icon: FaFire, title: "Signature Dishes", text: "Chef's special creations", color: "from-purple-400 to-indigo-600" }
+    { icon: FaBolt, title: "Instant Ordering", text: "Seamless digital experience", color: "from-[#CD7F32] to-[#FFD700]" },
+    { icon: FaRegClock, title: "Always Open", text: "24/7 premium service", color: "from-[#800020] to-[#E2725B]" },
+    { icon: FaCalendarCheck, title: "Exclusive Booking", text: "Priority reservations", color: "from-[#000080] to-cyan-600" },
+    { icon: FaFire, title: "Signature Dishes", text: "Chef's special creations", color: "from-purple-600 to-[#E2725B]" }
 ];
 
 // SPECIAL OFFER
@@ -144,7 +144,7 @@ export const cardData = [
 export const additionalData = [
     { id: 5, title: 'Ramen - Spice Level 1', rating: 4.8, hearts: 210, description: 'Warm, comforting ramen with a soft boild egg and mild spice kick perfect for a cozy meal. ', image: Ramen, popular: true, price: 'Rs 700' },
     { id: 6, title: 'Strawberry Cheesecake', rating: 4.5, hearts: 165, description: 'Creamy strawberry cheesecake slice with a sweet, fruity finish in every bite.', image: Scheesecake,bestseller: true, price: 'Rs 800' },
-    { id: 7, title: 'Brownie - 6 pack', rating: 4.7, hearts: 190, description: 'Rich, fudgy brownie with a perfect balance of gooey and chewy goodness', image: Brownie, price: 'Rs 650 ' },
+    { id: 7, title: 'Brownie - 6 pack', rating: 4.7, hearts: 190, description: 'Rich, fudgy brownie with a perfect balance of gooey and chewy goodness', image: Brownie, price: 'Rs 650' },
     { id: 8, title: 'Donuts - 6 pack', rating: 4.9, hearts: 275, description: 'Fluffy, melt-in-your-mouth donuts in 6 delightful flavors, glazed to perfection', image: donut, special: true, price: 'Rs 600' },
 ];
 

@@ -78,8 +78,8 @@ const Navbar = () => {
         {name:'Contact', href:'/contact', icon: <FiPhone/>},
     ];
   return (
-    <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-[#048b0b]/30 sticky
-     top-0 z-50 shadow-[0_25px_50px_-12px] front-vibes group/nav overflow-x-hidden'>
+    <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-none sticky
+     top-0 z-50  front-vibes group/nav overflow-x-hidden'>
         <div className='absolute -top-3 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4'>
             <div className='h-[6px] bg-gradient-to-r from-transparent via-[#4cf452]/50 to-transparent
             shadow-[0_0_20px] shadow-[#048b0b]/30'/>
@@ -205,7 +205,7 @@ const Navbar = () => {
         {ShowLoginModel && (
             <div className='fixed inset-0 bg-[#048b0b]/30 flex items-center justify-center z-50 p-4'>
                 <div className='bg-[#263238] rounded-xl p-6
-                w-full max-w-[480px] relative border-4 border-[#048b0b]/30 shadow-[0_0_30px] shadow-[#048b0b]/30'>
+                w-full max-w-[480px] relative border-4 border-[#048b0b]/30 shadow-[0_0_30px] shadow-[#048b0b]/90'>
                     <button onClick={() => navigate('/')}
                     className='absolute top-2 right-2 text-[#4cf452] hover:text-[#048b0b] text-2xl'>
                         &times;              
