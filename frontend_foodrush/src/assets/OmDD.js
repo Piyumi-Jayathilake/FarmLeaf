@@ -1,87 +1,87 @@
-import IcedLatte from "./IcedLatte.png"
-import Mojito from "./Mojito.png"
-import Smoothie from "./Smoothie.png"
-import IcedTea from "./IcedTea.png"
-import Gelato from "./Gelato.png"
-import Cannoli from "./Cannoli.png"
-import TiramisuCake from "./TiramisuCake.png"
-import PannaCotta from "./PannaCotta.png"
+import IcedLatte from "./IcedLatte.jpg"
+import Mojito from "./Mojito.jpg"
+import Smoothie from "./Smoothie.jpg"
+import IcedTea from "./IcedTea.jpg"
+import Gelato from "./Gelato.jpg"
+import Cannoli from "./Cannoli.jpg"
+import TiramisuCake from "./TiramisuCake.jpg"
+import PannaCotta from "./PannaCotta.jpg"
 import Lasagna from "./Lasanga.jpg"
-import SpaghettiCarbonara from "./SpaghettiCarbonara.png"
-import Risotto from "./Risotto.png"
-import MargheritaPizza from "./MargheritaPizza.png"
-import TacosalPastor from "./TacosalPastor.png"
-import ChickenQuesadilla from "./ChickenQuesadilla.png"
-import Enchiladas from "./Enchiladas.png"
-import Fajitas from "./Fajitas.png"
-import GrilledRibeyeSteak from "./GrilledRibeyeSteak.png"
+import SpaghettiCarbonara from "./SpaghettiCarbonara.jpg"
+import Risotto from "./Risotto.jpg"
+import MargheritaPizza from "./MargheritaPizza.jpg"
+import TacosalPastor from "./TacosalPastor.jpg"
+import ChickenQuesadilla from "./ChickenQuesadilla.jpg"
+import Enchiladas from "./Enchiladas.jpg"
+import Fajitas from "./Fajitas.jpg"
+import GrilledRibeyeSteak from "./GrilledRibeyeSteak.jpg"
 import SalmonFillet from "./SalmonFillet.png"
 import RoastChicken from "./RoastChicken.png"
-import PastaPrimavera from "./PastaPrimavera.png"
+import PastaPrimavera from "./PastaPrimavera.jpg"
 import RedChickenCurry from "./RedChickenCurry.png"
-import EggsBenedict from "./EggsBenedict.png"
-import BreakfastBurrito from "./BreakfastBurrito.png";
-import AvocadoToast from "./AvocadoToast.png"
-import PancakeswithMapleSyrup from "./PancakeswithMapleSyrup.png"
-import FruitSmoothieBowl from "./FruitSmoothieBowl.png"
-import BananaToast from "./BananaToast.png"
-import BagelSmash from "./BagelSmash.png"
-import FruitWaffle from "./FruitWaffle.png"
-import FrenchToast from './FrenchToast.png'
-import SunnyOats from "./SunnyOats.png"
-import BagelwithLox from "./BagelwithLox.png"
-import ChickenCaesarSalad from "./ChickenCaesarSalad.png"
-import ClubSandwich from "./ClubSandwich.png"
+import EggsBenedict from "./EggsBenedict.jpg"
+import BreakfastBurrito from "./BreakfastBurrito.jpg";
+import AvocadoToast from "./AvocadoToast.jpg"
+import PancakeswithMapleSyrup from "./PancakeswithMapleSyrup.jpg"
+import FruitSmoothieBowl from "./FruitSmoothieBowl.jpg"
+import BananaToast from "./BananaToast.jpg"
+import BagelSmash from "./BagelSmash.jpg"
+import FruitWaffle from "./FruitWaffle.jpg"
+import FrenchToast from './FrenchToast.jpg'
+import SunnyOats from "./SunnyOats.jpg"
+import BagelwithLox from "./BagelwithLox.jpg"
+import ChickenCaesarSalad from "./ChickenCesarSalad.png"
+import ClubSandwich from "./ClubSandwich.jpg"
 import VeggieWrap from "./VeggieWrap.png"
-import GrilledCheeseSandwich from "./GrilledCheeseSandwich.png"
-import GranolaParfait from "./GranolaParfait.png"
+import GrilledCheeseSandwich from "./GrilledCheeseSandwich.jpg"
+import GranolaParfait from "./GarnolaParfait.jpg"
 import GrilledSalmonBowl from "./GrilledSalmonBowl.png"
 import SpicyBeefTacos from "./SpicyBeefTacos.png"
-import SushiCombo from "./SushiCombo.png"
-import TurkeyPanini from "./TurkeyPanini.png"
-import QuinoaSalad from "./QuinoaSalad.png"
-import PastaSalad from "./PastaSalad.png"
-import FishTacos from "./FishTacos.png"
+import SushiCombo from "./Sushi.jpg"
+import TurkeyPanini from "./TurkeyPanini.jpg"
+import QuinoaSalad from "./QuinoaSalad.jpg"
+import PastaSalad from "./PastaSalad.jpg"
+import FishTacos from "./FishTacos.jpg"
 import ChickenParmesan from "./ChickenParmesan.png"
 import PestoPastaWithShrimp from "./PestoPastaWithShrimp.png"
 import GarlicButterLambChops from "./GarlicButterLambChops.png"
 import VegetarianStuffedPeppers from "./VegetarianStuffedPeppers.png"
-import BeefBourguignon from "./BeefBourguignon.png"
-import VegetableStirFry from "./VegetableStirFry.png"
-import ShrimpScampi from "./ShrimpScampi.png"
-import LambChops from "./LambChops.png"
+import BeefBourguignon from "./BeefBourguignon.jpg"
+import VegetableStirFry from "./VegetableStirFry.jpg"
+import ShrimpScampi from "./ShrimpScampi.jpg"
+import LambChops from "./LambChops.jpg"
 import ChilesRellenos from "./ChilesRellenos.png"
 import MolePoblano from "./MolePoblano.png"
 import PozoleRojo from "./PozoleRojo.png"
 import Churros from "./Churros.png"
-import Nachos from "./Nachos.png"
-import Burrito from "./Burrito.png"
-import Tamales from "./Tamales.png"
-import Chilaquiles from "./Chilaquiles.png"
+import Nachos from "./Nachos.jpg"
+import Burrito from "./Burrito.jpg"
+import Tamales from "./Tamales.jpg"
+import Chilaquiles from "./Chilaquiles.jpg"
 import FocacciaBread from "./FocacciaBread.png"
 import PenneArrabbiata from "./PenneArrabbiata.png"
 import EggplantParmesan from "./EggplantParmesan.png"
 import CapreseSalad from "./CapreseSalad.png"
-import FettuccineAlferdo from "./FettuccineAlferdo.png"
-import PestoPasta from "./PestoPasta.png"
-import Gnocchi from "./Gnocchi.png"
-import OssoBuco from "./OssoBuco.png"
+import FettuccineAlferdo from "./FettuccineAlferdo.jpg"
+import PestoPasta from "./PestoPasta.jpg"
+import Gnocchi from "./Gnocchi.jpg"
+import OssoBuco from "./OssoBuco.jpg"
 import Pavlova from "./Pavlova.png"
 import ChocolateLavaCake from "./ChocolateLavaCake.png"
 import Baklava from "./Baklava.png"
 import CheeseCake from "./Cheesecake.png"
-import ChocolateMousse from "./ChocolateMousse.png"
-import Profiteroles from "./Profiteroles.png"
-import RicottaPie from "./RicottaPie.png"
+import ChocolateMousse from "./ChocolateMousse.jpg"
+import Profiteroles from "./Profiteroles.jpg"
+import RicottaPie from "./RicottaPie.jpg"
 import StrawberryShortcake from "./StrawberryShortcake.png"
 import MochaFrappuccino from "./MochaFrappuccino.png"
 import CaramelMacchiato from "./CaramelMacchiato.png"
 import StrawberryMilkshake from "./StrawberryMilkshake.png"
 import GreenTeaSmoothie from "./GreenTeaSmoothie.png"
-import Cappuccino from "./Cappuccino.png"
-import Lemonade from "./Lemonade.png"
-import Espresso from "./Espresso.png"
-import Margarita from "./Margarita.png"
+import Cappuccino from "./Cappuccino.jpg"
+import Lemonade from "./Lemonade.jpg"
+import Espresso from "./Espresso.jpg"
+import Margarita from "./Margarita.jpg"
 import FoodRush from "./FoodRush.png"
 
 export const dummyMenuData = {
@@ -94,7 +94,7 @@ export const dummyMenuData = {
     {
       id: 'breakfast-1',
       name: 'Eggs Benedict',
-      price: '80',
+      price: '850',
       rating: 4.2,
       image: EggsBenedict,
       description: 'Poached eggs over toasted English muffins with hollandaise sauce.',
@@ -102,15 +102,15 @@ export const dummyMenuData = {
     {
       id: 'breakfast-2',
       name: 'Avocado Toast',
-      price: '70',
+      price: '750',
       rating: 4.5,
       image: AvocadoToast,
       description: 'Toasted bread topped with smashed avocado and spices.',
     },
     {
       id: 'breakfast-3',
-      name: 'Pancakes with Maple Syrup',
-      price: '60',
+      name: 'Pancakes',
+      price: '650',
       rating: 4.3,
       image: PancakeswithMapleSyrup,
       description: 'Fluffy pancakes drizzled with pure maple syrup.',
@@ -118,7 +118,7 @@ export const dummyMenuData = {
     {
       id: 'breakfast-4',
       name: 'Fruit Smoothie Bowl',
-      price: '90',
+      price: '900',
       rating: 4.6,
       image: FruitSmoothieBowl,
       description: 'A bowl full of fresh fruits blended into a refreshing smoothie.',
@@ -126,18 +126,18 @@ export const dummyMenuData = {
     {
       id: 'breakfast-5',
       name: 'Sunny Oats',
-      price: '65',
+      price: '650',
       rating: 4.4,
       image: SunnyOats,
-      description: 'Creamy oatmeal swirled with cinnamon and honey.',
+      description: 'Creamy oatmeal swirled with raisins, candied cheries and dates.',
     },
     {
       id: 'breakfast-6',
       name: ' Banana Toast',
-      price: '60',
+      price: '600',
       rating: 4.3,
       image: BananaToast,
-      description: 'Toast topped with peanut butter and banana slices.',
+      description: 'Toast topped with peanut banana slices and honey',
     },
     {
       id: 'breakfast-7',
@@ -239,7 +239,7 @@ export const dummyMenuData = {
     },
     {
       id: 'lunch-7',
-      name: 'Sushi Combo',
+      name: 'Sushi ',
       price: '240',
       rating: 4.8,
       image: SushiCombo,

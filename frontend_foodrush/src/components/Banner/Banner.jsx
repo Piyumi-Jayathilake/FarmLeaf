@@ -27,7 +27,7 @@ const Banner = () => {
                 Delivered with Love
               </span>
             </h1>
-            <p className='text-lg md:text-lg lg:text-xl font-thin italic sm:text-xl text-[#21800e]
+            <p className='text-lg md:text-lg lg:text-xl font-thin italic sm:text-xl text-[#21800e] font-[Playfair_Diaplay] 
             max-w-xl opacity-90 mx-auto md:mx-0'>
               Top chefs in the kitchen, speed champs on the road - all working to get your favorite meals to you hot and tasty, 
               in just 60 minutes. Because you deserve great food, fast.
@@ -42,10 +42,10 @@ const Banner = () => {
                 <input type='text' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder='Pick your next favourite meal... and dig in.'
                 className='w-full py-4 pr-6 bg-transparent outline-none placeholder-[#21800e] text-md
-                font-medium tracking-wide' />
+                font-medium tracking-wide font-[Playfair_Diaplay] italic' />
                 <button type='submit' className='mr-4 px-6 py-3 bg-gradient-to-r from-[#048b0b] to-[#04720b]
                 rounded-lg font-semibold text-[#d6f6c4] hover:from-[#4ae02c] hover:to-[#0f8002]
-                transition-all duration-300 shadow-lg hover:shadow-amber-300/20'>
+                transition-all duration-300 shadow-lg hover:shadow-amber-300/20 font-[Playfair_Diaplay] '>
                   Search
                 </button>
               </div>
@@ -54,13 +54,13 @@ const Banner = () => {
               <button className='group flex items-center gap-3 bg-gradient-to-r from-[#048b0b] to-[#04720b] hover:from-[#4ae02c] hover:to-[#0f8002] px-6
               py-3 rounded-xl transition-all duration-300 hover:border-[#447204] backdrop-blur-sm'>
                 <FaDownload className='text-xl text-[#d6f6c4] group-hover:animate-bounce'/>
-                <span className='text-lg text-[#d6f6c4] font-semibold'>Download App</span>
+                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Diaplay] '>Download App</span>
               </button>
               <button onClick={() => setShowVideo(true)} className='group flex items-center gap-3  bg-gradient-to-r from-[#048b0b] to-[#04720b]
                hover:from-[#4ae02c] hover:to-[#0f8002] px-6 py-3 rounded-xl transition-all duration-300 shadow-lg
                hover:shadow-amber-300/20'>
                 <FaPlay className='text-xl text-[#d6f6c4]'/>
-                <span className='text-lg text-[#d6f6c4] font-semibold'>Watch Video</span>
+                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Diaplay] '>Watch Video</span>
                </button>
             </div>
           </div>

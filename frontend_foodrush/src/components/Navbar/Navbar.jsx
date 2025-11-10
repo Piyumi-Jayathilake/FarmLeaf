@@ -38,7 +38,7 @@ const Navbar = () => {
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
             shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
                 <FiLogOut className='text-base md:text-lg lg:text-lg' />
-                <span className='text-shadow'>Logout</span>
+                <span className='text-shadow font-[Playfair_Diaplay] '>Logout</span>
             </button>
         ):(
             <button onClick={() => navigate('/login')} className='px-3 md:px-3 lg:px-6 py-1.5 md:py-2 lg:py-3 bg-gradient-to-br from-[#048b0b] to-[#04720b]
@@ -46,7 +46,7 @@ const Navbar = () => {
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
             shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
                 <FiKey className='text-base md:text-lg lg:text-lg' />
-                <span className='text-shadow'>Login</span>
+                <span className='text-shadow font-[Playfair_Diaplay]'>Login</span>
             </button>
         )
     }
@@ -106,7 +106,7 @@ const Navbar = () => {
                     <div className='flex flex-col relative ml-2 max-w-[140px] md:max-w-[160px] lg:max-w-none'>
                         <NavLink to='/' className='text-2xl md:text-xl lg:text-4xl bg-gradient-to-r from-[#4cf452]
                         to-[#048b0b] bg-clip-text text-transparent font-monsieur tracking-wider drop-shadow-[0_2px_2px]
-                        drop-shadow-black -translate-x-2 truncate md:truncate-none'>
+                        drop-shadow-black -translate-x-2 truncate md:truncate-none font-[Playfair_Diaplay] italic'>
                             FoodRush
                         </NavLink>
                         <div className='h-[3px] bg-gradient-to-r from-[#4cf452]/80 via-[#4cf452]/50 to-[#4cf452]/30 w-full
@@ -114,7 +114,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {/*Desktop Navigation*/ }
-                <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end'>
+                <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end font-[Playfair_Diaplay] '>
                     {navLinks.map((link) => (
                         <NavLink key={link.name}
                         to={link.href}
@@ -151,7 +151,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {/* Mobile Menu*/ }
-                <div className='md:hidden flex items-center mr-2'>
+                <div className='md:hidden flex items-center mr-2 font-[Playfair_Diaplay] '>
                     <button className='text-[#4cf452] hover:text-[#4cf452] focus:outline-none transition-all
                     p-2 rounded-xl border-2 border-[#048b0b]/50 hover:border-[#048b0b]/50 relative shadow-md shadow-[#048b0b]/20
                     hover:shadow-lg hover:shadow-[[#048b0b]]/30' onClick={() => setIsOpen(!isOpen)}>
@@ -171,11 +171,11 @@ const Navbar = () => {
         {/*Mobile Navigation */}
         {isOpen && (
             <div className='md:hidden bg-[#263238] border-t-4 border-[#048b0b]/40 relative shadow-lg
-            shadow-[#048b0b]/30 w-full'>
+            shadow-[#048b0b]/30 w-fullfont-[Playfair_Diaplay] '>
                 <div className='px-4 py-4 space-y-2'>
                     {navLinks.map((link)=>(
                         <NavLink key={link.name} to={link.href} onClick={() => setIsOpen(false)} className={({isActive}) =>
-                        `block px-4 py-3 text-sm rounded-xl transition-all items-center ${
+                        `block px-4 py-3 text-sm rounded-xl transition-all items-center  ${
                             isActive ? 'bg-[#048b0b]/20 text-[#048b0b]' : 'text-amber-100 hover:bg-[#048b0b]/20 hover:text-[#4cf452]'}
                             border-2 ${isActive ? 'border-[#048b0b]/50' : 'border-[#048b0b]/30'}`}>
                                 <span className=' mr-3 text-[#4cf452]'>
@@ -211,7 +211,7 @@ const Navbar = () => {
                         &times;              
                     </button>
                      <h2 className='text-2xl font-bold bg-gradient-to-r from-[#4cf452] to-[#048b0b]
-                        bg-clip-text text-transparent mb-4 text-center font-[Playfair_Display]'>
+                        bg-clip-text text-transparent mb-4 text-center font-[Playfair_Display] '>
                             FoodRush
                         </h2>
                         <Login onLoginSuccess={handleLoginSuccess} onClose={() => navigate('/')} />
