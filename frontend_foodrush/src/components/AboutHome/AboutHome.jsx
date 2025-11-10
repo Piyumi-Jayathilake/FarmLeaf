@@ -21,17 +21,17 @@ const AboutHome = () => {
             <div className='w-full order-1 lg:order-2 space-y-8 sm:space-y-12 relative'>
                 <div className='space-y-4 sm:space-y-8 px-4 sm:px-0'>
                     <h2 className='text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight'>
-                        <span className='font-cursive text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-[#58c504]  to-[#048b0b]
-                         bg-clip-text text-transparent'>
+                        <span className='font-cursive text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600
+                         bg-clip-text text-transparent font-[Playfair_Diaplay] italic'>
                             Epicurean Elegance
                         </span>
                         <br/>
-                        <span className='inline-block mt-2 sm:mt-4 text-2xl sm:text-3xl md:text-4xl opacity-90 font-light'>
+                        <span className='inline-block mt-2 sm:mt-4 text-2xl sm:text-3xl md:text-4xl opacity-90 font-[Playfair_Diaplay] italic'>
                             Where Flavors Dance &amp; Memories Bloom
                         </span>
                     </h2>
-                    <p className='text-base sm:text-lg md:text-xl opacity-90 leading-relaxed max-w-3xl font-serif text-[#d6f6c4]
-                    italic border-l-4 bg-[#037b09]/90 pl-4 sm:pl-6 py-2 bg-gradient-to-r from-[#093a0c] to-transparent'>
+                    <p className='text-base sm:text-lg md:text-xl opacity-90 leading-relaxed max-w-3xl text-[#d6f6c4]
+                    italic border-l-4 bg-[#037b09]/90 pl-4 sm:pl-6 py-2 bg-gradient-to-r from-[#093a0c] to-transparent font-[Playfair_Diaplay] '>
                         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, nisi tenetur provident officiis quisquam
                          quos nihil nam? Rem dicta corporis odit? Cum, laboriosam. Explicabo, amet quaerat et repellendus sed magni?"
                     </p>
@@ -45,8 +45,8 @@ const AboutHome = () => {
                                 <item.icon className='text-2xl sm:text-3xl text-white' />
                             </div>
                             <div className='text-center'>
-                                <h3 className='text-xl sm:text-2xl font-bold font-cursive'>{item.title}</h3>
-                                <p className='opacity-80 text-sm sm:text-base'>{item.text}</p>
+                                <h3 className='text-xl sm:text-2xl font-bold font-cursive font-[Playfair_Diaplay] italic'>{item.title}</h3>
+                                <p className='opacity-80 text-sm sm:text-base font-[Playfair_Diaplay] italic'>{item.text}</p>
                             </div>
                         </div>
                     ))}
@@ -58,7 +58,7 @@ const AboutHome = () => {
                         <span className='absolute inset-0 bg-gradient-to-r from-[#048b0b]/20 to-transparent
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
                         <FaInfoCircle className='text-lg sm:text-xl animate-pulse' />
-                        <span className='font-cursive text-lg sm:text-xl'>Unveil Our Legacy</span>
+                        <span className='font-[Playfair_Diaplay] italic text-lg sm:text-xl'>Unveil Our Legacy</span>
                     </Link>
                 </div>
             </div>
