@@ -78,6 +78,16 @@ const CartPage = () => {
                             px-6 py-2 rounded-full font-[Playfair_Display] text-sm scale-95'>
                                 Continue Shopping
                             </Link>
+                            <div className=' flex items-center gap-8'>
+                                <h2 className='text-3xl font-[Playfair_Display] text-amber-100'>
+                                    Total: Rs{cartTotal}
+                                </h2>
+                                <button className='flex items-center gap-2
+                            transition-all duration-300 text-amber-100 hover:bg-amber-800/50 bg-amber-900/40 
+                            px-6 py-2 rounded-full font-[Playfair_Display] text-sm scale-95'>
+                                Checkout
+                            </button>
+                            </div>
                         </div>
                     </div>
                     </>
