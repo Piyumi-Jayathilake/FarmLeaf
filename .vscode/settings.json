@@ -1,0 +1,15 @@
+{
+    "editor.inlineSuggest.edits.showCollapsed": true,
+    "editor.inlineSuggest.experimental.showOnSuggestConflict": "always",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.inlineSuggest.triggerCommandOnProviderChange": true,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "editor.suggest.showStatusBar": true,
+    "files.autoSave": "onWindowChange",
+    "files.autoSaveWhenNoErrors": true,
+    "editor.suggest.preview": true,
+    "files.autoGuessEncoding": true
+}
