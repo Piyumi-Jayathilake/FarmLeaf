@@ -11,15 +11,15 @@ const SpecialOffer = () => {
     const initialData =[...cardData, ...additionalData];
     const {cartItems, addToCart, removeFromCart, updateQuantity} = useCart();
   return (
-    <div className='bg-[#263238] text-[#d6f6c4] py-16 px-4 font-[Poppins]'>
+    <div className='bg-[#263238] text-[#d6f6c4] py-16 px-4 font-[Playfair_Display]'>
         <div className='max-w-7xl mx-auto'>
             <div className='text-center mb-14'>
                 <h1 className='text-5xl font-bold mb-4 transform transition-all bg-gradient-to-r from-[#4cf452] to-[#048b0b]
-                 bg-clip-text text-transparent font-[Playfair_Diaplay] italic'>
+                 bg-clip-text text-transparent font-[Playfair_Display] italic'>
                     Today's <span className='text-stroke-gold'>Special</span> Offers
                 </h1>
                 <p className='text-lg text-[#d6f6c4] max-w-3xl mx-auto tracking-wide leading-relaxed'>
-                    Savor the extraordinary with our culinary masterpieces crafted to perfection.
+                    Celebrate freshness in every bite with our carefully selected, naturally grown produce.
                 </p>
             </div>
             {/*Product card */}

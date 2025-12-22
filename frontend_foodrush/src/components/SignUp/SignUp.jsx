@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { iconClass } from '../../assets/dummydata';
 
 const AwesomeToast =({message,icon}) =>(
     <div className='animate-slide-in fixed bottom-6 right-6 flex items-center bg-gradient-to-br from-[#048b0b] to-[#04720b]
@@ -35,7 +34,7 @@ const SignUp = () => {
         setShowToast(true);
       }
   return (
-    <div className='min-h-screen flex items-center justify-center bg-[#048b0b]/30  p-4'>
+    <div className='min-h-screen flex items-center justify-center bg-[#048b0b]/30  p-4 font-[Playfair_Display]'>
         {showToast && <AwesomeToast message="Sign Up Successful" icon={<FaCheckCircle/>}/>}
         <div className='w-full max-w-md bg-[#263238] p-8 rounded-xl shadow-lg
         border-4 border-[#014a06] transform transition-all duration-300 hover:shadow-2xl'>
@@ -43,22 +42,22 @@ const SignUp = () => {
                 Create Account
             </h1>
             <form onSubmit={handleSubmit} className='space-y-4'>
-                <input type='text' name='username' placeholder='Username' value={formData.username}
+                <input type='text' id='username' name='username' placeholder='Username' value={formData.username}
                 onChange={handleChange}
                 className='w-full px-4 py-3 rounded-lg bg-[#048b0b] text-[#d6f6c4] placeholder-[#b8f595] focus:outline-none
-                focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]'required/>
+                focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]' autoComplete='username' required/>
 
-                <input type='email' name='email' placeholder='Email' value={formData.email}
+                <input type='email' id='email' name='email' placeholder='Email' value={formData.email}
                 onChange={handleChange}
                 className='w-full px-4 py-3 rounded-lg bg-[#048b0b] text-[#d6f6c4] placeholder-[#b8f595] focus:outline-none
-                focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]'required/>
+                focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]' autoComplete='email' required/>
 
                 <div className='relative'>
                     
-                    <input type={showPassword ? 'text' :'password'} name='password' placeholder='Password' value={formData.password}
+                    <input type={showPassword ? 'text' :'password'} id='password' name='password' placeholder='Password' value={formData.password}
                     onChange={handleChange}
                     className='w-full px-4 py-3 rounded-lg bg-[#048b0b] text-[#d6f6c4] placeholder-[#b8f595] focus:outline-none
-                    focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]'required/>
+                    focus:ring-2 focus:ring-[#048b0b] transition-all duration-200 hover:scale-[1.02]' autoComplete='new-password' required/>
                     <button type="button" onClick={toggleShowPassword}
                     className='absolute right-3 top-1/2 transform -translate-y-1/2 text-[#b8f595] hover:text-[#d6f6c4] transition-colors'>
                         {showPassword ? <FaEyeSlash/> : <FaEye/>}

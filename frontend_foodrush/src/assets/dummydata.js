@@ -2,23 +2,22 @@ import { FaShippingFast, FaLeaf, FaHeart } from 'react-icons/fa';
 import { FaBolt, FaRegClock, FaCalendarCheck, FaFire } from 'react-icons/fa';
 import { FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import { FiUser, FiSmartphone, FiMail, FiHome } from 'react-icons/fi';
-import { FaUtensils } from 'react-icons/fa';
-import { GiChefToque, GiFoodTruck } from 'react-icons/gi';
-import IA1 from './IA1.png';
-import IA2 from './IA2.png';
+import { GiFarmer, GiFoodTruck } from 'react-icons/gi';
+import IA1 from './IA1.jpg';
+import IA2 from './IA2.jpg';
 import IA3 from './IA3.png';
-import IA4 from './IA4.png';
-import IA5 from './IA5.png';
-import IA6 from './IA6.png';
+import IA4 from './IA4.jpg';
+import IA5 from './IA5.jpg';
+import IA6 from './IA6.jpg';
 
-import Kebab from "./Kebab.jpg";
-import Cheesepizza from "./Cheesepizza.jpg";
-import Sushi from "./Sushi.jpg";
-import Dumplings from "./dumplings.jpg";
-import donut from "./donut.jpg";
-import Scheesecake from "./stcheesecake.jpg";
-import Ramen from "./ramen.jpg";
-import Brownie from "./brownie.jpg";
+import FlashDeals from "./FlashDeals.jpg";
+import MerryMixFruitBasket from "./MerryMixFruitBasket.jpg";
+import VegeCombo from "./VegeCombo.jpg";
+import FamilyVeggieBasket from "./FamilyVeggieBasket.jpg";
+import JuicyOffer  from "./JuicyOffer.png";
+import VeryBerry from "./VeryBerry.png";
+import TomatoesOnions from "./TomatoesOnons.jpg";
+import PremiumCollection from "./PremiumCollection.jpg";
 
 import BannerImage from "./BannerImage.jpg";
 import Image1 from "./Image1.jpg";
@@ -35,20 +34,26 @@ export const features = [
         text: "30-minute delivery guarantee in metro areas",
         icon: FaShippingFast, // store the component reference
         img: IA1,
+        gradient: 'from-green-700 to-green-900',
+        color: '#4ae02c', // green
     },
     {
         id: 2,
-        title: "Master Chefs",
-        text: "Michelin-star trained culinary experts",
-        icon: GiChefToque,
+        title: "Green Masters",
+        text: "Handpicked by Farm Experts - Freshness grown with care and delivered with love",
+        icon: GiFarmer,
         img: IA2,
+        gradient: 'from-orange-700 to-orange-900',
+        color: '#4ae02c', // green
     },
     {
         id: 3,
         title: "Premium Quality",
-        text: "Locally sourced organic ingredients",
+        text: "Handpicked Organic Produce from Local Growers",
         icon: FaLeaf,
         img: IA3,
+        gradient: 'from-emerald-700 to-emerald-900',
+        color: '#4ae02c', // green
     },
 ];
 
@@ -81,10 +86,10 @@ export const stats = [
 
 export const teamMembers = [
     {
-        name: "Marco Yansen",
-        role: "Executive Chef",
+        name: "Yashodh Silva",
+        role: "Inventory Manager",
         img: IA4,
-        bio: "3 Michelin stars | Italian cuisine specialist",
+        bio: "Keeps track of daily sales, restocks, and communicates with suppliers.",
         delay: 0.1,
         social: {
             twitter: "https://x.com/?lang=en",
@@ -94,10 +99,10 @@ export const teamMembers = [
         },
     },
     {
-        name: "Amit Singh",
-        role: "Pastry Chef",
+        name: "Arshia Zoysa",
+        role: "Local Supplier",
         img: IA5,
-        bio: "World Baking Champion | French desserts expert",
+        bio: "Grows and supplies fresh vegetables, fruits, and herbs directly to the shop.",
         delay: 0.3,
         social: {
             twitter: "https://x.com/?lang=en",
@@ -107,10 +112,10 @@ export const teamMembers = [
         },
     },
     {
-        name: "Akash Trivedi",
-        role: "Sushi Chef",
+        name: "Pragash Senanayake",
+        role: "Delivery Coordinator",
         img: IA6,
-        bio: "5th generation sushi chef | Traditional techniques",
+        bio: "Manages route planning and customer handovers efficiently.",
         delay: 0.5,
         social: {
             twitter: "https://x.com/?lang=en",
@@ -126,7 +131,7 @@ export const aboutfeature = [
     { icon: FaBolt, title: "Instant Ordering", text: "Seamless digital experience", color: "from-[#CD7F32] to-[#FFD700]" },
     { icon: FaRegClock, title: "Always Open", text: "24/7 premium service", color: "from-[#800020] to-[#E2725B]" },
     { icon: FaCalendarCheck, title: "Exclusive Booking", text: "Priority reservations", color: "from-[#000080] to-cyan-600" },
-    { icon: FaFire, title: "Signature Dishes", text: "Chef's special creations", color: "from-purple-600 to-[#E2725B]" }
+    { icon: FaFire, title: "Fresh Picks", text: "Handpicked Farm Specials", color: "from-purple-600 to-[#E2725B]" }
 ];
 
 // SPECIAL OFFER
@@ -136,24 +141,24 @@ export const addButtonHover = "hover:gap-3 hover:shadow-lg hover:shadow-[#048b0b
 
 // SPECIAL MENU
 export const cardData = [
-    { id: 1, title: 'Kebab - 4 pieces', rating: 4.5, hearts: 105, description: 'Juicy grilled meat with authentic spices', image: Kebab, popular: true, price: 'Rs 850' },
-    { id: 2, title: 'Cheese Pizza - Regular', rating: 5.0, hearts: 155, description: 'Hot, cheesy, and loaded with flavor the ultimate comfort pizza', image: Cheesepizza, bestseller: true, price: 'Rs 1000' },
-    { id: 3, title: 'Dumplings - 6 pack', rating: 4.2, hearts: 85, description: 'Soft, juicy dumplings bursting with delicious fillings in every bite!', image: Dumplings, price: 'Rs 950' },
-    { id: 4, title: 'Sushi - 6 pack', rating: 4.8, hearts: 285, description: 'Fresh, delicate sushi rolls crafted to perfection for every craving', image: Sushi, special: true, price: 'Rs 1500' },
+    { id: 1, title: 'Flash Deals - 20% OFF', rating: 4.5, hearts: 105, description: 'Enjoy a 1 kg Fresh Fruit Basket packed with juicy Mangoes, Apples, Grapes, Guavas, and Oranges; farm-fresh, naturally sweet, and delivered straight to your doorstep!', image: FlashDeals, popular: true, price: 'Rs 3850' },
+    { id: 2, title: 'Merry Mix Fruit - 500g', rating: 5.0, hearts: 155, description: 'A delightful 500g basket filled with a colorful blend of Apples, Grapes, Pineapple, Papaya, and Mango, freshly packed to bring sweetness, nutrition, and a touch of joy to your day!', image: MerryMixFruitBasket, bestseller: true, price: 'Rs 3000' },
+    { id: 3, title: 'Premium Pack - 1kg', rating: 4.2, hearts: 85, description: 'A wholesome 1kg basket of premium farm-fresh Carrots, Broccoli, Bell Peppers, Beans, Cauliflower, and Leeks, carefully selected for quality, freshness, and natural goodness in every bite.', image: PremiumCollection, price: 'Rs 4500' },
+    { id: 4, title: 'Vege Combo - 1kg', rating: 4.8, hearts: 285, description: 'A nutritious 1kg combo filled with everyday favorites like Beans, Okra, Pumpkin, Cabbage, Potatoes, and Leeks, freshly picked from local farms to bring balanced flavor and color to your meals.', image: VegeCombo, special: true, price: 'Rs 4000' },
 ];
 export const additionalData = [
-    { id: 5, title: 'Ramen - Spice Level 1', rating: 4.8, hearts: 210, description: 'Warm, comforting ramen with a soft boild egg and mild spice kick perfect for a cozy meal. ', image: Ramen, popular: true, price: 'Rs 700' },
-    { id: 6, title: 'Strawberry Cheesecake', rating: 4.5, hearts: 165, description: 'Creamy strawberry cheesecake slice with a sweet, fruity finish in every bite.', image: Scheesecake,bestseller: true, price: 'Rs 800' },
-    { id: 7, title: 'Brownie - 6 pack', rating: 4.7, hearts: 190, description: 'Rich, fudgy brownie with a perfect balance of gooey and chewy goodness', image: Brownie, price: 'Rs 650' },
-    { id: 8, title: 'Donuts - 6 pack', rating: 4.9, hearts: 275, description: 'Fluffy, melt-in-your-mouth donuts in 6 delightful flavors, glazed to perfection', image: donut, special: true, price: 'Rs 600' },
+    { id: 5, title: 'Very Berry - 500g', rating: 4.8, hearts: 210, description: 'A delicious 500g blend of Strawberries, Blueberries, Raspberries, Blackberries, and Cranberries, bursting with natural sweetness and antioxidants — the perfect healthy, fruity treat!', image: VeryBerry, popular: true, price: 'Rs 7000' },
+    { id: 6, title: 'Juicy Offer - 500g', rating: 4.5, hearts: 165, description: 'A refreshing 500g selection of Oranges, Pineapples, Watermelons, Mangoes, and Papayas, packed with natural sweetness and vitamin-rich juiciness — perfect for a fresh, energizing treat!', image: JuicyOffer ,bestseller: true, price: 'Rs 2200' },
+    { id: 7, title: 'Buy One Get One Free - 500g', rating: 4.7, hearts: 190, description: 'Buy one 500g pack of fresh, juicy tomatoes and get another pack absolutely free; perfect for salads, curries, and sauces bursting with natural flavor!', image: TomatoesOnions, price: 'Rs 580' },
+    { id: 8, title: 'Family Veggie - 1kg', rating: 4.9, hearts: 275, description: 'A hearty 1kg family pack filled with Cabbage, Carrots, Beans, Brinjal, Pumpkin, and Potatoes, freshly harvested to make wholesome, healthy meals for the whole family.', image: FamilyVeggieBasket, special: true, price: 'Rs 3000' },
 ];
 
 // FOOTER 
 export const socialIcons = [
-    { icon: FaFacebook, link: 'https://www.facebook.com/share/1DjbwhdR4z/', color: '#3b5998', label: 'Facebook' },
-    { icon: FaInstagram, link: 'https://www.instagram.com/hexagondigitalservices?igsh=MW1nanQ2eXIycnRkZQ==', color: '#E1306C', label: 'Instagram' },
-    { icon: FaXTwitter, link: 'https://x.com/HexagonDService?t=Vv5ReZAIbXONqkq_O0ksWQ&s=09', color: '#000', label: 'X' },
-    { icon: FaYoutube, link: 'https://youtube.com/@hexagondigitalservices?si=UnBt0AHI-ChN5Mze', color: '#FF0000', label: 'Youtube' },
+    { icon: FaFacebook, link: 'https://www.facebook.com/', color: '#3b5998', label: 'Facebook' },
+    { icon: FaInstagram, link: 'https://www.instagram.com/', color: '#E1306C', label: 'Instagram' },
+    { icon: FaXTwitter, link: 'https://x.com/', color: '#000', label: 'X' },
+    { icon: FaYoutube, link: 'https://youtube.com/', color: '#FF0000', label: 'Youtube' },
 ];
 
 // LOGIN 
@@ -163,10 +168,10 @@ export const iconClass = "absolute top-1/2 transform -translate-y-1/2 left-3 tex
 // CONTACT
 export const contactFormFields = [
     { label: 'Full Name', name: 'name', type: 'text', placeholder: 'Enter your full name', Icon: FiUser },
-    { label: 'Phone Number', name: 'phone', type: 'tel', placeholder: '+91 12345 67890', pattern: "[+]{0,1}[0-9]{10,13}", Icon: FiSmartphone },
+    { label: 'Phone Number', name: 'phone', type: 'tel', placeholder: '+94 7xxxxxxxx', pattern: "[+]{0,1}[0-9]{10,13}", Icon: FiSmartphone },
     { label: 'Email Address', name: 'email', type: 'email', placeholder: 'your.email@example.com', Icon: FiMail },
     { label: 'Address', name: 'address', type: 'text', placeholder: 'Enter your delivery address', Icon: FiHome },
-    { label: 'Dish Name', name: 'dish', type: 'text', placeholder: 'Enter dish name (e.g., Butter Chicken)', Icon: FaUtensils },
+    { label: 'Product Name', name: 'dish', type: 'text', placeholder: 'Enter product name (e.g., Carrot, Mango)', Icon: FaLeaf  },
 ];
 
 // BANNER

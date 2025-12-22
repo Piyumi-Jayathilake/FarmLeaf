@@ -1,523 +1,523 @@
-import BreakfastBurrito from "./BreakfastBurrito.jpg";
-import AvocadoToast from "./AvocadoToast.jpg"
-import PancakeswithMapleSyrup from "./PancakeswithMapleSyrup.jpg"
-import FruitSmoothieBowl from "./FruitSmoothieBowl.jpg"
-import FrenchToast from './FrenchToast.jpg'
-import EggsBenedict from "./EggsBenedict.jpg"
-import BagelwithLox from "./BagelwithLox.jpg"
-import GranolaParfait from "./GarnolaParfait.jpg"
-import ChickenCaesarSalad from "./ChickenCesarSalad.png"
-import ClubSandwich from "./ClubSandwich.jpg"
-import VeggieWrap from "./VeggieWrap.png"
-import GrilledCheeseSandwich from "./GrilledCheeseSandwich.jpg"
-import TurkeyPanini from "./TurkeyPanini.jpg"
-import QuinoaSalad from "./QuinoaSalad.jpg"
-import PastaSalad from "./PastaSalad.jpg"
-import FishTacos from "./FishTacos.jpg"
-import GrilledRibeyeSteak from "./GrilledRibeyeSteak.jpg"
-import SalmonFillet from "./SalmonFillet.png"
-import RoastChicken from "./RoastChicken.png"
-import PastaPrimavera from "./PastaPrimavera.jpg"
-import BeefBourguignon from "./BeefBourguignon.jpg"
-import VegetableStirFry from "./VegetableStirFry.jpg"
-import ShrimpScampi from "./ShrimpScampi.jpg"
-import LambChops from "./LambChops.jpg"
-import TacosalPastor from "./TacosalPastor.jpg"
-import ChickenQuesadilla from "./ChickenQuesadilla.jpg"
-import Enchiladas from "./Enchiladas.jpg"
-import Fajitas from "./Fajitas.jpg"
-import Nachos from "./Nachos.jpg"
-import Burrito from "./Burrito.jpg"
-import Tamales from "./Tamales.jpg"
-import Chilaquiles from "./Chilaquiles.jpg"
-import Lasagna from "./Lasanga.jpg"
-import SpaghettiCarbonara from "./SpaghettiCarbonara.jpg"
-import Risotto from "./Risotto.jpg"
-import MargheritaPizza from "./MargheritaPizza.jpg"
-import FettuccineAlferdo from "./FettuccineAlferdo.jpg"
-import PestoPasta from "./PestoPasta.jpg"
-import Gnocchi from "./Gnocchi.jpg"
-import OssoBuco from "./OssoBuco.jpg"
-import Gelato from "./Gelato.jpg"
-import Cannoli from "./Cannoli.jpg"
-import TiramisuCake from "./TiramisuCake.jpg"
-import PannaCotta from "./PannaCotta.jpg"
-import CheeseCake from "./stcheesecake.jpg"
-import ChocolateMousse from "./ChocolateMousse.jpg"
-import Profiteroles from "./Profiteroles.jpg"
-import RicottaPie from "./RicottaPie.jpg"
-import IcedLatte from "./IcedLatte.jpg"
-import Mojito from "./Mojito.jpg"
-import Smoothie from "./Smoothie.jpg"
-import IcedTea from "./IcedTea.jpg"
-import Cappuccino from "./Cappuccino.jpg"
-import Lemonade from "./Lemonade.jpg"
-import Espresso from "./Espresso.jpg"
-import Margarita from "./Margarita.jpg"
+import Broccoli from "./Broccoli.jpg";
+import Carrots from "./Carrots.jpg"
+import BellPeppers from "./BellPeppers.jpg"
+import Eggplant from "./Eggplant.jpg"
+import Pumpkin from './Pumpkin.jpg'
+import Beetroot from "./Beetroot.jpg"
+import Cabbage from "./Cabbage.jpeg"
+import Leeks from "./Leeks.jpg"
+import Spinach from "./Spinach.jpg"
+import GotuKola from "./GotuKola.jpg"
+import SweetLeaves from "./SweetLeaves.jpg"
+import Kale from "./Kale.jpg"
+import KohilaLeaves from "./KohilaLeaves.jpg"
+import DillLeaves from "./DillLeaves.jpg"
+import CorianderLeaves from "./CorianderLeaves.jpg"
+import Mukunuwenna from "./Mukunuwenna.jpg"
+import Mangoes from "./Mangoes.jpg"
+import Grapes from "./Grapes.jpg"
+import Guavas from "./Guavas.jpg"
+import Watermelons from "./Watermelons.jpg"
+import Bananas from "./Bananas.jpg"
+import DragonFruit from "./DragonFruit.jpg"
+import Pear from "./Pear.jpg"
+import Papayas from "./Papayas.jpg"
+import Artichoke from "./Artichoke.jpg"
+import SweetPotatoes from "./SweetPotatoes.jpg"
+import Manioc from "./Manioc.jpg"
+import Radish from "./Radish.jpg"
+import Nokol from "./Nokol.jpg"
+import Potatoes from "./Potatoes.jpg"
+import KiriAla from "./KiriAla.jpg"
+import Onions from "./Onions.jpg"
+import RawJackfruit from "./RawJackfruit.jpg"
+import Kekiri from "./Kekiri.png"
+import ThumbaKaravila from "./ThumbaKaravila.jpg"
+import Drumstik from "./Drumstik.jpg"
+import AshPlantain from "./AshPlantain.jpg"
+import RawMango from "./RawMango.jpg"
+import RidgeGourd from "./RidgeGourd.jpg"
+import WingedBeans from "./WingedBeans.jpg"
+import BabyCorn from "./BabyCorn.jpeg"
+import CherryTomatoes from "./CherryTomatoes.jpg"
+import Strawberries from "./Strawberries.jpg"
+import Asparagus from "./Asparagus.jpg"
+import Avocado from "./Avocado.jpg"
+import Parsley from "./Parsley.jpg"
+import Kiwi from "./Kiwi.jpg"
+import Blueberries from "./Blueberries.jpg"
+import ChllliPowder from "./ChllliPowder.jpg"
+import PandanLeaves from "./PandanLeaves.jpg"
+import Tamarind from "./Tamarind.jpg"
+import Cinnamon from "./Cinnamon.jpg"
+import Lemongrass from "./Lemongrass.jpg"
+import Cardamom from "./Cardamom.jpg"
+import GreenChillies from "./GreenChillies.jpg"
+import Cloves from "./Cloves.jpg"
 
 
 
 export const dummyMenuData = {
-  Breakfast: [
+  'Fresh Veges': [
     {
-      id: 'breakfast-1',
-      name: 'Eggs Benedict',
-      price: '850',
+      id: 'vege-1',
+      name: 'Beetroot - 500g',
+      price: '290',
       rating: 4.2,
-      image: EggsBenedict,
-      description: 'Poached eggs over toasted English muffins with hollandaise sauce.',
+      image: Beetroot,
+      description: 'A vibrant red root vegetable rich in iron and antioxidants, often used in salads, curries, and juices for its natural sweetness and color.',
     },
     {
-      id: 'breakfast-2',
-      name: 'Avocado Toast',
-      price: '750',
+      id: 'vege-2',
+      name: 'Carrots - 250g',
+      price: '250',
       rating: 4.5,
-      image: AvocadoToast,
-      description: 'Toasted bread topped with smashed avocado and spices.',
+      image: Carrots,
+      description: 'A crunchy, sweet root vegetable rich in vitamin A and beta-carotene, perfect for salads, stir-fries, and healthy snacks.',
     },
     {
-      id: 'breakfast-3',
-      name: 'Pancakes ',
-      price: '650',
-      rating: 4.3,
-      image: PancakeswithMapleSyrup,
-      description: 'Fluffy pancakes drizzled with pure maple syrup.',
-    },
-    {
-      id: 'breakfast-4',
-      name: 'Fruit Smoothie Bowl',
-      price: '900',
-      rating: 4.6,
-      image: FruitSmoothieBowl,
-      description: 'A bowl full of fresh fruits blended into a refreshing smoothie.',
-    },
-    {
-      id: 'breakfast-5',
-      name: 'French Toast',
-      price: '850',
-      rating: 4.4,
-      image: FrenchToast,
-      description: 'Classic French toast served with powdered sugar and berries.',
-    },
-    {
-      id: 'breakfast-6',
-      name: 'Breakfast Burrito',
-      price: '950',
-      rating: 4.2,
-      image: BreakfastBurrito,
-      description: 'Eggs, cheese, and veggies wrapped in a soft tortilla.',
-    },
-    {
-      id: 'breakfast-7',
-      name: 'Bagel with Lox',
-      price: '1450',
-      rating: 4.5,
-      image: BagelwithLox,
-      description: 'Toasted bagel topped with smoked salmon, cream cheese, and capers.',
-    },
-    {
-      id: 'breakfast-8',
-      name: 'Granola Parfait',
-      price: '750',
-      rating: 4.3,
-      image: GranolaParfait,
-      description: 'Layers of granola, yogurt, and fresh berries.',
-    },
-  ],
-  Lunch: [
-    {
-      id: 'lunch-1',
-      name: 'Chicken Caesar Salad',
-      price: '1450',
-      rating: 4.4,
-      image: ChickenCaesarSalad,
-      description: 'Crisp romaine with grilled chicken, parmesan, and Caesar dressing.',
-    },
-    {
-      id: 'lunch-2',
-      name: 'Club Sandwich',
-      price: '750',
-      rating: 4.3,
-      image: ClubSandwich,
-      description: 'Triple-decker sandwich with turkey, bacon, and fresh veggies.',
-    },
-    {
-      id: 'lunch-3',
-      name: 'Veggie Wrap',
-      price: '650',
-      rating: 4.2,
-      image: VeggieWrap,
-      description: 'A wrap filled with a mix of seasonal vegetables and hummus.',
-    },
-    {
-      id: 'lunch-4',
-      name: 'Cheese Sandwich',
-      price: '850',
-      rating: 4.0,
-      image: GrilledCheeseSandwich,
-      description: 'Classic grilled cheese with melted cheddar on sourdough.',
-    },
-    {
-      id: 'lunch-5',
-      name: 'Turkey Panini',
-      price: '1500',
-      rating: 4.5,
-      image: TurkeyPanini,
-      description: 'Pressed panini with turkey, Swiss cheese, and pesto.',
-    },
-    {
-      id: 'lunch-6',
-      name: 'Quinoa Salad',
-      price: '950',
-      rating: 4.3,
-      image:QuinoaSalad,
-      description: 'Healthy salad with quinoa, mixed greens, and vinaigrette.',
-    },
-    {
-      id: 'lunch-7',
-      name: 'Pasta Salad',
-      price: '1050',
-      rating: 4.2,
-      image: PastaSalad,
-      description: 'Chilled pasta salad with fresh vegetables and Italian dressing.',
-    },
-    {
-      id: 'lunch-8',
-      name: 'Fish Tacos',
-      price: '1200',
-      rating: 4.4,
-      image: FishTacos,
-      description: 'Grilled fish tacos with cabbage slaw and lime crema.',
-    },
-  ],
-  Dinner: [
-    {
-      id: 'dinner-1',
-      name: 'Grilled Ribeye Steak',
-      price: '2000',
-      rating: 4.7,
-      image: GrilledRibeyeSteak,
-      description: 'Juicy ribeye steak grilled to perfection.',
-    },
-    {
-      id: 'dinner-2',
-      name: 'Salmon Fillet',
-      price: '1850',
-      rating: 4.5,
-      image: SalmonFillet,
-      description: 'Fresh salmon fillet with a lemon butter sauce.',
-    },
-    {
-      id: 'dinner-3',
-      name: 'Roast Chicken',
-      price: '1950',
-      rating: 4.4,
-      image: RoastChicken,
-      description: 'Herb-roasted chicken served with seasonal vegetables.',
-    },
-    {
-      id: 'dinner-4',
-      name: 'Pasta Primavera',
-      price: '1900',
-      rating: 4.3,
-      image: PastaPrimavera,
-      description: 'Pasta with fresh seasonal vegetables in a light sauce.',
-    },
-    {
-      id: 'dinner-5',
-      name: 'Beef Bourguignon',
-      price: '2500',
-      rating: 4.6,
-      image: BeefBourguignon,
-      description: 'Classic French beef stew with red wine and mushrooms.',
-    },
-    {
-      id: 'dinner-6',
-      name: 'Vegetable Stir Fry',
-      price: '1000',
-      rating: 4.2,
-      image: VegetableStirFry,
-      description: 'Crispy vegetables stir-fried in a tangy sauce.',
-    },
-    {
-      id: 'dinner-7',
-      name: 'Shrimp Scampi',
-      price: '1900',
-      rating: 4.5,
-      image: ShrimpScampi,
-      description: 'Shrimp cooked in garlic butter sauce over linguine.',
-    },
-    {
-      id: 'dinner-8',
-      name: 'Lamb Chops',
-      price: '1600',
-      rating: 4.8,
-      image: LambChops,
-      description: 'Grilled lamb chops with rosemary and garlic.',
-    },
-  ],
-  Mexican: [
-    {
-      id: 'mexican-1',
-      name: 'Tacos al Pastor',
-      price: '1300',
-      rating: 4.6,
-      image: TacosalPastor,
-      description: 'Tacos with marinated pork, pineapple, and cilantro.',
-    },
-    {
-      id: 'mexican-2',
-      name: 'Chicken Quesadilla',
-      price: '1600',
-      rating: 4.4,
-      image: ChickenQuesadilla,
-      description: 'Grilled quesadilla filled with chicken, cheese, and salsa.',
-    },
-    {
-      id: 'mexican-3',
-      name: 'Enchiladas',
-      price: '1150',
-      rating: 4.5,
-      image: Enchiladas,
-      description: 'Corn tortillas rolled around a filling and smothered in spicy sauce.',
-    },
-    {
-      id: 'mexican-4',
-      name: 'Fajitas',
-      price: '1350',
-      rating: 4.7,
-      image: Fajitas,
-      description: 'Sizzling steak or chicken served with peppers and onions.',
-    },
-    {
-      id: 'mexican-5',
-      name: 'Nachos',
-      price: '900',
-      rating: 4.3,
-      image: Nachos,
-      description: 'Crispy tortilla chips loaded with cheese and toppings.',
-    },
-    {
-      id: 'mexican-6',
-      name: 'Burrito',
-      price: '1250',
-      rating: 4.2,
-      image: Burrito,
-      description: 'A large flour tortilla filled with beans, rice, and meat.',
-    },
-    {
-      id: 'mexican-7',
-      name: 'Tamales',
-      price: '875',
-      rating: 4.4,
-      image: Tamales,
-      description: 'Steamed masa filled with meats or vegetables.',
-    },
-    {
-      id: 'mexican-8',
-      name: 'Chilaquiles',
-      price: '950',
-      rating: 4.5,
-      image: Chilaquiles,
-      description: 'Tortilla chips simmered in a red or green salsa.',
-    },
-  ],
-  Italian: [
-    {
-      id: 'italian-1',
-      name: 'Spaghetti Carbonara',
-      price: '1900',
-      rating: 4.7,
-      image: SpaghettiCarbonara,
-      description: 'Classic pasta with eggs, cheese, pancetta, and pepper.',
-    },
-    {
-      id: 'italian-2',
-      name: 'Lasagna',
-      price: '1500',
-      rating: 4.6,
-      image: Lasagna,
-      description: 'Layers of pasta with meat sauce, cheese, and béchamel.',
-    },
-    {
-      id: 'italian-3',
-      name: 'Risotto',
-      price: '1950',
-      rating: 4.5,
-      image: Risotto,
-      description: 'Creamy Arborio rice cooked with broth and parmesan.',
-    },
-    {
-      id: 'italian-4',
-      name: 'Margherita Pizza',
-      price: '1850',
-      rating: 4.8,
-      image: MargheritaPizza,
-      description: 'Pizza topped with tomato sauce, mozzarella, and basil.',
-    },
-    {
-      id: 'italian-5',
-      name: 'Fettuccine Alfredo',
-      price: '1350',
-      rating: 4.4,
-      image: FettuccineAlferdo,
-      description: 'Pasta in a rich and creamy Alfredo sauce.',
-    },
-    {
-      id: 'italian-6',
-      name: 'Pesto Pasta',
-      price: '1500',
-      rating: 4.3,
-      image: PestoPasta,
-      description: 'Pasta tossed in a vibrant basil pesto sauce.',
-    },
-    {
-      id: 'italian-7',
-      name: 'Gnocchi',
-      price: '950',
-      rating: 4.2,
-      image: Gnocchi,
-      description: 'Soft potato dumplings served with a marinara sauce.',
-    },
-    {
-      id: 'italian-8',
-      name: 'Osso Buco',
-      price: '850',
-      rating: 4.7,
-      image: OssoBuco,
-      description: 'Braised veal shanks with vegetables and white wine.',
-    },
-  ],
-  Desserts: [
-    {
-      id: 'desserts-1',
-      name: 'Tiramisu',
-      price: '1250',
-      rating: 4.7,
-      image: TiramisuCake,
-      description: 'Classic Italian dessert with coffee and mascarpone.',
-    },
-    {
-      id: 'desserts-2',
-      name: 'Gelato',
-      price: '650',
-      rating: 4.5,
-      image: Gelato,
-      description: 'Italian-style ice cream available in various flavors.',
-    },
-    {
-      id: 'desserts-3',
-      name: 'Cannoli',
-      price: '700',
-      rating: 4.6,
-      image: Cannoli,
-      description: 'Crispy pastry tubes filled with sweet ricotta cream.',
-    },
-    {
-      id: 'desserts-4',
-      name: 'Panna Cotta',
-      price: '1050',
-      rating: 4.4,
-      image: PannaCotta,
-      description: 'Smooth, creamy dessert topped with berry compote.',
-    },
-    {
-      id: 'desserts-5',
-      name: 'Cheesecake',
-      price: '1200',
-      rating: 4.5,
-      image: CheeseCake,
-      description: 'Rich cheesecake with a graham cracker crust.',
-    },
-    {
-      id: 'desserts-6',
-      name: 'Chocolate Mousse',
-      price: '650',
-      rating: 4.4,
-      image: ChocolateMousse,
-      description: 'Light and airy chocolate mousse with whipped cream.',
-    },
-    {
-      id: 'desserts-7',
-      name: 'Profiteroles',
-      price: '750',
-      rating: 4.3,
-      image: Profiteroles,
-      description: 'Cream-filled pastry puffs drizzled with chocolate sauce.',
-    },
-    {
-      id: 'desserts-8',
-      name: 'Ricotta Pie',
-      price: '850',
-      rating: 4.2,
-      image: RicottaPie,
-      description: 'Traditional ricotta pie with a light, flaky crust.',
-    },
-  ],
-  Drinks: [
-    {
-      id: 'drinks-1',
-      name: 'Iced Latte',
-      price: '650',
-      rating: 4.0,
-      image: IcedLatte,
-      description: 'Cool and refreshing espresso-based iced latte.',
-    },
-    {
-      id: 'drinks-2',
-      name: 'Mojito',
-      price: '550',
-      rating: 4.3,
-      image: Mojito,
-      description: 'Classic mojito with mint, lime, and rum.',
-    },
-    {
-      id: 'drinks-3',
-      name: 'Smoothie',
-      price: '600',
-      rating: 4.2,
-      image: Smoothie,
-      description: 'A blended mix of fruits for a refreshing drink.',
-    },
-    {
-      id: 'drinks-4',
-      name: 'Iced Tea',
-      price: '550',
-      rating: 4.0,
-      image: IcedTea,
-      description: 'Chilled iced tea with a hint of lemon.',
-    },
-    {
-      id: 'drinks-5',
-      name: 'Lemonade',
+      id: 'vege-3',
+      name: 'Bell Peppers - 250g',
       price: '450',
-      rating: 4.1,
-      image: Lemonade,
-      description: 'Freshly squeezed lemonade with a tangy kick.',
-    },
-    {
-      id: 'drinks-6',
-      name: 'Espresso',
-      price: '850',
-      rating: 4.2,
-      image: Espresso,
-      description: 'Strong and rich espresso shot to start your day.',
-    },
-    {
-      id: 'drinks-7',
-      name: 'Margarita',
-      price: '770',
       rating: 4.3,
-      image: Margarita,
-      description: 'Refreshing margarita with tequila, lime, and a salt rim.',
+      image: BellPeppers,
+      description: 'A colorful, crisp vegetable rich in vitamin C and antioxidants, adding sweetness and crunch to salads, stir-fries, and curries.',
     },
     {
-      id: 'drinks-8',
-      name: 'Cappuccino',
-      price: '850',
-      rating: 4.2,
-      image: Cappuccino,
-      description: 'Frothy cappuccino with a perfect balance of espresso and milk.',
+      id: 'vege-4',
+      name: 'Eggplant (Brinjal) - 250g',
+      price: '200',
+      rating: 4.6,
+      image: Eggplant,
+      description: 'A soft, versatile vegetable with a mild flavor, commonly used in curries, stir-fries, and grills; rich in fiber and antioxidants.',
     },
+    {
+      id: 'vege-5',
+      name: 'Pumpkin - 250g',
+      price: '187',
+      rating: 4.4,
+      image: Pumpkin,
+      description: 'A sweet and nutritious vegetable packed with vitamins A and C, ideal for curries, soups, and creamy dishes with a rich texture.',
+    },
+    {
+      id: 'vege-6',
+      name: 'Broccoli - 250g',
+      price: '450',
+      rating: 4.2,
+      image: Broccoli,
+      description: 'A nutrient-packed green vegetable rich in vitamins C and K, great for steaming, stir-frying, or adding to healthy salads and soups.',
+    },
+    {
+      id: 'vege-7',
+      name: 'Cabbage - 250g',
+      price: '170',
+      rating: 4.5,
+      image: Cabbage,
+      description: 'A crisp, leafy vegetable high in fiber and vitamin C, perfect for salads, stir-fries, or traditional Sri Lankan curries.',
+    },
+    {
+      id: 'vege-8',
+      name: 'Leeks',
+      price: '750',
+      rating: 4.3,
+      image: Leeks,
+      description: 'A mildly sweet, aromatic vegetable from the onion family, commonly used in soups, stir-fries, and curries for added flavor and freshness.',
+    },
+  ],
+  'Leafy Greens': [
+    {
+      id: 'leafy-1',
+      name: 'Spinach - 100g',
+      price: '100',
+      rating: 4.4,
+      image: Spinach,
+      description: 'A nutrient-rich green leafy vegetable loaded with iron and vitamins, perfect for curries, salads, and healthy green smoothies.',
+    },
+    {
+      id: 'leafy-2',
+      name: 'Gotu Kola - 100g',
+      price: '150',
+      rating: 4.3,
+      image: GotuKola,
+      description: 'A traditional Sri Lankan leafy green known for boosting memory and improving circulation, often used in fresh sambols and herbal salads.',
+    },
+    {
+      id: 'leafy-3',
+      name: 'Sweet Leaves (Japan Batu Kola) - 100g',
+      price: '250',
+      rating: 4.2,
+      image: SweetLeaves,
+      description: 'A mildly sweet and tender leafy green popular in Sri Lanka, rich in nutrients and commonly used in mallum or light stir-fried dishes.',
+    },
+    {
+      id: 'leafy-4',
+      name: 'Kale - 100g',
+      price: '690',
+      rating: 4.0,
+      image: Kale,
+      description: 'A dark green superfood rich in vitamins A, C, and K, perfect for salads, smoothies, or lightly sautéed as a healthy side dish.',
+    },
+   {
+         id: 'leafy-9',
+         name: 'Kohila Leaves - 100g',
+         price: '250',
+         rating: 4.5,
+         image: KohilaLeaves,
+         description: 'A traditional Sri Lankan leafy green known for aiding digestion and reducing cholesterol, often used in curries and soups.',
+       },
+       {
+         id: 'leafy-10',
+         name: 'Dill Leaves - 25g',
+         price: '150',
+         rating: 4.3,
+         image: DillLeaves,
+         description: 'A soft, aromatic leafy with a mild tangy flavor, commonly used in soups, salads, and pickles to enhance freshness and aroma.',
+       },
+       {
+         id: 'leafy-11',
+         name: 'Coriander Leaves - 25g',
+         price: '76',
+         rating: 4.2,
+         image: CorianderLeaves,
+         description: 'A fragrant leafy used as a garnish or seasoning, adding a fresh citrusy aroma and flavor to salads, curries, and chutneys.',
+       },
+       {
+         id: 'leafy-12',
+         name: 'Mukunuwenna - 100g',
+         price: '150',
+         rating: 4.4,
+         image: Mukunuwenna,
+         description: 'A popular Sri Lankan leafy green rich in iron and fiber, commonly used in mallum and stir-fried dishes for its mild earthy flavor.',
+       },
+  ],
+  'Fresh Fruits': [
+     {
+          id: 'fruits-1',
+          name: 'Mangoes (Karthakolomban) - 1kg',
+          price: '150',
+          rating: 4.7,
+          image: Mangoes,
+          description: 'Juicy, sweet tropical fruits rich in vitamins A and C, perfect for eating fresh, making juices, or adding to desserts and salads.',
+        },
+        {
+          id: 'fruits-2',
+          name: 'Red Grapes - 1kg',
+          price: '2200',
+          rating: 4.5,
+          image: Grapes,
+          description: 'Sweet, juicy fruits packed with antioxidants and vitamins, ideal for snacking, fruit salads, or making fresh juice and jams.',
+        },
+        {
+          id: 'fruits-3',
+          name: 'Guavas - 1kg',
+          price: '450',
+          rating: 4.4,
+          image: Guavas,
+          description: 'fragrant tropical fruit rich in vitamin C and fiber, perfect for eating fresh, juicing, or adding to fruit salads for a sweet-tangy flavor.',
+        },
+        {
+          id: 'fruits-4',
+          name: 'Watermelons - 1kg',
+          price: '780',
+          rating: 4.3,
+          image: Watermelons,
+          description: 'Refreshing, hydrating fruits with a naturally sweet flavor, rich in vitamins A and C, perfect for summer snacks, juices, and fruit platters.',
+        },
+    {
+          id: 'fruits-9',
+          name: 'Banana (Kolikuttu) - 1kg',
+          price: '370',
+          rating: 4.6,
+          image: Bananas,
+          description: 'A sweet, soft, and aromatic Sri Lankan banana variety, rich in potassium and fiber, perfect for snacking or serving with traditional meals.',
+        },
+        {
+          id: 'fruits-10',
+          name: 'Dragon Fruit - 1kg',
+          price: '850',
+          rating: 4.2,
+          image: DragonFruit,
+          description: 'A vibrant tropical fruit with a mildly sweet taste and striking pink or white flesh, rich in antioxidants, fiber, and vitamin C — perfect for fresh bowls or smoothies.',
+        },
+        {
+          id: 'fruits-11',
+          name: ' Pears - 1kg',
+          price: '1790',
+          rating: 4.5,
+          image: Pear,
+          description: 'A soft, juicy fruit with a mild sweetness and grainy texture, rich in fiber and vitamin C, perfect for eating fresh or adding to desserts and salads.',
+        },
+        {
+          id: 'fruits-12',
+          name: 'Papaya - 1kg',
+          price: '285',
+          rating: 4.8,
+          image: Papayas,
+          description: 'Sweet, orange-fleshed tropical fruits rich in vitamins A and C, great for digestion and perfect for fresh eating, smoothies, or fruit salads.',
+        },
+  ],
+  'Roots & Bulbs': [
+     {
+          id: 'roots-1',
+          name: 'Artichoke - 1kg',
+          price: '1190',
+          rating: 4.6,
+          image: Artichoke,
+          description: 'A tender, mildly nutty vegetable high in fiber and antioxidants, often boiled, grilled, or added to salads and pasta dishes for a rich flavor.',
+        },
+        {
+          id: 'roots-2',
+          name: 'Sweet Potatoes - 1kg',
+          price: '580',
+          rating: 4.4,
+          image: SweetPotatoes,
+          description: 'Naturally sweet, starchy roots packed with fiber and vitamin A, delicious when boiled, baked, or made into fries and desserts.',
+        },
+        {
+          id: 'roots-3',
+          name: ' Manioc - 1kg',
+          price: '399',
+          rating: 4.5,
+          image: Manioc,
+          description: 'A starchy root vegetable commonly boiled, fried, or made into chips; rich in carbohydrates and a traditional Sri Lankan staple food.',
+        },
+        {
+          id: 'roots-4',
+          name: 'Radish (Rabu) - 1kg',
+          price: '500',
+          rating: 4.7,
+          image: Radish,
+          description: 'A crisp, mildly spicy root vegetable rich in fiber and vitamin C, often used in salads, curries, and stir-fried dishes for a refreshing crunch.',
+        },
+    {
+         id: 'roots-9',
+         name: 'Nokol - 1kg',
+         price: '650',
+         rating: 4.3,
+         image: Nokol,
+         description: 'A crisp, bulb-like vegetable with a mild, slightly sweet flavor, rich in fiber and vitamin C; delicious in salads, curries, and stir-fries.',
+       },
+       {
+         id: 'roots-10',
+         name: 'Potatoes - 1kg',
+         price: '430',
+         rating: 4.2,
+         image: Potatoes,
+         description: 'A versatile, starchy root vegetable rich in carbohydrates and potassium, ideal for boiling, frying, baking, or using in curries and stews.',
+       },
+       {
+         id: 'roots-11',
+         name: 'Kiri Ala - 1kg',
+         price: '560',
+         rating: 4.4,
+         image: KiriAla,
+         description: 'A creamy, fiber-rich root vegetable with a mildly nutty flavor, often boiled or cooked in coconut milk curries in Sri Lankan cuisine.',
+       },
+       {
+         id: 'roots-12',
+         name: 'Onions - 1kg',
+         price: '315',
+         rating: 4.5,
+         image: Onions,
+         description: 'A staple bulb vegetable with a sharp, savory flavor, used in curries, stir-fries, and salads to enhance aroma and taste.',
+       },
+  ],
+  'Local Sri Lankan': [
+   {
+         id: 'local-1',
+         name: 'Kekiri - 1kg',
+         price: '310',
+         rating: 4.7,
+         image: Kekiri,
+         description: 'A light green, mildly sweet vegetable with a soft texture, commonly used in Sri Lankan curries and salads for its cooling, refreshing taste.',
+       },
+       {
+         id: 'local-2',
+         name: 'Raw Jackfruit (Polos) - 1kg',
+         price: '1500',
+         rating: 4.6,
+         image: RawJackfruit,
+         description: 'A young, green jackfruit used as a meat substitute in Sri Lankan curries, rich in fiber and nutrients with a tender, flavorful texture when cooked.',
+       },
+       {
+         id: 'local-3',
+         name: 'Thumba Karavila - 250g',
+         price: '350',
+         rating: 4.5,
+         image: ThumbaKaravila,
+         description: 'A smaller variety of bitter gourd rich in antioxidants, commonly used in stir-fries and medicinal curries for its health benefits.',
+       },
+       {
+         id: 'local-4',
+         name: 'Drumstick (Murunga) -250g',
+         price: '950',
+         rating: 4.8,
+         image: Drumstik,
+         description: 'A long, slender green pod from the drumstick tree, rich in vitamins and minerals, commonly cooked in curries or soups for its unique flavor and aroma.',
+       },
+    {
+         id: 'local-9',
+         name: 'Ash Plantain (Alu kesel) - 1kg',
+         price: '220',
+         rating: 4.4,
+         image: AshPlantain,
+         description: 'A firm, starchy vegetable from the plantain family, commonly used in Sri Lankan curries, rich in fiber, and ideal for hearty, filling dishes.',
+       },
+       {
+         id: 'local-10',
+         name: 'Raw Mango - 500g',
+         price: '162',
+         rating: 4.3,
+         image: RawMango,
+         description: 'A tangy, firm fruit used in pickles, chutneys, and salads, rich in vitamin C and perfect for adding a zesty flavor to dishes.',
+       },
+       {
+         id: 'local-11',
+         name: 'Ridge Gourd(Watakolu) - 500g',
+         price: '250',
+         rating: 4.2,
+         image: RidgeGourd,
+         description: 'A soft, fibrous green vegetable with a mild flavor, rich in water and vitamins, often used in Sri Lankan curries and stir-fries for its light, refreshing taste.',
+       },
+       {
+         id: 'local-12',
+         name: 'Winged Beans (Dambala) - 500g',
+         price: '300',
+         rating: 4.7,
+         image: WingedBeans,
+         description: 'A nutritious, crunchy green vegetable rich in protein and fiber, commonly used in Sri Lankan curries and stir-fries for its fresh, earthy flavor.',
+       },
+  ],
+  'Exotic & Imported': [
+    {
+         id: 'imported-1',
+         name: 'Strawberries - 250g',
+         price: '1350',
+         rating: 4.7,
+         image: Strawberries,
+         description: 'Bright red, juicy fruits packed with vitamin C and antioxidants, perfect for desserts, smoothies, or enjoying fresh as a sweet, healthy snack.',
+       },
+       {
+         id: 'imported-2',
+         name: 'Baby Corn - 500g',
+         price: '980',
+         rating: 4.5,
+         image: BabyCorn,
+         description: 'Tender, mildly sweet young corn cobs rich in fiber and vitamins, perfect for stir-fries, salads, and soups with a crunchy bite.',
+       },
+       {
+         id: 'imported-3',
+         name: 'Cherry Tomatoes - 250g',
+         price: '580',
+         rating: 4.6,
+         image: CherryTomatoes,
+         description: 'Small, juicy, and sweet tomatoes bursting with flavor, ideal for salads, pasta, and garnishing dishes with a fresh, vibrant touch.',
+       },
+       {
+         id: 'imported-4',
+         name: 'Asparagus - 250g',
+         price: '1250',
+         rating: 4.4,
+         image: Asparagus,
+         description: 'A tender, spear-shaped vegetable rich in fiber and antioxidants, enjoyed steamed, grilled, or stir-fried for its delicate flavor and crunch.',
+       },
+     {
+          id: 'imported-9',
+          name: 'Avocado (Imported)',
+          price: '99',
+          rating: 4.5,
+          image: Avocado,
+          description: 'Rich and creamy avocado, perfect for a healthy snack.',
+        },
+        {
+          id: 'imported-10',
+          name: 'Parsley -25g',
+          price: '65',
+          rating: 4.4,
+          image: Parsley,
+          description: 'A bright, aromatic herb rich in vitamins A and C, commonly used to garnish or add a fresh, mild flavor to salads, soups, and sauces.',
+        },
+        {
+          id: 'imported-11',
+          name: 'Kiwi -100g',
+          price: '350',
+          rating: 4.3,
+          image: Kiwi,
+          description: 'A small, fuzzy fruit with bright green flesh and a tangy-sweet flavor, rich in vitamin C and fiber, perfect for fruit salads, smoothies, and desserts.',
+        },
+        {
+          id: 'imported-12',
+          name: 'Blueberries - 100g',
+          price: '1275',
+          rating: 4.2,
+          image: Blueberries,
+          description: 'Small, sweet-tart berries rich in antioxidants and vitamins, perfect for smoothies, desserts, or healthy snacks that boost energy and immunity.',
+        },
+  ],
+  'Herbs & Spices': [
+     {
+          id: 'herbs-1',
+          name: 'Chilli Powder - 100g',
+          price: '190',
+          rating: 4.0,
+          image: ChllliPowder,
+          description: 'A spicy seasoning made from dried red chillies, used to add heat and color to curries, marinades, and sauces in Sri Lankan cooking.',
+        },
+        {
+          id: 'herbs-2',
+          name: 'Pandan Leaves (Rampe) -100g',
+          price: '91',
+          rating: 4.3,
+          image: PandanLeaves,
+          description: 'Fragrant green leaves used in Sri Lankan cooking to enhance the aroma and flavor of rice, curries, and desserts.',
+        },
+        {
+          id: 'herbs-3',
+          name: 'Tamarind - 250g',
+          price: '255',
+          rating: 4.2,
+          image: Tamarind,
+          description: 'A tangy tropical fruit used as a souring agent in curries, chutneys, and sauces, known for its rich flavor and digestive benefits.',
+        },
+        {
+          id: 'herbs-4',
+          name: 'Cinnamon - 25g',
+          price: '315',
+          rating: 4.0,
+          image: Cinnamon,
+          description: 'A fragrant spice made from the inner bark of the cinnamon tree, widely used in curries, desserts, and beverages for its sweet aroma and warm flavor.',
+        },
+    {
+         id: 'herbs-9',
+         name: 'Cardamom (Enasal) - 25g',
+         price: '945',
+         rating: 4.1,
+         image: Cardamom,
+         description: 'A fragrant spice with a sweet, citrusy aroma, often used in curries, desserts, and teas to add a rich, warm flavor.',
+       },
+       {
+         id: 'herbs-10',
+         name: 'Green Chillies - 50g',
+         price: '103',
+         rating: 4.2,
+         image: GreenChillies,
+         description: 'Spicy, vibrant chillies used to add heat and flavor to Sri Lankan curries, stir-fries, and sambols, rich in vitamin C and antioxidants.',
+       },
+       {
+         id: 'herbs-11',
+         name: 'Cloves (Karabu Nati) - 25g',
+         price: '70',
+         rating: 4.3,
+         image: Cloves,
+         description: 'Aromatic flower buds used as a spice in cooking and baking, known for their strong, pungent flavor and medicinal properties.',
+       },
+       {
+         id: 'herbs-12',
+         name: 'Lemongrass - 50g',
+         price: '90',
+         rating: 4.2,
+         image: Lemongrass,
+         description: 'A fragrant tropical herb with a citrus aroma, used to flavor curries, soups, and teas while offering refreshing and digestive benefits.',
+       },
   ],
 };

@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className='bg-[#263238] text-amber-100 py-12 sm:px-6 px-4 lg:px-8 relative overflow-hidden'>
+    <footer className='bg-[#263238] text-amber-100 py-12 sm:px-6 px-4 lg:px-8 relative overflow-hidden font-[Playfair_Display]'>
       <div className='max-w-7xl mx-auto relative z-10'>
 
         <div className='grid grid-cols-2 md:grid-cols-3 gap-12 items-start'>
@@ -28,10 +28,10 @@ const Footer = () => {
           {/* LEFT COLUMN */}
           <div className='space-y-6'>
             <h2 className='text-4xl sm:text-5xl md:text-5xl font-bold font-[Playfair_Display] text-[#4cf452] animate-pulse'>
-              Food Rush
+              FarmLeaf
             </h2>
             <p className='text-[#d6f6c4] text-sm font-[Playfair_Display] italic'>
-              Where flavor meets finesse <br/> Handcrafted perfection, thoughtfully delivered to your doorstep.
+             Where freshness blooms <br/> Farm-grown goodness, lovingly packed for you.
             </p>
             <form onSubmit={handleSubmit} className='relative mt-4 group'>
               <div className='flex items-center gap-2 mb-2'>
@@ -91,7 +91,7 @@ const Footer = () => {
                     Social Connect
                 </h3>
                 <div className='flex space-x-4'>
-                    {socialIcons.map(({icon: Icon, link,color,label},idx)=>(
+                    {socialIcons.map(({icon: Icon, link,color,label},idx)=>( // eslint-disable-line no-unused-vars
                         <a target='_blank' href={link} key={idx}
                         className='text-2xl bg-[#048b0b]/10 p-3 rounded-full hover:bg-[#048b0b]/20 hover:scale-110
                          transition-all duration-300 relative group'
@@ -112,7 +112,7 @@ const Footer = () => {
         {/*BOTTOM SECTION */}
         <div className='border-t border-[#05c30e] pt-8 mt-8 text-center'>
             <p className='text-[#05c30e] text-lg mb-2 font-[Playfair_Display]'>
-                    &copy; 2025 FoodRush. All Rights Reserved.
+                    &copy; 2025 FarmLeaf. All Rights Reserved.
             </p>
             <div className=' group inline-block'>
                 <a href="https://lk.linkedin.com/in/piyumi-jayathilake"

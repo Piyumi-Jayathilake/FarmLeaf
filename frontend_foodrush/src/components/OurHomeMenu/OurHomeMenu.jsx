@@ -5,7 +5,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import './OurHomeMenu.css'
 
-const categories = ['Breakfast', 'Lunch', 'Dinner', 'Mexican', 'Italian','Desserts','Drinks']
+const categories = ['Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'];
 
 const OurHomeMenu = () => {
   const [activityCategory,setActivityCategory] = useState(categories[0]);
@@ -14,21 +14,21 @@ const OurHomeMenu = () => {
   const getQuantity = id => (cartItems.find(i => i.id === id)?.quantity || 0)
   return (
     <div className='bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302] min-h-screen py-16
-    px-4 sm:px-6 lg:px-8'>
+    px-4 sm:px-6 lg:px-8 font-[Playfair_Display]'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 bg-clip-text text-transparent
         bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600'>
-          <span className='font-[Playfair_Diaplay] italic block text-5xl md:text-7xl sm:text-6xl mb-2'>
-            Our Exquisite Menu
+          <span className='font-[Playfair_Display] italic block text-5xl md:text-7xl sm:text-6xl mb-2'>
+            Our Fresh Picks
           </span>
-          <span className='block text-xl sm:text-2xl md:text-3xl font-[Playfair_Diaplay] italic mt-4 text-[#d6f6c4]/80'>
-          A Symphony of Flavours</span>
+          <span className='block text-xl sm:text-2xl md:text-3xl font-[Playfair_Display] italic mt-4 text-[#d6f6c4]/80'>
+          A Symphony of Nature&apos;s Goodness</span>
         </h2>
-        <div className='flex flex-wrap justify-center gap-4 mb-16 font-[Playfair_Diaplay] '>
+        <div className='flex flex-wrap justify-center gap-4 mb-16 font-[Playfair_Display] '>
           {categories.map(cat =>(
             <button key={cat} onClick={() =>setActivityCategory(cat)}
             className={`px-4 sm:px-6 py-2 rounded-full border-2 transition-all duration-300 transform
-            font-[Playfair_Diaplay] text-sm sm:text-lg tracking-widest backdrop-blur-sm
+            font-[Playfair_Display] text-sm sm:text-lg tracking-widest backdrop-blur-sm
           ${activityCategory === cat ?
             'bg-[#048b0b]/80 border-[#048b0b]/50 scale-105 shadow-xl shadow-[#048b0b]/20 text-white'
             : 'bg-[#048b0b]/40 border-[#048b0b]/30 hover:border-[#048b0b]/50 text-[#d6f6c4]/80 hover:bg-[#4cf452]/50 hover:scale-95'}`}>
@@ -53,14 +53,14 @@ const OurHomeMenu = () => {
       </div>
 
     <div className=' text-gray-800 relative z-10 bottom-0 left-0 w-full bg-black/40 backdrop-blur-sm p-4 sm:p-6'>
-    <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Diaplay] italic text-[#d6f6c4] transition-colors'>
+    <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Display] italic text-[#d6f6c4] transition-colors'>
           {item.name}
         </h3>
-      <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Diaplay] leading-relaxed'>{item.description}</p>
+      <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Display] leading-relaxed'>{item.description}</p>
       <div className='mt-auto flex items-center justify-between'>
         
        
-        <span className='text-xl font-bold text-[#d6f6c4] font-[Playfair_Diaplay] italic'>
+        <span className='text-xl font-bold text-[#d6f6c4] font-[Playfair_Display] italic'>
           Rs {item.price}
           </span>
         
@@ -88,7 +88,7 @@ const OurHomeMenu = () => {
           <button 
           onClick={()=> addToCart(item,1)}
           className='bg-[#4cf452]/40 px-4
-          sm:px-6 py-1.5 rounded-full font-[Playfair_Diaplay] text-xs uppercase sm:text-sm tracking-wider transition-all duration-500
+          sm:px-6 py-1.5 rounded-full font-[Playfair_Display] text-xs uppercase sm:text-sm tracking-wider transition-all duration-500
           hover:scale-110 hover:shadow-lg hover:shadow-amber-900/20 relative overflow-hidden
           border border-[#048b0b]/50'>
             <span className='relative z-20 text-xs text-[#d6f6c4]' >
@@ -105,10 +105,10 @@ const OurHomeMenu = () => {
         </div>
         <div className=' flex justify-center mt-16'>
           <Link className='bg-[#4cf452]/40 border-2 border-[#048b0b]/50 text-amber-100 px-8 py-1.5
-          sm:px-10 rounded-full font-[Playfair_Diaplay] uppercase tracking-widest transition-all duration-300
+          sm:px-10 rounded-full font-[Playfair_Display] uppercase tracking-widest transition-all duration-300
            hover:text-[#d6f6c4] hover:scale-115 hover:shadow-lg
           hover:shadow-amber-500/10 backdrop-blur-sm' to='/menu'>
-            Explore Full Menu
+            Browse Fresh Collection
           </Link>
         </div>
       </div>

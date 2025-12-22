@@ -4,7 +4,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiBook, FiHome, FiPhone, FiStar, FiShoppingCart,FiLogOut,FiKey} from "react-icons/fi";
 import { useCart } from '../../CartContext/CartContext';
 import Login from '../Login/Login';
-import FoodRush from '../../assets/FoodRush.png';
+import FarmLeaf from '../../assets/FarmLeaf.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,7 @@ const Navbar = () => {
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
             shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
                 <FiLogOut className='text-base md:text-lg lg:text-lg' />
-                <span className='text-shadow font-[Playfair_Diaplay] '>Logout</span>
+                <span className='text-shadow font-[Playfair_Display] '>Logout</span>
             </button>
         ):(
             <button onClick={() => navigate('/login')} className='px-3 md:px-3 lg:px-6 py-1.5 md:py-2 lg:py-3 bg-gradient-to-br from-[#048b0b] to-[#04720b]
@@ -46,7 +46,7 @@ const Navbar = () => {
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
             shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
                 <FiKey className='text-base md:text-lg lg:text-lg' />
-                <span className='text-shadow font-[Playfair_Diaplay]'>Login</span>
+                <span className='text-shadow font-[Playfair_Display]'>Login</span>
             </button>
         )
     }
@@ -73,19 +73,18 @@ const Navbar = () => {
     }
     const navLinks =[
         {name:'Home', href:'/', icon: <FiHome/>},
-        {name:'Menu', href:'/menu', icon: <FiBook/>},
+        {name:'Fresh Picks', href:'/menu', icon: <FiBook/>},
         {name:'About', href:'/about', icon: <FiStar/>},
         {name:'Contact', href:'/contact', icon: <FiPhone/>},
     ];
   return (
-    <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-none sticky
+    <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-none sticky font-[Playfair_Display]
      top-0 z-50  front-vibes group/nav overflow-x-hidden'>
         <div className='absolute -top-3 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4'>
             <div className='h-[6px] bg-gradient-to-r from-transparent via-[#4cf452]/50 to-transparent
             shadow-[0_0_20px] shadow-[#048b0b]/30'/>
                 <div className='flex justify-between px-6'>
-                   {/* <GiForkKnifeSpoon className='text-[#4cf452]/40 -mt-4 -ml-2 rotate-45' size={32}/>
-                    <GiForkKnifeSpoon className='text-[#4cf452]/40 -mt-4 -mr-2 rotate-45' size={32}/>*/}
+                  
                 </div>
             
         </div>
@@ -98,7 +97,7 @@ const Navbar = () => {
                     <div className='absolute -inset-4 bg-[#048b0b]/30 rounded-full blur-xl
                     opacity-0 group-hover/nav:opacity-100 transition-opacity duration-300'/>
 
-                   <img src={FoodRush} alt="FoodRush Logo" className='h-[1.5em] w-auto text-3xl md:text-4xl lg:text-5xl text-[#4cf452] transition-all
+                   <img src={FarmLeaf} alt="FarmLeaf Logo" className='h-[1.5em] w-auto text-3xl md:text-4xl lg:text-5xl text-[#4cf452] transition-all
              group-hover:rotate-12 group-hover:text-[#4cf452] hover:drop-shadow-[0_0_15px]
              hover:drop-shadow-[#048b0b]/50 inline-block'/>
 
@@ -106,15 +105,15 @@ const Navbar = () => {
                     <div className='flex flex-col relative ml-2 max-w-[140px] md:max-w-[160px] lg:max-w-none'>
                         <NavLink to='/' className='text-2xl md:text-xl lg:text-4xl bg-gradient-to-r from-[#4cf452]
                         to-[#048b0b] bg-clip-text text-transparent font-monsieur tracking-wider drop-shadow-[0_2px_2px]
-                        drop-shadow-black -translate-x-2 truncate md:truncate-none font-[Playfair_Diaplay] italic'>
-                            FoodRush
+                        drop-shadow-black -translate-x-2 truncate md:truncate-none font-[Playfair_Display] italic'>
+                            FarmLeaf
                         </NavLink>
                         <div className='h-[3px] bg-gradient-to-r from-[#4cf452]/80 via-[#4cf452]/50 to-[#4cf452]/30 w-full
                         mt-1 ml-1 shadow-[0_2px_5px] shadow-[#048b0b]/20 -translate-x-3'/>
                     </div>
                 </div>
                 {/*Desktop Navigation*/ }
-                <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end font-[Playfair_Diaplay] '>
+                <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end font-[Playfair_Display] '>
                     {navLinks.map((link) => (
                         <NavLink key={link.name}
                         to={link.href}
@@ -151,7 +150,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {/* Mobile Menu*/ }
-                <div className='md:hidden flex items-center mr-2 font-[Playfair_Diaplay] '>
+                <div className='md:hidden flex items-center mr-2 font-[Playfair_Display] '>
                     <button className='text-[#4cf452] hover:text-[#4cf452] focus:outline-none transition-all
                     p-2 rounded-xl border-2 border-[#048b0b]/50 hover:border-[#048b0b]/50 relative shadow-md shadow-[#048b0b]/20
                     hover:shadow-lg hover:shadow-[[#048b0b]]/30' onClick={() => setIsOpen(!isOpen)}>
@@ -171,7 +170,7 @@ const Navbar = () => {
         {/*Mobile Navigation */}
         {isOpen && (
             <div className='md:hidden bg-[#263238] border-t-4 border-[#048b0b]/40 relative shadow-lg
-            shadow-[#048b0b]/30 w-fullfont-[Playfair_Diaplay] '>
+            shadow-[#048b0b]/30 w-full font-[Playfair_Display]'>
                 <div className='px-4 py-4 space-y-2'>
                     {navLinks.map((link)=>(
                         <NavLink key={link.name} to={link.href} onClick={() => setIsOpen(false)} className={({isActive}) =>
@@ -212,7 +211,7 @@ const Navbar = () => {
                     </button>
                      <h2 className='text-2xl font-bold bg-gradient-to-r from-[#4cf452] to-[#048b0b]
                         bg-clip-text text-transparent mb-4 text-center font-[Playfair_Display] '>
-                            FoodRush
+                            FarmLeaf
                         </h2>
                         <Login onLoginSuccess={handleLoginSuccess} onClose={() => navigate('/')} />
                     </div>                

@@ -1,15 +1,27 @@
 {
     "editor.inlineSuggest.edits.showCollapsed": true,
     "editor.inlineSuggest.experimental.showOnSuggestConflict": "always",
-    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.inlineSuggest.suppressSuggestions": false,
     "editor.inlineSuggest.triggerCommandOnProviderChange": true,
+
     "editor.quickSuggestions": {
-        "comments": "on",
-        "strings": "on"
+        "other": true,
+        "comments": false,
+        "strings": false
     },
+
     "editor.suggest.showStatusBar": true,
-    "files.autoSave": "onWindowChange",
-    "files.autoSaveWhenNoErrors": true,
     "editor.suggest.preview": true,
-    "files.autoGuessEncoding": true
+
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "editor.wordBasedSuggestionsMode": "matchingDocuments",
+
+    "files.autoGuessEncoding": true,
+
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.parameterHints.enabled": true,
+    "editor.inlineSuggest.enabled": true
 }

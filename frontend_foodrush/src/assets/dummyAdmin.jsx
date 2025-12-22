@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 // CHECKOUT PAGE DATA
 const CheckoutPage = () => {
     const [formData, setFormData] = useState({
@@ -109,6 +109,7 @@ const getPaymentMethodDetails = (method) => {
     }
 };
 
+/*
 <tr>
     <th className="p-4 text-left text-amber-400">Order ID</th>
     <th className="p-4 text-left text-amber-400">Customer</th>
@@ -130,3 +131,4 @@ const getPaymentMethodDetails = (method) => {
         const paymentMethod = getPaymentMethodDetails(order.paymentMethod);
         const status = statusStyles[order.status] || statusStyles.processing;
         const paymentStatus = statusStyles[order.paymentStatus] || statusStyles.pending;
+*/

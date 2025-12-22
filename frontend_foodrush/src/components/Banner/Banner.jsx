@@ -13,7 +13,7 @@ const Banner = () => {
     console.log('Searching for: ',searchQuery);
   }
   return (
-    <div className='relative'>
+    <div className='relative font-[Playfair_Display]'>
       <div className='bg-gradient-to-br from-[#ffffff] via-[#fbfffb] to-[#fafbfa] text-[#58c504] 
       py-16 px-4 sm:px-8 relative overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-r from-[#ffffff] to-[#fafbfa]'/>
@@ -27,10 +27,9 @@ const Banner = () => {
                 Delivered with Love
               </span>
             </h1>
-            <p className='text-lg md:text-lg lg:text-xl font-thin italic sm:text-xl text-[#21800e] font-[Playfair_Diaplay] 
+            <p className='text-lg md:text-lg lg:text-xl font-thin italic sm:text-xl text-[#21800e] font-[Playfair_Display] 
             max-w-xl opacity-90 mx-auto md:mx-0'>
-              Top chefs in the kitchen, speed champs on the road - all working to get your favorite meals to you hot and tasty, 
-              in just 60 minutes. Because you deserve great food, fast.
+             From our farms to your home - grown with love, packed with care, and delivered fresh in no time.
             </p>
            
             <form onSubmit={handleSearch} className='relative max-w-2xl mx-auto md:mx-0 group'>
@@ -39,13 +38,13 @@ const Banner = () => {
                 <div className='pl-6 pr-3 py-4'>
                   <FaSearch className='text-xl text-[#21800e]'/>
                 </div>
-                <input type='text' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder='Pick your next favourite meal... and dig in.'
+                <input type='text' id='search' name='search' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder='Find your favorite fruit or veggie...enjoy nature&apos;s best.'
                 className='w-full py-4 pr-6 bg-transparent outline-none placeholder-[#21800e] text-md
-                font-medium tracking-wide font-[Playfair_Diaplay] italic' />
+                font-medium tracking-wide font-[Playfair_Display] italic' autoComplete='search' />
                 <button type='submit' className='mr-4 px-6 py-3 bg-gradient-to-r from-[#048b0b] to-[#04720b]
                 rounded-lg font-semibold text-[#d6f6c4] hover:from-[#4ae02c] hover:to-[#0f8002]
-                transition-all duration-300 shadow-lg hover:shadow-amber-300/20 font-[Playfair_Diaplay] '>
+                transition-all duration-300 shadow-lg hover:shadow-amber-300/20 font-[Playfair_Display] '>
                   Search
                 </button>
               </div>
@@ -54,13 +53,13 @@ const Banner = () => {
               <button className='group flex items-center gap-3 bg-gradient-to-r from-[#048b0b] to-[#04720b] hover:from-[#4ae02c] hover:to-[#0f8002] px-6
               py-3 rounded-xl transition-all duration-300 hover:border-[#447204] backdrop-blur-sm'>
                 <FaDownload className='text-xl text-[#d6f6c4] group-hover:animate-bounce'/>
-                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Diaplay] '>Download App</span>
+                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Display] '>Download App</span>
               </button>
               <button onClick={() => setShowVideo(true)} className='group flex items-center gap-3  bg-gradient-to-r from-[#048b0b] to-[#04720b]
                hover:from-[#4ae02c] hover:to-[#0f8002] px-6 py-3 rounded-xl transition-all duration-300 shadow-lg
                hover:shadow-amber-300/20'>
                 <FaPlay className='text-xl text-[#d6f6c4]'/>
-                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Diaplay] '>Watch Video</span>
+                <span className='text-lg text-[#d6f6c4] font-semibold font-[Playfair_Display] '>Watch Video</span>
                </button>
             </div>
           </div>

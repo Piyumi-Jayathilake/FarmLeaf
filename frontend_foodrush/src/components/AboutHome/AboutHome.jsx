@@ -9,7 +9,7 @@ import './AboutHome.css'
 const AboutHome = () => {
   return (
     <div className='min-h-screen bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302] text-[#d6f6c4]
-    py-10 sm:py-20 relative overflow-hidden'>
+    py-10 sm:py-20 relative overflow-hidden font-[Playfair_Display]'>
         <div className='absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none'>
             <div className='absolute top-1/4 left-20 w-96 h-96 bg-[#048b0b]/20 rounded-full
             blur-3xl mix-blend-soft-light'/>
@@ -22,16 +22,16 @@ const AboutHome = () => {
                 <div className='space-y-4 sm:space-y-8 px-4 sm:px-0'>
                     <h2 className='text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight'>
                         <span className='font-cursive text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600
-                         bg-clip-text text-transparent font-[Playfair_Diaplay] italic'>
-                            Epicurean Elegance
+                         bg-clip-text text-transparent font-[Playfair_Display] italic'>
+                            Farm-Fresh Finesse
                         </span>
                         <br/>
-                        <span className='inline-block mt-2 sm:mt-4 text-2xl sm:text-3xl md:text-4xl opacity-90 font-[Playfair_Diaplay] italic'>
-                            Where Flavors Dance &amp; Memories Bloom
+                        <span className='inline-block mt-2 sm:mt-4 text-2xl sm:text-3xl md:text-4xl opacity-90 font-[Playfair_Display] italic'>
+                           Where purity, freshness, and care come together beautifully.
                         </span>
                     </h2>
                     <p className='text-base sm:text-lg md:text-xl opacity-90 leading-relaxed max-w-3xl text-[#d6f6c4]
-                    italic border-l-4 bg-[#037b09]/90 pl-4 sm:pl-6 py-2 bg-gradient-to-r from-[#093a0c] to-transparent font-[Playfair_Diaplay] '>
+                    italic border-l-4 bg-[#037b09]/90 pl-4 sm:pl-6 py-2 bg-gradient-to-r from-[#093a0c] to-transparent font-[Playfair_Display] '>
                         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, nisi tenetur provident officiis quisquam
                          quos nihil nam? Rem dicta corporis odit? Cum, laboriosam. Explicabo, amet quaerat et repellendus sed magni?"
                     </p>
@@ -45,8 +45,8 @@ const AboutHome = () => {
                                 <item.icon className='text-2xl sm:text-3xl text-white' />
                             </div>
                             <div className='text-center'>
-                                <h3 className='text-xl sm:text-2xl font-bold font-cursive font-[Playfair_Diaplay] italic'>{item.title}</h3>
-                                <p className='opacity-80 text-sm sm:text-base font-[Playfair_Diaplay] italic'>{item.text}</p>
+                                <h3 className='text-xl sm:text-2xl font-bold font-cursive font-[Playfair_Display] italic'>{item.title}</h3>
+                                <p className='opacity-80 text-sm sm:text-base font-[Playfair_Display] italic'>{item.text}</p>
                             </div>
                         </div>
                     ))}
@@ -58,7 +58,7 @@ const AboutHome = () => {
                         <span className='absolute inset-0 bg-gradient-to-r from-[#048b0b]/20 to-transparent
                         opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
                         <FaInfoCircle className='text-lg sm:text-xl animate-pulse' />
-                        <span className='font-[Playfair_Diaplay] italic text-lg sm:text-xl'>Unveil Our Legacy</span>
+                        <span className='font-[Playfair_Display] italic text-lg sm:text-xl'>Unveil Our Legacy</span>
                     </Link>
                 </div>
             </div>
@@ -67,9 +67,9 @@ const AboutHome = () => {
                 <div className='relative rounded-[4rem] overflow-hidden border-4 border-[#4ae02c]/30 hover:border-[#048b0b]/40 transition-all
                 duration-500 shadow-2xl shadow-black/50'>
                     <div className='absolute inset-0 bg-gradient-to-br from-[#048b0b]/15 via-transparent to-[#4ae02c]/10 mix-blend-lighten'/>
-                    <img src={AboutImage} alt="Restaurant" className='w-full h-auto object-cover aspect-[3/4] transform
+                    <img src={AboutImage} alt="Farm" className='w-full h-auto object-cover aspect-[3/4] transform
                     -rotate-1 hover:rotate-0 transition-all duration-500'/>
-                    <div className='absolute -bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-1/6 bg-[#eb5f09]/50 blur-3xl
+                    <div className='absolute -bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-1/6 bg-[#048b0b]/50 blur-3xl
                     z-0 '/>
                 </div>
                 <div className='absolute -top-6 -right-6 w-24 h-24 bg-[#eb5f09]/10 rounded-full blur-xl'/>
