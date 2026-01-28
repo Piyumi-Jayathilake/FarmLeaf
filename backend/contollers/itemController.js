@@ -1,0 +1,58 @@
+import itemModal from "../modals/itemModal.js";
+export const createItem = async (req, res, next) => {
+    try {
+        const { name, description, category, price, rating, hearts } = req.body;
+        const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
+        const total = Number(price) * 1;
+        const newItem = new itemModal({
+            name,
+            description,
+            category,
+            price,
+            rating,
+            hearts,
+            imageUrl,
+            total
+        })
+        const saved = await newItem.save();
+        res.status(201).json({ success: true, item: saved });
+    } 
+    catch (error) { 
+        console.error('Error creating item:', error);
+        if (error.code === 11000) {
+            return res.status(400).json({ success: false, message: 'Item with this name already exists.' });
+        }
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({ success: false, message: error.message });
+        }
+        res.status(500).json({ success: false, message: 'Failed to create item', error: error.message });
+    }
+}   
+//GET ALL ITEMS
+export const getItems = async (req, res, next) => {
+    try {
+        const items = await itemModal.find().sort({ createdAt: -1 }); 
+        const host = `${req.protocol}://${req.get('host')}`;
+
+        const withFullUrl = items.map(i => ({
+            ...i.toObject(),
+            imageUrl: i.imageUrl ? host + i.imageUrl : '',
+
+        }))
+        res.json({ success: true, items: withFullUrl });
+    } catch (error) {
+        next(error);
+    }}
+
+//DLT FUNC
+export const deleteItem = async (req, res, next) => {
+    try {
+        const removed = await itemModal.findByIdAndDelete(req.params.id);
+        if (!removed) {
+            return res.status(404).json({ success: false, message: 'Item not found' });
+        }
+        res.status(204).end()
+    } catch (error) {
+        next(error);
+    }
+}

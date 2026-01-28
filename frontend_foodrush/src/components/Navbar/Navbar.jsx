@@ -79,8 +79,8 @@ const Navbar = () => {
     ];
   return (
     <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-none sticky font-[Playfair_Display]
-     top-0 z-50  front-vibes group/nav overflow-x-hidden'>
-        <div className='absolute -top-3 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4'>
+     top-0 z-50  font-vibes group/nav overflow-hidden'>
+        <div className='absolute -top-3 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4 '>
             <div className='h-[6px] bg-gradient-to-r from-transparent via-[#4cf452]/50 to-transparent
             shadow-[0_0_20px] shadow-[#048b0b]/30'/>
                 <div className='flex justify-between px-6'>
@@ -112,6 +112,10 @@ const Navbar = () => {
                         mt-1 ml-1 shadow-[0_2px_5px] shadow-[#048b0b]/20 -translate-x-3'/>
                     </div>
                 </div>
+                
+                {/*Navigation and Auth - Right side*/}
+                <div className='w-1/4'></div>
+                
                 {/*Desktop Navigation*/ }
                 <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end font-[Playfair_Display] '>
                     {navLinks.map((link) => (
@@ -126,7 +130,7 @@ const Navbar = () => {
                             text-[#048b0b] group-hover:text-[#4cf452] transition-all'>
                                 {link.icon}
                             </span>
-                            <span className='text-amber-100 group-hover:text-[#4cf452] relative'>
+                            <span className='text-amber-100 group-hover:text-[#4cf452] relative whitespace-nowrap'>
                                 {link.name}
                                 <span className='absolute -bottom-1 left-0 w-0 h-[2px] bg-[#4cf452] transition-all
                                 group-hover:w-full'/>

@@ -6,6 +6,7 @@ import Cart from './pages/Cart/Cart'
 import Home from './pages/Home/Home'
 import ContactPage from './pages/ContactPage/ContactPage'
 import SignUp from './components/SignUp/SignUp'
+import PrivetRout from './components/PivetRoute/PrivetRout'
 
 const App = () => {
   return (
@@ -14,9 +15,15 @@ const App = () => {
       <Route path='/contact' element={<ContactPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/menu' element={<Menu/>}/>
-      <Route path='/cart' element={<Cart/>}/>
+
       <Route path='/login' element={<Home/>}/>
       <Route path='/signup' element={<SignUp/>}/>
+
+      <Route path='/cart' element={
+        <PrivetRout>
+          <Cart/>
+        </PrivetRout>
+      }/>
     </Routes>
   )
 }

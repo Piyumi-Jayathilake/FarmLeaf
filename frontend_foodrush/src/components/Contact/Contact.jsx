@@ -41,7 +41,7 @@ const Contact = () => {
         {/*ADDITIONAL DECORATIVE ELEMENTS */}
         <div className='absolute top-20 left-10 w-24 h-24 bg-green-500/50 rounded-full animate-float'/>
         <div className='absolute bottom-40 right-20 w-16 h-16 bg-green-500/50 rounded-full animate-float-delayed'/>
-        <div className='max-w-7xl mx-auto relative z-10'>
+        <div className='w-full mx-auto relative z-10'>
             <h1 className=' text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 animate-fade-in-down font-[Playfair_Display]'>
                 <span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-300'>
                     Contact Us

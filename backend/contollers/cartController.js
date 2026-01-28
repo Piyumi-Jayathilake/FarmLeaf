@@ -1,0 +1,82 @@
+import asyncHandler from 'express-async-handler';
+import {cartItem} from '../modals/cartModal.js';
+
+//GET CART ITEMS
+export const getCart = asyncHandler(async (req, res) => {
+    const items =  await cartItem.find({user: req.user._id}).populate('item');
+    
+    const formatted = items.map(ci => ({
+        _id: ci._id.toString(),
+        item: ci.item,
+        quantity: ci.quantity
+    }));
+    res.json({success:true, cartItems: formatted});
+})
+//ADD TO CART
+export const addToCart = asyncHandler(async (req, res) => {
+    const {itemId, quantity} = req.body;
+    if(!itemId || typeof quantity !== 'number' ){
+        res.status(400);
+        throw new Error('Item ID and quantity are required and quantity must be a number')
+    }
+    let cartItem = await cartItem.findOne({user: req.user._id, item: itemId})
+    if(cartItem){
+        cartItem.quantity = Math.max(1, cartItem.quantity + quantity);
+        if(cartItem.quantity < 1){
+            await cartItem.remove();
+            return res.json({_id: cartItem._id.toString(), item: cartItem.item, quantity: 0})
+
+        }
+        await cartItem.save();
+        await cartItem.populate('item');
+        return res.status(200).json({
+            _id: cartItem._id.toString(),
+             item: cartItem.item, 
+             quantity: cartItem.quantity,
+            })
+    }
+    cartItem = await cartItem.create({
+        user: req.user._id,
+        item: itemId,
+        quantity,})
+    await cartItem.populate('item');
+    res.status(201).json({
+        _id: cartItem._id.toString(),
+         item: cartItem.item, 
+         quantity: cartItem.quantity,
+        })
+})
+
+//UPDATE FUNC
+export const updateCartItem = asyncHandler(async (req, res) => {
+    const {quantity} = req.body;
+    const cartItem = await cartItem.findOne({_id: req.params.id, user: req.user._id})
+    if(!cartItem){
+        res.status(404);
+        throw new Error('Cart item not found')
+    }
+    cartItem.quantity = Math.max(1, quantity);
+    await cartItem.save();
+    await cartItem.populate('item');
+    res.json({
+        _id: cartItem._id.toString(),
+         item: cartItem.item, 
+         quantity: cartItem.quantity,
+        })
+})
+//DLT FUNC
+export const deleteCartItem = asyncHandler(async (req, res) => {
+    const cartItem = await cartItem.findOne({_id: req.params.id, user: req.user._id})
+    if(!cartItem){
+        res.status(404);
+        throw new Error('Cart item not found')
+    }
+    await cartItem.deleteOne();
+    res.json({_id: req.params.id})
+})
+
+//CLEAR CART
+export const clearCart = asyncHandler(async (req, res) => {
+    await cartItem.deleteMany({user: req.user._id});
+    res.json({success:true, message:"Cart cleared"})
+})  

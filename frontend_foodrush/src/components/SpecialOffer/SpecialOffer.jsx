@@ -12,7 +12,7 @@ const SpecialOffer = () => {
     const {cartItems, addToCart, removeFromCart, updateQuantity} = useCart();
   return (
     <div className='bg-[#263238] text-[#d6f6c4] py-16 px-4 font-[Playfair_Display]'>
-        <div className='max-w-7xl mx-auto'>
+        <div className='w-full mx-auto'>
             <div className='text-center mb-14'>
                 <h1 className='text-5xl font-bold mb-4 transform transition-all bg-gradient-to-r from-[#4cf452] to-[#048b0b]
                  bg-clip-text text-transparent font-[Playfair_Display] italic'>
