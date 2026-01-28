@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Environment variables
+.env
+backend/.env
+admin/.env
+frontend_foodrush/.env
+
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+build/
