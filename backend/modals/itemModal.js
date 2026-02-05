@@ -32,6 +32,11 @@ const itemSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
+    },
+    featured: {
+        type: String,
+        enum: ['Special Offer', 'Fresh Picks'],
+        default: 'Fresh Picks'
     }
 }, {timestamps: true});
 

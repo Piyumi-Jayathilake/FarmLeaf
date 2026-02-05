@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
+import { FiUser, FiBox } from 'react-icons/fi'
 import { layoutClasses, tableClasses, statusStyles , paymentMethodDetails, iconMap} from '../assets/admindetails'
 
 const Order = () => {
@@ -11,13 +12,10 @@ const Order = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4000/api/orders/getall',
-          {
-            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-          }//optional
+          'http://localhost:4000/api/orders/getall'
         );
 
-        const formatted = response.data.map(order => ({
+        const formatted = (response.data.orders || []).map(order => ({
           ...order,
           address: order.address ?? order.shippingAddress?.address ?? '',
           city: order.city ?? order.shippingAddress?.city ?? '',
@@ -44,12 +42,20 @@ const Order = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.put(
+      const response = await axios.put(
         `http://localhost:4000/api/orders/getall/${orderId}`,
-        { status: newStatus });
-      setOrders(orders.map(o =>
-         o._id === orderId ? { ...o, status: newStatus } : o
-      ));
+        { status: newStatus }
+      );
+      const updated = response.data?.order;
+      if (updated) {
+        setOrders(prev => prev.map(o =>
+           o._id === orderId ? { ...o, status: updated.status } : o
+        ));
+      } else {
+        setOrders(prev => prev.map(o =>
+           o._id === orderId ? { ...o, status: newStatus } : o
+        ));
+      }
     } catch (err) {
       alert(err.response?.data?.message || 'Failed to update order status.');
     }
@@ -86,8 +92,6 @@ if (loading) return (
                   const totalPrice = order.total ?? order.items.reduce((s, i) => s + i.item.price * i.quantity, 0);
                   // Look up the display details for the payment method (lowercased), defaulting if not found
                   const payMethod = paymentMethodDetails[order.paymentMethod?.toLowerCase()] || paymentMethodDetails.default;
-                  // Pick the style for the payment status, falling back to “processing” if unknown
-                  const payStatusStyle = statusStyles[order.paymentStatus] || statusStyles.processing;
                   // Pick the style for the order’s overall status, falling back to “processing” if unknown
                   const stat = statusStyles[order.status] || statusStyles.processing;
 
@@ -102,9 +106,9 @@ if (loading) return (
                         <div>
                         <p className='text-amber-100'>
                           {order.user?.name || order.firstName + ' ' + order.lastName}</p>
-                        <p className='text-sm text-green-300'>
+                        <p className='text-sm text-green-400'>
                           {order.user?.phone || order.phone}</p>
-                        <p className='text-sm text-green-300'>
+                        <p className='text-sm text-green-400'>
                           {order.user?.email || order.email}</p>
                         </div>
                         </div>
@@ -119,17 +123,18 @@ if (loading) return (
                           {order.items.map((itm, idx) => (
                             <div key={idx} className='flex items-center pa-3 p-2 rounded-lg'>
                               <img
-                                src={`http://localhost:4000/${itm.item.imageUrl}`}
-                                alt={itm.item.name}
+                                  src={itm.item?.imageUrl?.startsWith('http')
+                                    ? itm.item.imageUrl
+                                    : `http://localhost:4000${itm.item?.imageUrl || ''}`}
+                                alt={itm.item?.name || 'Item'}
                                 className='w-10 h-10 object-cover rounded-lg'
                               />
                               <div className='flex-1'>
                                 <span className='text-amber-100 text-sm block truncate'>
-                                  {itm.item.name}
+                                  {itm.item?.name || 'Unknown'}
                                 </span>
                                 <div className='flex items-center gap-2 text-sx text-green-400'>
-                                  <span>Rs {itm.item.price}</span>
-                                  <span>&dot</span>
+                                  <span>Rs {itm.item?.price || 0}</span>
                                   <span>x{itm.quantity}</span>
                                 </div>
                             </div>
@@ -151,29 +156,25 @@ if (loading) return (
                         <div className={`${payMethod.class} px-3 py-1.5 rounded-lg border text-sm`}>
                           {payMethod.label}
                         </div>
-                        <div className={`${payStatusStyle.color} flex items-center gap-2 text-sm`}>
-                          {iconMap[payStatusStyle.icon]}
-                          <span>
-                            {payStatusStyle.label}
-                          </span>
-                        </div>
                       </div>  
                       </td>
                       <td className={tableClasses.cellBase}>
-                        <div className=' flex items-center gap-2'>
+                        <div className=' flex items-center gap-2 '>
                           <span className={`${stat.color} text-xl`}>
                             {iconMap[stat.icon]}
                           </span>
-                          <select value={order.value}
+                          <select
+                          id={`order-status-${order._id}`}
+                          name='status'
+                          value={order.status || 'processing'}
                           onChange={e =>
                             handleStatusChange(order._id, e.target.value)}
                             className={`px-4 py-2 rounded-lg ${stat.bg} ${stat.color} border
-                              border-green-700/50 text-sm cursor-pointer`}>
-                                {Object.entries(statusStyles).filter(([k]) =>
-                                k !== 'succeeded').map(([key,sty]) =>(
+                              border-[#263238] text-sm cursor-pointer bg-[#263238]`}>
+                                {['processing','shipped','delivered','cancelled'].map((key) =>(
                                   <option value={key} key={key} 
-                                  className={`${sty.bg} ${sty.color}`}>
-                                    {sty.label}
+                                  className={`${statusStyles[key]?.bg || ''} ${statusStyles[key]?.color || ''}`}>
+                                    {statusStyles[key]?.label || key}
                                   </option>
                                 ))}
                           </select>

@@ -1,7 +1,8 @@
 import itemModal from "../modals/itemModal.js";
-export const createItem = async (req, res, next) => {
+
+export const createItem = async (req, res) => {
     try {
-        const { name, description, category, price, rating, hearts } = req.body;
+        const { name, description, category, price, rating, hearts, featured } = req.body;
         const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
         const total = Number(price) * 1;
         const newItem = new itemModal({
@@ -12,7 +13,8 @@ export const createItem = async (req, res, next) => {
             rating,
             hearts,
             imageUrl,
-            total
+            total,
+            featured
         })
         const saved = await newItem.save();
         res.status(201).json({ success: true, item: saved });
@@ -28,10 +30,16 @@ export const createItem = async (req, res, next) => {
         res.status(500).json({ success: false, message: 'Failed to create item', error: error.message });
     }
 }   
+
 //GET ALL ITEMS
-export const getItems = async (req, res, next) => {
+export const getItems = async (req, res) => {
     try {
-        const items = await itemModal.find().sort({ createdAt: -1 }); 
+        const { featured } = req.query;
+        const query = {};
+        if (featured) {
+            query.featured = featured;
+        }
+        const items = await itemModal.find(query).sort({ createdAt: -1 }); 
         const host = `${req.protocol}://${req.get('host')}`;
 
         const withFullUrl = items.map(i => ({
@@ -41,11 +49,13 @@ export const getItems = async (req, res, next) => {
         }))
         res.json({ success: true, items: withFullUrl });
     } catch (error) {
-        next(error);
-    }}
+        console.error('Get Items Error:', error);
+        res.status(500).json({ success: false, message: 'Failed to fetch items' });
+    }
+}
 
 //DLT FUNC
-export const deleteItem = async (req, res, next) => {
+export const deleteItem = async (req, res) => {
     try {
         const removed = await itemModal.findByIdAndDelete(req.params.id);
         if (!removed) {
@@ -53,6 +63,7 @@ export const deleteItem = async (req, res, next) => {
         }
         res.status(204).end()
     } catch (error) {
-        next(error);
+        console.error('Delete Item Error:', error);
+        res.status(500).json({ success: false, message: 'Failed to delete item' });
     }
 }

@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+:root {
+	font-family: "Playfair Display", serif;
+}
+
+body {
+	font-family: "Playfair Display", serif;
+}

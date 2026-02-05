@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { GiChefToque, GiForkKnifeSpoon } from "react-icons/gi";
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { FiBook, FiHome, FiPhone, FiStar, FiShoppingCart,FiLogOut,FiKey} from "react-icons/fi";
+import { FiBook, FiHome, FiPhone, FiStar, FiShoppingCart,FiLogOut,FiKey, FiPackage} from "react-icons/fi";
 import { useCart } from '../../CartContext/CartContext';
 import Login from '../Login/Login';
 import FarmLeaf from '../../assets/FarmLeaf.png';
@@ -14,38 +14,39 @@ const Navbar = () => {
     const [ShowLoginModel, setShowLoginModel] = useState(false);
 // Combine updating login and auth on location changes
     const [isAuthenticated, setIsAuthenticated] = useState(
-        Boolean(localStorage.getItem('loginData'))
+        Boolean(localStorage.getItem('authToken'))
     )
     useEffect(() =>{
         setShowLoginModel(location.pathname === '/login');
-        setIsAuthenticated(Boolean(localStorage.getItem('loginData')))
+        setIsAuthenticated(Boolean(localStorage.getItem('authToken')))
     }, [location.pathname])
 
     const handleLoginSuccess = () => {
-        localStorage.setItem('loginData', JSON.stringify({loggedIn: true}));
+        localStorage.setItem('authToken', localStorage.getItem('authToken')); // Token already set by Login component
         setIsAuthenticated(true);
         navigate('/');
     }
     const handleLogout = () =>{
+        localStorage.removeItem('authToken');
         localStorage.removeItem('loginData');
         setIsAuthenticated(false);
     }
     // Extract desktop auth button
     const renderDesktopAuthButton =() =>{
         return isAuthenticated ? (
-            <button onClick={handleLogout} className='px-3 md:px-3 lg:px-6 py-1.5 md:py-2 lg:py-3 bg-gradient-to-br from-[#048b0b] to-[#04720b]
+            <button onClick={handleLogout} className='px-3 lg:px-4 py-1.5 lg:py-2 bg-gradient-to-br from-[#048b0b] to-[#04720b]
              hover:from-[#4ae02c] hover:to-[#17c703] text-[#d6f6c4] rounded-2xl font-bold hover:shadow-lg hover:shadow-[#048b0b]/40 transition-all
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
-            shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
-                <FiLogOut className='text-base md:text-lg lg:text-lg' />
+            shadow-md shadow-[#048b0b]/20 text-sm'>
+                <FiLogOut className='text-base lg:text-lg' />
                 <span className='text-shadow font-[Playfair_Display] '>Logout</span>
             </button>
         ):(
-            <button onClick={() => navigate('/login')} className='px-3 md:px-3 lg:px-6 py-1.5 md:py-2 lg:py-3 bg-gradient-to-br from-[#048b0b] to-[#04720b]
+            <button onClick={() => navigate('/login')} className='px-3 lg:px-4 py-1.5 lg:py-2 bg-gradient-to-br from-[#048b0b] to-[#04720b]
              hover:from-[#4ae02c] hover:to-[#17c703] text-[#d6f6c4] rounded-2xl font-bold hover:shadow-lg hover:shadow-[#048b0b]/40 transition-all 
             transform hover:scale-[1.02] border-2 border-[#048b0b]/20 flex items-center space-x-2
-            shadow-md shadow-[#048b0b]/20 text-xs md:text-sm lg:text-sm'>
-                <FiKey className='text-base md:text-lg lg:text-lg' />
+            shadow-md shadow-[#048b0b]/20 text-sm'>
+                <FiKey className='text-base lg:text-lg' />
                 <span className='text-shadow font-[Playfair_Display]'>Login</span>
             </button>
         )
@@ -76,6 +77,10 @@ const Navbar = () => {
         {name:'Fresh Picks', href:'/menu', icon: <FiBook/>},
         {name:'About', href:'/about', icon: <FiStar/>},
         {name:'Contact', href:'/contact', icon: <FiPhone/>},
+        ...(isAuthenticated ? [
+            {name:'My Orders', href:'/myorder', icon: <FiPackage/>}
+        ] : [
+        ])
     ];
   return (
     <nav className='bg-[#263238] border-b-8 border-[#048b0b]/30 shadow-none sticky font-[Playfair_Display]
@@ -112,9 +117,6 @@ const Navbar = () => {
                         mt-1 ml-1 shadow-[0_2px_5px] shadow-[#048b0b]/20 -translate-x-3'/>
                     </div>
                 </div>
-                
-                {/*Navigation and Auth - Right side*/}
-                <div className='w-1/4'></div>
                 
                 {/*Desktop Navigation*/ }
                 <div className='hidden md:flex items-center space-x-2 md:space-x-1 lg:space-x-4 flex-1 justify-end font-[Playfair_Display] '>

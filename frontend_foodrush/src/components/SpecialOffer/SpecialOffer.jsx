@@ -1,39 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { cardData,additionalData, addButtonBase, addButtonHover, commonTransition } from '../../assets/dummydata';
 import { useCart } from '../../CartContext/CartContext';
 import { FaFire, FaHeart, FaPlus, FaStar } from 'react-icons/fa';
+import axios from 'axios';
 import { HiMinus, HiPlus} from 'react-icons/hi'
 import FloatingParticle from '../FloatingParticle/FloatingParticle';
 
 const SpecialOffer = () => {
 
     const[showAll,setShowAll] = useState(false);
-    const initialData =[...cardData, ...additionalData];
-    const {cartItems, addToCart, removeFromCart, updateQuantity} = useCart();
+    const [items,setItems] = useState([]);
+    const {addToCart, removeFromCart, updateQuantity, cartItems} = useCart();
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/api/items?featured=Special Offer')
+        .then(res => setItems(res.data.items ?? res.data))
+        .catch(err => console.error(err));
+    }, [])
+    const displayList = Array.isArray(items) ? items.slice(0, showAll ? 8 : 4) : [];
+        
   return (
-    <div className='bg-[#263238] text-[#d6f6c4] py-16 px-4 font-[Playfair_Display]'>
-        <div className='w-full mx-auto'>
-            <div className='text-center mb-14'>
-                <h1 className='text-5xl font-bold mb-4 transform transition-all bg-gradient-to-r from-[#4cf452] to-[#048b0b]
+    <div className='bg-[#263238] text-[#d6f6c4] py-12 sm:py-16 px-4 sm:px-6 font-[Playfair_Display]'>
+        <div className='max-w-7xl mx-auto'>
+            <div className='text-center mb-10 sm:mb-14'>
+                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 transform transition-all bg-gradient-to-r from-[#4cf452] to-[#048b0b]
                  bg-clip-text text-transparent font-[Playfair_Display] italic'>
                     Today's <span className='text-stroke-gold'>Special</span> Offers
                 </h1>
-                <p className='text-lg text-[#d6f6c4] max-w-3xl mx-auto tracking-wide leading-relaxed'>
+                <p className='text-sm sm:text-base md:text-lg text-[#d6f6c4] max-w-3xl mx-auto tracking-wide leading-relaxed'>
                     Celebrate freshness in every bite with our carefully selected, naturally grown produce.
                 </p>
             </div>
             {/*Product card */}
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-                {(showAll ? initialData : initialData.slice(0,4)).map((item,index)=>{
-                    const cartItem = cartItems.find(ci => ci.id === item.id);
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8'>
+                {displayList.map(item=>{
+                    const cartItem = cartItems.find(ci => ci.item._id === item._id);
                     const quantity = cartItem ? cartItem.quantity :0;
+                    const cartId = cartItem?._id;   
                     return(
-                        <div key={`${item.id}-${index}`} className='relative group bg-amber-50 rounded-3xl
-                        overflow-hidden shadow-2xl transform hover:-translate-y-4 transition-all duration-500
+                        <div key={item._id} className='relative group bg-amber-50 rounded-2xl sm:rounded-3xl
+                        overflow-hidden shadow-2xl transform hover:-translate-y-2 sm:hover:-translate-y-4 transition-all duration-500
                         hover:shadow-[#048b0b]/40 border-2 border-transparent hover:border-[#048b0b]/20 before:absolute
                         before:inset-0 hover:before:opacity-20'>
-                            <div className='relative h-72 overflow-hidden'>
-                                <img src={item.image} alt={item.title} className='w-full h-full object-cover
+                            <div className='relative h-56 sm:h-64 md:h-72 overflow-hidden'>
+                                <img src={item.imageUrl} alt={item.name} className='w-full h-full object-cover
                                 brightness-90 group-hover:brightness-110 transition-all duration-500' />
                                 <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent
                                 to-black/90'/>
@@ -50,31 +60,35 @@ const SpecialOffer = () => {
                                 </div>
                             </div>
 
-                            <div className='p-6 text-gray-800 relative z-10'>
-                                <h3 className='text-2xl font-bold mb-2 bg-clip-text font-[Playfair_Display] italic'>{item.title}</h3>
-                                <p className='text-gray-600 mb-5 leading-relaxed tracking-wide'>{item.description}</p>
-                                <div className='flex justify-between items-center gap-4'>
-                                    <span className='text-2xl font-bold text-[#048b0b] flex-1'>{item.price}</span>
-                                    {cartItem ?(
-                                        <div className='flex items-center gap-3'>
+                            <div className='p-4 sm:p-6 text-gray-800 relative z-10'>
+                                <h3 className='text-xl sm:text-2xl font-bold mb-2 bg-clip-text font-[Playfair_Display] italic'>
+                                    {item.name}</h3>
+                                <p className='text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed tracking-wide line-clamp-2'>
+                                    {item.description}</p>
+                                <div className='flex justify-between items-center gap-2 sm:gap-4'>
+                                    <span className='text-lg sm:text-xl md:text-2xl font-bold text-[#048b0b] flex-1'>
+                                        Rs {Number(item.price).toFixed(2)}</span>
+                                    
+                                    {quantity > 0 ? (
+                                        <div className='flex items-center gap-2 sm:gap-3'>
                                             <button onClick={() =>{
-                                                quantity >1 ? updateQuantity(item.id,quantity-1)
-                                                : removeFromCart(item.id)
-                                            }} className='w-8 h-8 rounded-full bg-[#048b0b] flex items-center justify-center hover:bg-[#4cf452]
+                                                quantity >1 ? updateQuantity(cartId, quantity - 1)
+                                                : removeFromCart(cartId)
+                                            }} className='w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#048b0b] flex items-center justify-center hover:bg-[#4cf452]
                                             transition-all duration-200 active:scale-95'>
-                                                <HiMinus className='w-4 h-4 text-[#d6f6c4] '/>
+                                                <HiMinus className='w-3 h-3 sm:w-4 sm:h-4 text-[#d6f6c4] '/>
                                             </button>
                                             <span className='w-8 text-center text-[#1f201f] font-cinzel font-bold'>
                                                 {quantity}
                                             </span>
-                                            <button onClick={() => updateQuantity(item.id,quantity+1)}
+                                            <button onClick={() => updateQuantity(cartId, quantity + 1)}
                                             className='w-8 h-8 rounded-full bg-[#048b0b] flex items-center justify-center hover:bg-[#4cf452]
                                                 transition-all duration-200 active:scale-95'>
                                                 <HiPlus className='w-4 h-4 text-[#d6f6c4] '/>
                                             </button>
                                         </div>
                                     ):(
-                                        <button onClick={() => addToCart({...item,name:item.title, price:parseFloat(item.price.replace('Rs ', ''))},1)}
+                                        <button onClick={() => addToCart(item,1)}
                                         className={`${addButtonBase} ${addButtonHover} ${commonTransition}`}>
                                             <div className='absolute inset-0 bg-gradient-to-r from-[#048b0b] to-transparent 
                                             opacity-0 hover:opacity-100 transition-opacity duration-300'/>

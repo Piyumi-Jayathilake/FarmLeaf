@@ -16,7 +16,7 @@ const AboutHome = () => {
             <div className='absolute bottom-0 ring-0 w-80 h-80 bg-[#048b0b]/20 rounded-full
             blur-3xl mix-blend-soft-light'/>
         </div>
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center lg:gap-8
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-8 lg:gap-8
         xl:gap-16 relative'>
             <div className='w-full order-1 lg:order-2 space-y-8 sm:space-y-12 relative'>
                 <div className='space-y-4 sm:space-y-8 px-4 sm:px-0'>
@@ -62,17 +62,17 @@ const AboutHome = () => {
                     </Link>
                 </div>
             </div>
-            <div className='w-full order-2 lg:order-1 md:max-w-md lg:max-w-none lg:w-7/12 mt-12 mb-10 lg:mb-0 relative
+            <div className='w-full order-2 lg:order-1 md:max-w-md lg:max-w-none lg:w-7/12 mt-8 sm:mt-12 mb-10 lg:mb-0 relative
             group transform hover:scale-[1.01] transition-all duration-500'>
-                <div className='relative rounded-[4rem] overflow-hidden border-4 border-[#4ae02c]/30 hover:border-[#048b0b]/40 transition-all
+                <div className='relative rounded-3xl sm:rounded-[4rem] overflow-hidden border-2 sm:border-4 border-[#4ae02c]/30 hover:border-[#048b0b]/40 transition-all
                 duration-500 shadow-2xl shadow-black/50'>
                     <div className='absolute inset-0 bg-gradient-to-br from-[#048b0b]/15 via-transparent to-[#4ae02c]/10 mix-blend-lighten'/>
-                    <img src={AboutImage} alt="Farm" className='w-full h-auto object-cover aspect-[3/4] transform
+                    <img src={AboutImage} alt="Farm" className='w-full h-auto object-cover aspect-[4/5] sm:aspect-[3/4] transform
                     -rotate-1 hover:rotate-0 transition-all duration-500'/>
-                    <div className='absolute -bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-1/6 bg-[#048b0b]/50 blur-3xl
+                    <div className='absolute -bottom-8 sm:-bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-1/6 bg-[#048b0b]/50 blur-3xl
                     z-0 '/>
                 </div>
-                <div className='absolute -top-6 -right-6 w-24 h-24 bg-[#eb5f09]/10 rounded-full blur-xl'/>
+                <div className='absolute -top-4 sm:-top-6 -right-4 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 bg-[#eb5f09]/10 rounded-full blur-xl'/>
             </div>
         </div>
         <FloatingParticle />

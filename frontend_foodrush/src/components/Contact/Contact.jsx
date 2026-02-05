@@ -10,44 +10,55 @@ const Contact = () => {
     phone:'',
     email:'',
     address:'',
-    product:'',
+    dish:'',
     query:''
   })
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    toast.success('Form Submitted Successfully!',{
-      style:{
-        border:'1px solid #048b0b', padding:'16px', color:'#04720b',
-        background:'rgba(255,255,255,0.1)',backdropFilter:'blur(10px)',
-      },
-      iconTheme:{primary:'#4ae02c',secondary:'#fff' }
-      })
-    setFormData({name:'',
-    phone:'',
-    email:'', 
-    address:'',
-    product:'',
-    query:'' })
+     const message = `
+        Name: ${formData.name}
+        Phone: ${formData.phone}
+        Email: ${formData.email}
+        Address: ${formData.address}
+        Dish: ${formData.dish}
+        Query: ${formData.query}`;
 
-  }
+        const encodedMessage = encodeURIComponent(message);
+
+        const whatsappNumber = '94712345678'; 
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+        toast.success('Opening Whatsapp....',{
+        style:{
+          border:'1px solid #048b0b', padding:'16px', color:'#04720b',
+          background:'rgba(255,255,255,0.1)',backdropFilter:'blur(10px)',
+        },
+          iconTheme:{primary:'#4ae02c',secondary:'#fff' }
+          })
+        window.open(whatsappUrl, '_blank');
+        setFormData({name:'',
+        phone:'',
+        email:'', 
+        address:'',
+        dish:'',
+        query:'' });
+      }
   const handleChange=(e)=> setFormData({...formData,[e.target.name]:e.target.value});
 
 
   return (
-    <div className='min-h-screen bg-gradient-to-r from-[#1b2226]  via-[#133215] to-[#065302] animate-gradient-x py-12
-    sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 font-[Playfair_Display] italic relative overflow-hidden'>
+    <div className='min-h-screen bg-gradient-to-r from-[#1b2226]  via-[#133215] to-[#065302] animate-gradient-x py-8
+    sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 font-[Playfair_Display] italic relative overflow-hidden'>
         <Toaster position='top-center' reverseOrder={false} toastOptions={{duration:4000}}/>
         {/*ADDITIONAL DECORATIVE ELEMENTS */}
         <div className='absolute top-20 left-10 w-24 h-24 bg-green-500/50 rounded-full animate-float'/>
         <div className='absolute bottom-40 right-20 w-16 h-16 bg-green-500/50 rounded-full animate-float-delayed'/>
-        <div className='w-full mx-auto relative z-10'>
-            <h1 className=' text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 animate-fade-in-down font-[Playfair_Display]'>
+        <div className='max-w-7xl mx-auto relative z-10'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 sm:mb-8 animate-fade-in-down font-[Playfair_Display]'>
                 <span className='bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-300'>
                     Contact Us
                 </span>
             </h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8'>
                 {/*CONTACT FORM AND INFO */}
                 <div className='space-y-6'>
                   <div className='relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-2xl transform transition-all

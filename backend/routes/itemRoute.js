@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import {createItem, getItems, deleteItem} from '../contollers/itemController.js';
+import {createItem, getItems, deleteItem} from '../controllers/itemController.js';
 
 const itemRouter = express.Router()
 

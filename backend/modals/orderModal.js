@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { MdEmail } from "react-icons/md";
 const orderItemSchema = new mongoose.Schema({
     item:{
         name:{
@@ -11,9 +10,9 @@ const orderItemSchema = new mongoose.Schema({
             required: true,
             min: 0
         },
-        ImageUrl:{
+        imageUrl:{
             type: String,
-            required: true  
+            required: false  
         }
     },
     quantity:{
@@ -77,7 +76,7 @@ const orderSchema = new mongoose.Schema({
     },
     paymentStatus:{
         type: String,
-        enum: ['pending', 'completed', 'failed'],
+        enum: ['pending', 'completed', 'failed', 'done'],
         default: 'pending',
         index: true
     },
@@ -115,7 +114,7 @@ const orderSchema = new mongoose.Schema({
     deliveredAt: Date,
 
 //TIMESTAMPS
-     createAt:{
+     createdAt:{
         type: Date,
         default: Date.now,
         index: true
@@ -126,12 +125,11 @@ const orderSchema = new mongoose.Schema({
      }
 })
 
-orderSchema.index({user: 1, createAt: -1});
+orderSchema.index({user: 1, createdAt: -1});
 orderSchema.index({status:1, paymentStatus:1});
 
-orderSchema.pre('save', function(next){
+orderSchema.pre('save', function(){
     this.updatedAt = new Date();
-    next();
 });
 
 const Order = mongoose.model('Order', orderSchema);

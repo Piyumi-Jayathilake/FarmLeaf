@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast';
+import axios from 'axios';
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+
+const url = 'http://localhost:4000';
 
 const AwesomeToast =({message,icon}) =>(
     <div className='animate-slide-in fixed bottom-6 right-6 flex items-center bg-gradient-to-br from-[#048b0b] to-[#04720b]
@@ -11,31 +15,53 @@ const AwesomeToast =({message,icon}) =>(
 )
 
 const SignUp = () => {
-      const [showToast, setShowToast] = useState(false);
+      const [showToast, setShowToast] = useState({visible:false,message:'',icon:null});
       const [showPassword, setShowPassword] = useState(false);
       const [formData, setFormData] = useState({username:'',email:'',password:''})
       const navigate = useNavigate();
       //For Toast
       useEffect(()=>{
-        if (showToast){
-            const timer = setTimeout(() =>{
-                setShowToast(false);
-                navigate('/login')
+        if(showToast.visible && showToast.message ==='Sign Up Successful!'){
+            const timer = setTimeout(() => {
+                setShowToast({visible:false,message:'',icon:null});
+                navigate('/login');
             },2000);
-            return ()=> clearTimeout(timer);
+            return () => clearTimeout(timer);
         }
-      },[showToast,navigate])
+        },[showToast,navigate]);
       const toggleShowPassword = ()=> setShowPassword(prev => !prev);
 
-      const handleChange = e => setFormData({...formData,[e.target.name]:e.target.value})
-      const handleSubmit = e=>{
+    const handleChange = e => setFormData({...formData,[e.target.name]:e.target.value})
+      const handleSubmit = async e=>{
         e.preventDefault();
         console.log('Sign Up Data:',formData);
-        setShowToast(true);
+        try{
+            const res = await axios.post(`${url}/api/user/register`, formData);
+            console.log('Sign Up Response:', res.data);
+
+            if(res.data.success && res.data.token){
+                localStorage.setItem('authToken', res.data.token);
+                setShowToast({visible:true,
+                    message:'Sign Up Successful!',
+                    icon:<FaCheckCircle/>
+                })
+                    return;
+            }
+            throw new Error(res.data.message || 'Registration Failed');
+
+        }catch(err){
+            console.error('Sign Up Error:', err);
+            const msg = err.response?.data?.message || err.message || 'Registration Failed';
+            setShowToast({visible:true,
+                message: msg,
+                icon:<FaCheckCircle/>
+            })
+
+        }
       }
   return (
     <div className='min-h-screen flex items-center justify-center bg-[#048b0b]/30  p-4 font-[Playfair_Display]'>
-        {showToast && <AwesomeToast message="Sign Up Successful" icon={<FaCheckCircle/>}/>}
+        {showToast.visible && <AwesomeToast message={showToast.message} icon={showToast.icon}/>}
         <div className='w-full max-w-md bg-[#263238] p-8 rounded-xl shadow-lg
         border-4 border-[#014a06] transform transition-all duration-300 hover:shadow-2xl'>
             <h1 className='text-3xl font-bold text-center bg-gradient-to-r from-[#4cf452] to-[#048b0b] bg-clip-text text-transparent mb-6 hover:scale-105 transition-transform'>

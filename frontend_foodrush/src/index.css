@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+:root {
+    font-family: "Playfair Display", serif;
+}
+
+body {
+    font-family: "Playfair Display", serif;
+}
+
 .orbit{
     animation:orbit 20s linear infinite;
 }

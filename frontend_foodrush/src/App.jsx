@@ -6,7 +6,10 @@ import Cart from './pages/Cart/Cart'
 import Home from './pages/Home/Home'
 import ContactPage from './pages/ContactPage/ContactPage'
 import SignUp from './components/SignUp/SignUp'
-import PrivetRout from './components/PivetRoute/PrivetRout'
+import PrivateRoute from './components/PivetRoute/PrivetRout'
+import VerifyPaymentPage from './pages/VerifyPaymentPage/VerifyPaymentPage'
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
+import MyOrderPage from './pages/MyOrderPage/MyOrderPage'
 
 const App = () => {
   return (
@@ -19,11 +22,17 @@ const App = () => {
       <Route path='/login' element={<Home/>}/>
       <Route path='/signup' element={<SignUp/>}/>
 
+      {/* PAYMENT VERIFICATION */}
+      <Route path='/myorder/verify' element={<VerifyPaymentPage />} />
+
       <Route path='/cart' element={
-        <PrivetRout>
+        <PrivateRoute>
           <Cart/>
-        </PrivetRout>
+        </PrivateRoute>
+        
       }/>
+      <Route path='/checkout' element={<PrivateRoute><CheckoutPage /></PrivateRoute>} />
+      <Route path='/myorder' element={<PrivateRoute><MyOrderPage /></PrivateRoute>} />
     </Routes>
   )
 }

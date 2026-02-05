@@ -61,7 +61,7 @@ const closeDeleteModal = () => {
     const ratingNum = Number(rating) || 0;
     return [...Array(5)].map((_, index) => (
       <FiStar 
-        className={`text-xl ${index < ratingNum ? 'text-green-500 fill-current' : 'text-amber-100/30'}`}
+        className={`text-xl ${index < ratingNum ? 'text-amber-400 fill-current' : 'text-amber-400'}`}
         key={index}
       />
     ));
@@ -144,7 +144,7 @@ const closeDeleteModal = () => {
                     <td className={styles.categoryCell}>{item.category}</td>
                     <td className={styles.priceCell}>Rs {item.price}</td>
                     <td className={styles.ratingCell}>
-                      <div className='flex gap-1'>
+                      <div className='flex gap-1 '>
                         {renderStars(item.rating)}</div>
                         </td>
                         <td className={styles.heartsCell}>

@@ -10,9 +10,9 @@ const About = () => {
     overflow-hidden relative font-[Playfair_Display]'>
         <div className='absolute inset-0 opacity-10 mix-blend-soft-light'/>
         <motion.section initial={{opacity:0,y:50 }} animate={{opacity:1, y:0}}
-        className ='py-16 px-4 text-center relative'>
+        className ='py-12 sm:py-16 px-4 text-center relative'>
             <div className='max-w-4xl mx-auto'>
-                <motion.h1 className='text-5xl sm:text-6xl md:text-7xl font-bold mb-4 font-[Playfair_Display] italic bg-clip-text text-transparent
+                <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 font-[Playfair_Display] italic bg-clip-text text-transparent
                 bg-gradient-to-r from-amber-300 to-amber-500'>
                     Harvest Express
                 </motion.h1>
@@ -21,8 +21,8 @@ const About = () => {
                 </motion.p>
             </div>
         </motion.section>
-        <section className='py-5 px-4 md:px-8 relative'>
-            <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12'>
+        <section className='py-8 sm:py-12 md:py-16 px-4 md:px-8 relative'>
+            <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12'>
                 {features.map((f, i) =>{
                     const Icon = f.icon;
                     return(
@@ -58,8 +58,8 @@ const About = () => {
 
             </div>
         </section>
-        <section className=' py-16 px-4 md:px-8 bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302]'>
-                <div className=' max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8'>
+        <section className='py-12 sm:py-16 px-4 md:px-8 bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302]'>
+                <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8'>
                     {stats.map((s,i) =>{
                         const Icon = s.icon;
                         return(

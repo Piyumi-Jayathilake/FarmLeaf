@@ -43,6 +43,16 @@ app.get('/', (req, res) => {
     res.send('FarmLeaf Backend is running');
 })
 
+//ERROR HANDLER
+app.use((err, req, res, next) => {
+    console.error('Server error:', err);
+    const statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
+    res.status(statusCode).json({
+        success: false,
+        message: err.message || 'Server Error'
+    });
+})
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
 })

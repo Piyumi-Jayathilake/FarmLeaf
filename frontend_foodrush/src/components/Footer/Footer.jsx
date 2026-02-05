@@ -20,10 +20,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className='bg-[#263238] text-amber-100 py-12 sm:px-6 px-4 lg:px-8 relative overflow-hidden font-[Playfair_Display]'>
-      <div className='w-full mx-auto relative z-10'>
+    <footer className='bg-[#263238] text-amber-100 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-[Playfair_Display]'>
+      <div className='max-w-7xl mx-auto relative z-10'>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-12 items-start'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-start'>
 
           {/* LEFT COLUMN */}
           <div className='space-y-6'>
@@ -42,7 +42,13 @@ const Footer = () => {
               </div>
               <div className='relative font-[Playfair_Display]'>
                 <input
-                  type='email' placeholder='Enter your email....' value={email} onChange={(e) => setEmail(e.target.value)}
+                  id='newsletter-email'
+                  name='newsletter-email'
+                  type='email' 
+                  placeholder='Enter your email....' 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete='email'
                   className='w-full px-4 py-2.5 rounded-lg bg-amber-50/5 border-[#048b0b] focus:outline-none 
                   focus:border-[#048b0b] focus:ring-2 focus:ring-[#048b0b]/30 transition-all duration-300 
                   placeholder-[#d6f6c4] pr-24'

@@ -8,17 +8,21 @@ const AddItems = () => {
     const [formData, setFormData] = useState({
     name: '',
     description: '',
-    category: '',
+    category: 'Fresh Veges',
     price: '',
     rating: 0,
     hearts: 0,
     total: 0,
+    featured: 'Fresh Picks',
     image: null,
     preview: ''
   });
 
   const [categories] = useState([
     'Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'
+  ]);
+  const[type] = useState([
+    'Special Offer', 'Fresh Picks'
   ]);
   const [hoverRating, setHoverRating] = useState(0);
   const [notification, setNotification] = useState(null);
@@ -73,6 +77,11 @@ const AddItems = () => {
         setTimeout(() => setValidationError(null), 3000);
         return;
     }
+    if (!formData.featured.trim()) {
+        setValidationError('Featured type is required!');
+        setTimeout(() => setValidationError(null), 3000);
+        return;
+    }
     if (!formData.price || Number(formData.price) <= 0) {
         setValidationError('Valid price is required!');
         setTimeout(() => setValidationError(null), 3000);
@@ -98,11 +107,12 @@ const AddItems = () => {
         setFormData({
             name: '',
             description: '',
-            category: '',
+            category: 'Fresh Veges',
             price: '',
             rating: 0,
             hearts: 0,
             total: 0,
+            featured: 'Fresh Picks',
             image: null,
             preview: ''
         })
@@ -138,11 +148,12 @@ const AddItems = () => {
                     setFormData({
                       name: '',
                       description: '',
-                      category: '',
+                      category: 'Fresh Veges',
                       price: '',
                       rating: 0,
                       hearts: 0,
                       total: 0,
+                      featured: 'Fresh Picks',
                       image: null,
                       preview: ''
                     });
@@ -165,7 +176,7 @@ const AddItems = () => {
                 <form className='space-y-6 sm:space-y-8' onSubmit={handleSubmit}>
                     <div className={styles.uploadWrapper}>
                         <div className='relative'>
-                        <label className={styles.uploadLabel}>
+                        <label className={styles.uploadLabel} htmlFor='item-image'>
                             {formData.preview ? (
                                 <>
                                   <img src={formData.preview} alt="Preview" className={styles.previewImage}/>
@@ -189,6 +200,7 @@ const AddItems = () => {
                                     </div>
                             )}
                             <input type='file' 
+                            id='item-image'
                             name='image'
                             accept="image/*" 
                             onChange={handleImageUpload} 
@@ -229,52 +241,77 @@ const AddItems = () => {
 
                     <div className='space-y-4 sm:space-y-6'>
                         <div>
-                            <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                            <label htmlFor='item-name' className='block text-amber-200 mb-2 text-base sm:text-lg'>
                                 Item Name
                                 </label>
                             <input 
+                            id='item-name'
                             type='text' 
                             name='name'
                             value={formData.name}
                             onChange={handleInputChange}
                             className={styles.inputField}
-                            placeholder='Enter item name' />
+                            placeholder='Enter item name'
+                            autoComplete='off' />
                         </div>
                         <div>
-                            <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                            <label htmlFor='item-description' className='block text-amber-200 mb-2 text-base sm:text-lg'>
                                 Description
                                 </label>
                             <textarea
+                            id='item-description'
                             name='description'
                             value={formData.description}
                             onChange={handleInputChange}
                             className={styles.textareaField + ' h-32 sm:h-40'}
-                            placeholder='Enter item description' />
+                            placeholder='Enter item description'
+                            autoComplete='off' />
                         </div>
                         <div className={styles.gridTwoCols}>
                             <div>
-                                <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                <label htmlFor='item-category' className='block text-amber-200 mb-2 text-base sm:text-lg'>
                                     Category
                                     </label>
                                 <select
+                                id='item-category'
                                 name='category'
                                 value={formData.category}
                                 onChange={handleInputChange}
                                 className={styles.selectField}>
-                                    <option value=" ">Select a category</option>
+                                    <option value='' disabled className='bg-[#263238]'>Select category</option>
                                     {categories.map(cat => (
-                                        <option key={cat} value={cat} className='bg-[#263238]'>{cat}
+                                        <option key={cat} value={cat} className='bg-[#263238] text-'>{cat}
                                         </option>
                                     ))}
                                 </select>
                             </div>
                             <div>
-                                <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                <label htmlFor='item-featured' className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                    Featured Type
+                                    </label>
+                                <select
+                                id='item-featured'
+                                name='featured'
+                                value={formData.featured}
+                                onChange={handleInputChange}
+                                className={styles.selectField}>
+                                    <option value='' disabled className='bg-[#263238]'>Select featured type</option>
+                                  {type.map(ft => (
+                                        <option key={ft} value={ft} className='bg-[#263238]'>{ft}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        <div className={styles.gridTwoCols}>
+                            <div>
+                                <label htmlFor='item-price' className='block text-amber-200 mb-2 text-base sm:text-lg'>
                                     Price (LKR)
                                     </label>
                                 <div className={styles.relativeInput}>
                                     <div className={styles.rupeeIcon}>Rs</div>
                                     <input 
+                                  id='item-price'
                                     type='number' 
                                     name='price'
                                     value={formData.price}
@@ -282,15 +319,16 @@ const AddItems = () => {
                                     className={styles.inputField + ' pl-10 sm:pl-12'}
                                     placeholder='Enter item price'
                                     min='0'
-                                    step='0.01' />
+                                  step='0.01'
+                                  autoComplete='off' />
                                     </div>                
                             </div>
                         </div>
                         <div className={styles.gridTwoCols}>
                             <div>
-                                <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
-                                    Rating
-                                    </label>
+                                <span className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                  Rating
+                                </span>
                                 <div className='flex space-x-2'>
                                     {[1,2,3,4,5].map(star => (
                                         <button key={star}
@@ -309,7 +347,7 @@ const AddItems = () => {
                                 </div>
                             </div>  
                             <div>
-                                <label className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                <label htmlFor='item-hearts' className='block text-amber-200 mb-2 text-base sm:text-lg'>
                                     Popularity
                                     </label> 
                                     <div className='flex items-center gap-3 sm:gap-4'>
@@ -317,11 +355,12 @@ const AddItems = () => {
                                         onClick={handleHearts}
                                         className='flex items-center gap-2 text-3xl sm:text-4xl hover:scale-110 transition-transform animate-heartbeat text-[#fb3d03]'>
                                             <FiHeart className='text-2xl animate-heartbeat'/></button>
-                                            <input type="number" name="hearts"
+                                            <input type="number" id='item-hearts' name="hearts"
                                              value={formData.hearts} 
                                              onChange={handleInputChange} 
                                              className={styles.inputField + ' pl-10 sm:pl-12'}
-                                             placeholder='Enter Likes' min="0" />
+                                             placeholder='Enter Likes' min="0"
+                                             autoComplete='off' />
                                     </div>
                         </div>
                     </div>

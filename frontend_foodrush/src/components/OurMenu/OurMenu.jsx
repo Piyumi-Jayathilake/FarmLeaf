@@ -1,31 +1,60 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useCart} from '../../CartContext/CartContext'
 import {dummyMenuData} from '../../assets/OmDD'
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import './OurMenu.css'
+import axios from 'axios';
+
 const categories =['Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'];
 const OurMenu = () => {
-      const [activityCategory,setActivityCategory] = useState(categories[0]);
-      const displayItems = (dummyMenuData[activityCategory]||[]).slice(0,12);
-      const {cartItems, addToCart, removeFromCart} = useCart();
-      const getQuantity = id => (cartItems.find(i => i.id === id)?.quantity || 0)
+  const [activityCategory,setActivityCategory] = useState(categories[0]);
+  const {cartItems, addToCart, removeFromCart, updateQuantity} = useCart();
+  const [menuData, setMenuData] = useState({});
+
+  useEffect(()=>{
+    const fetchMenu = async () => {
+      try {
+        const res = await axios.get('http://localhost:4000/api/items?featured=Fresh Picks');
+        const items = Array.isArray(res.data) ? res.data : res.data.items || [];
+        const byCategory = items.reduce((acc,item) => {
+          const cat = item.category || 'Uncategorized';
+          acc[cat] = acc[cat] || [];
+          acc[cat].push(item);
+          return acc;
+        },{})
+        setMenuData(byCategory)
+      } catch (error) {
+        console.error('Error fetching menu data:', error);
+      }
+    };
+
+    fetchMenu();
+  }, []);
+
+  //use ID to find and update
+  const getCartEntry = id => cartItems.find(ci => ci.item._id === id);
+  const getQuantity = id => getCartEntry(id)?.quantity || 0;
+  //display items
+
+  const displayItems = (menuData[activityCategory] ?? []).slice(0,12);
+
     return (
       <div className='bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302] min-h-screen py-16
       px-4 sm:px-6 lg:px-8 font-[Playfair_Display]'>
-        <div className='w-full mx-auto'>
-          <h2 className=' font-bold text-center mb-12 bg-clip-text text-transparent
+        <div className='max-w-7xl mx-auto'>
+          <h2 className='font-bold text-center mb-8 md:mb-12 bg-clip-text text-transparent
           bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600'>
-            <span className='font-[Playfair_Display] italic block text-5xl md:text-7xl sm:text-6xl mb-2'>
+            <span className='font-[Playfair_Display] italic block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2'>
               Our Fresh Picks
             </span>
             <span className='block text-xl sm:text-2xl md:text-3xl font-[Playfair_Display] italic mt-4 text-[#d6f6c4]/80'>
             A Symphony of Nature&apos;s Goodness</span>
           </h2>
-          <div className='flex flex-wrap justify-center gap-4 mb-16 font-[Playfair_Display] '>
+          <div className='flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-12 lg:mb-16 font-[Playfair_Display] px-2'>
             {categories.map(cat =>(
               <button key={cat} onClick={() =>setActivityCategory(cat)}
-              className={`px-4 sm:px-6 py-2 rounded-full border-2 transition-all duration-300 transform
-              font-[Playfair_Display] text-sm sm:text-lg tracking-widest backdrop-blur-sm
+              className={`px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border-2 transition-all duration-300 transform
+              font-[Playfair_Display] text-xs sm:text-sm md:text-base lg:text-lg tracking-wide sm:tracking-widest backdrop-blur-sm
             ${activityCategory === cat ?
               'bg-[#048b0b]/80 border-[#048b0b]/50 scale-105 shadow-xl shadow-[#048b0b]/20 text-white'
               : 'bg-[#048b0b]/40 border-[#048b0b]/30 hover:border-[#048b0b]/50 text-[#d6f6c4]/80 hover:bg-[#4cf452]/50 hover:scale-95'}`}>
@@ -33,18 +62,20 @@ const OurMenu = () => {
               </button>
             ))}
           </div>
-          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8'>
             {displayItems.map((item,i) =>{
-              const quantity = getQuantity(item.id);
+              const cartEntry = getCartEntry(item._id);
+              const quantity = cartEntry?.quantity || 0;
+
               return(
                 
-      <div key={item.id} className='  border-[#4ae02c]/30 backdrop-blur-sm flex flex-col relative group bg-black rounded-3xl
+      <div key={item._id} className='  border-[#4ae02c]/30 backdrop-blur-sm flex flex-col relative group bg-black rounded-3xl
         overflow-hidden shadow-2xl transform hover:-translate-y-4 transition-all duration-500 hover:shadow-[#048b0b]/40 border-2
       hover:border-[#048b0b]/20 before:absolute before:inset-0 hover:before:opacity-20' 
       style={{'--index':i}}>
         <div className=' h-72 sm:h-80 md:h-96 relative overflow-hidden'>
           <img 
-            src={item.image} 
+            src={item.imageUrl || item.image} 
             alt={item.name} 
             className='w-full h-full object-cover brightness-90 group-hover:brightness-110  transition-all duration-700' />
         </div>
@@ -53,12 +84,13 @@ const OurMenu = () => {
       <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Display] italic text-[#d6f6c4] transition-colors'>
             {item.name}
           </h3>
-        <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Display] leading-relaxed'>{item.description}</p>
+        <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Display] leading-relaxed'>
+        {item.description}</p>
         <div className='mt-auto flex items-center justify-between'>
           
          
           <span className='text-xl font-bold text-[#d6f6c4] font-[Playfair_Display] italic'>
-            Rs {item.price}
+            Rs {Number(item.price).toFixed(2)}
             </span>
           
             
@@ -68,7 +100,8 @@ const OurMenu = () => {
            
            <div className=' flex items-center gap-2'>
             <button className='w-8 h-8 rounded-full bg-[#4cf452]/60 flex items-center
-        justify-center hover:bg-[#048b0b]/60 transition-colors' onClick={() => quantity > 1 ? addToCart(item,quantity -1): removeFromCart(item.id) }>
+        justify-center hover:bg-[#048b0b]/60 transition-colors' 
+        onClick={() => quantity > 1 ? updateQuantity(cartEntry._id,quantity -1): removeFromCart(cartEntry._id) }>
           <FaMinus className='text-[#d6f6c4]' />
         </button>
         <span className=' w-8 text-center text-[#d6f6c4]'>
@@ -76,7 +109,7 @@ const OurMenu = () => {
         </span>
          <button className='w-8 h-8 rounded-full bg-[#4cf452]/60 flex items-center
         justify-center hover:bg-[#048b0b]/60 transition-colors'
-         onClick={() => addToCart(item,quantity +1)}>
+         onClick={() => updateQuantity(cartEntry._id,quantity +1)}>
           <FaPlus className='text-[#d6f6c4]'/>
   
          </button>
