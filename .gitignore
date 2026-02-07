@@ -1,0 +1,16 @@
+# Environment variables
+.env
+backend/.env
+admin/.env
+frontend/.env
+frontend_foodrush/.env
+
+# Dependencies
+node_modules/
+
+# Uploads
+backend/uploads/
+
+# Build files
+dist/
+build/
