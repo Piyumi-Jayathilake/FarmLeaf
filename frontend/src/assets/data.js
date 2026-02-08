@@ -10,14 +10,7 @@ import IA4 from './IA4.jpg';
 import IA5 from './IA5.jpg';
 import IA6 from './IA6.jpg';
 
-import FlashDeals from "./FlashDeals.jpg";
-import MerryMixFruitBasket from "./MerryMixFruitBasket.jpg";
-import VegeCombo from "./VegeCombo.jpg";
-import FamilyVeggieBasket from "./FamilyVeggieBasket.jpg";
-import JuicyOffer  from "./JuicyOffer.png";
-import VeryBerry from "./VeryBerry.png";
-import TomatoesOnions from "./TomatoesOnons.jpg";
-import PremiumCollection from "./PremiumCollection.jpg";
+
 
 import BannerImage from "./BannerImage.jpg";
 import Image1 from "./Image1.jpg";
@@ -139,19 +132,6 @@ export const commonTransition = "transition-all duration-300";
 export const addButtonBase = "flex items-center gap-2 bg-gradient-to-r from-[#048b0b] to-[#04720b] text-white px-5 py-2.5 rounded-xl font-bold border-2 border-amber-400/30";
 export const addButtonHover = "hover:gap-3 hover:shadow-lg hover:shadow-[#048b0b]/50 active:scale-95 relative overflow-hidden";
 
-// SPECIAL MENU
-export const cardData = [
-    { id: 1, title: 'Flash Deals - 20% OFF', rating: 4.5, hearts: 105, description: 'Enjoy a 1 kg Fresh Fruit Basket packed with juicy Mangoes, Apples, Grapes, Guavas, and Oranges; farm-fresh, naturally sweet, and delivered straight to your doorstep!', image: FlashDeals, popular: true, price: 'Rs 3850' },
-    { id: 2, title: 'Merry Mix Fruit - 500g', rating: 5.0, hearts: 155, description: 'A delightful 500g basket filled with a colorful blend of Apples, Grapes, Pineapple, Papaya, and Mango, freshly packed to bring sweetness, nutrition, and a touch of joy to your day!', image: MerryMixFruitBasket, bestseller: true, price: 'Rs 3000' },
-    { id: 3, title: 'Premium Pack - 1kg', rating: 4.2, hearts: 85, description: 'A wholesome 1kg basket of premium farm-fresh Carrots, Broccoli, Bell Peppers, Beans, Cauliflower, and Leeks, carefully selected for quality, freshness, and natural goodness in every bite.', image: PremiumCollection, price: 'Rs 4500' },
-    { id: 4, title: 'Vege Combo - 1kg', rating: 4.8, hearts: 285, description: 'A nutritious 1kg combo filled with everyday favorites like Beans, Okra, Pumpkin, Cabbage, Potatoes, and Leeks, freshly picked from local farms to bring balanced flavor and color to your meals.', image: VegeCombo, special: true, price: 'Rs 4000' },
-];
-export const additionalData = [
-    { id: 5, title: 'Very Berry - 500g', rating: 4.8, hearts: 210, description: 'A delicious 500g blend of Strawberries, Blueberries, Raspberries, Blackberries, and Cranberries, bursting with natural sweetness and antioxidants — the perfect healthy, fruity treat!', image: VeryBerry, popular: true, price: 'Rs 7000' },
-    { id: 6, title: 'Juicy Offer - 500g', rating: 4.5, hearts: 165, description: 'A refreshing 500g selection of Oranges, Pineapples, Watermelons, Mangoes, and Papayas, packed with natural sweetness and vitamin-rich juiciness — perfect for a fresh, energizing treat!', image: JuicyOffer ,bestseller: true, price: 'Rs 2200' },
-    { id: 7, title: 'Buy One Get One Free - 500g', rating: 4.7, hearts: 190, description: 'Buy one 500g pack of fresh, juicy tomatoes and get another pack absolutely free; perfect for salads, curries, and sauces bursting with natural flavor!', image: TomatoesOnions, price: 'Rs 580' },
-    { id: 8, title: 'Family Veggie - 1kg', rating: 4.9, hearts: 275, description: 'A hearty 1kg family pack filled with Cabbage, Carrots, Beans, Brinjal, Pumpkin, and Potatoes, freshly harvested to make wholesome, healthy meals for the whole family.', image: FamilyVeggieBasket, special: true, price: 'Rs 3000' },
-];
 
 // FOOTER 
 export const socialIcons = [

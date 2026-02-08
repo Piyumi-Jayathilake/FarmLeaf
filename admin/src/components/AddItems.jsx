@@ -6,17 +6,17 @@ import { FaRupeeSign } from "react-icons/fa6";
 
 const AddItems = () => {
     const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    category: 'Fresh Veges',
-    price: '',
-    rating: 0,
-    hearts: 0,
-    total: 0,
-    featured: 'Fresh Picks',
-    image: null,
-    preview: ''
-  });
+      name: '',
+      description: '',
+      category: '',
+      price: '',
+      rating: 0,
+      hearts: '',
+      total: 0,
+      featured: '',
+      image: null,
+      preview: ''
+    });
 
   const [categories] = useState([
     'Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'
@@ -31,7 +31,12 @@ const AddItems = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev =>({ ...prev, [name]: value }));
+    setFormData(prev => {
+      if (name === 'featured' && value !== 'Fresh Picks') {
+        return { ...prev, featured: value, category: '' };
+      }
+      return { ...prev, [name]: value };
+    });
   };
   //Image Handling
   const handleImageUpload = (e) => {
@@ -46,8 +51,6 @@ const AddItems = () => {
   };
   const handleRating = rating => 
     setFormData(prev => ({ ...prev, rating }));
-  const handleHearts = () => 
-    setFormData(prev => ({ ...prev, hearts: prev.hearts + 1 }));
   
   const handleDeleteImage = () => {
     setFormData(prev => ({
@@ -72,10 +75,10 @@ const AddItems = () => {
         setTimeout(() => setValidationError(null), 3000);
         return;
     }
-    if (!formData.category.trim()) {
-        setValidationError('Category is required!');
-        setTimeout(() => setValidationError(null), 3000);
-        return;
+    if (formData.featured === 'Fresh Picks' && !formData.category.trim()) {
+      setValidationError('Category is required!');
+      setTimeout(() => setValidationError(null), 3000);
+      return;
     }
     if (!formData.featured.trim()) {
         setValidationError('Featured type is required!');
@@ -105,16 +108,16 @@ const AddItems = () => {
         );
         setNotification({ type: 'success', message: 'Item Added Successfully!' });
         setFormData({
-            name: '',
-            description: '',
-            category: 'Fresh Veges',
-            price: '',
-            rating: 0,
-            hearts: 0,
-            total: 0,
-            featured: 'Fresh Picks',
-            image: null,
-            preview: ''
+          name: '',
+          description: '',
+          category: '',
+          price: '',
+          rating: 0,
+          hearts: '',
+          total: 0,
+          featured: '',
+          image: null,
+          preview: ''
         })
 
     }
@@ -148,12 +151,12 @@ const AddItems = () => {
                     setFormData({
                       name: '',
                       description: '',
-                      category: 'Fresh Veges',
+                      category: '',
                       price: '',
                       rating: 0,
-                      hearts: 0,
+                      hearts: '',
                       total: 0,
-                      featured: 'Fresh Picks',
+                      featured: '',
                       image: null,
                       preview: ''
                     });
@@ -268,40 +271,42 @@ const AddItems = () => {
                             autoComplete='off' />
                         </div>
                         <div className={styles.gridTwoCols}>
+                          <div>
+                            <label htmlFor='item-featured' className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                              Featured Type
+                              </label>
+                            <select
+                            id='item-featured'
+                            name='featured'
+                            value={formData.featured}
+                            onChange={handleInputChange}
+                            className={styles.selectField}>
+                              <option value='' disabled className='bg-[#263238]'>Select featured type</option>
+                              {type.map(ft => (
+                                <option key={ft} value={ft} className='bg-[#263238]'>{ft}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          {formData.featured === 'Fresh Picks' && (
                             <div>
-                                <label htmlFor='item-category' className='block text-amber-200 mb-2 text-base sm:text-lg'>
-                                    Category
-                                    </label>
-                                <select
-                                id='item-category'
-                                name='category'
-                                value={formData.category}
-                                onChange={handleInputChange}
-                                className={styles.selectField}>
-                                    <option value='' disabled className='bg-[#263238]'>Select category</option>
-                                    {categories.map(cat => (
-                                        <option key={cat} value={cat} className='bg-[#263238] text-'>{cat}
-                                        </option>
-                                    ))}
-                                </select>
+                              <label htmlFor='item-category' className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                Category
+                                </label>
+                              <select
+                              id='item-category'
+                              name='category'
+                              value={formData.category}
+                              onChange={handleInputChange}
+                              className={styles.selectField}>
+                                <option value='' disabled className='bg-[#263238]'>Select category</option>
+                                {categories.map(cat => (
+                                  <option key={cat} value={cat} className='bg-[#263238] text-'>{cat}
+                                  </option>
+                                ))}
+                              </select>
                             </div>
-                            <div>
-                                <label htmlFor='item-featured' className='block text-amber-200 mb-2 text-base sm:text-lg'>
-                                    Featured Type
-                                    </label>
-                                <select
-                                id='item-featured'
-                                name='featured'
-                                value={formData.featured}
-                                onChange={handleInputChange}
-                                className={styles.selectField}>
-                                    <option value='' disabled className='bg-[#263238]'>Select featured type</option>
-                                  {type.map(ft => (
-                                        <option key={ft} value={ft} className='bg-[#263238]'>{ft}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                          )}
                         </div>
                         <div className={styles.gridTwoCols}>
                             <div>
@@ -312,7 +317,7 @@ const AddItems = () => {
                                     <div className={styles.rupeeIcon}>Rs</div>
                                     <input 
                                   id='item-price'
-                                    type='number' 
+                                    type='text' 
                                     name='price'
                                     value={formData.price}
                                     onChange={handleInputChange}
@@ -347,22 +352,21 @@ const AddItems = () => {
                                 </div>
                             </div>  
                             <div>
-                                <label htmlFor='item-hearts' className='block text-amber-200 mb-2 text-base sm:text-lg'>
-                                    Popularity
-                                    </label> 
-                                    <div className='flex items-center gap-3 sm:gap-4'>
-                                        <button type='button' 
-                                        onClick={handleHearts}
-                                        className='flex items-center gap-2 text-3xl sm:text-4xl hover:scale-110 transition-transform animate-heartbeat text-[#fb3d03]'>
-                                            <FiHeart className='text-2xl animate-heartbeat'/></button>
-                                            <input type="number" id='item-hearts' name="hearts"
-                                             value={formData.hearts} 
-                                             onChange={handleInputChange} 
-                                             className={styles.inputField + ' pl-10 sm:pl-12'}
-                                             placeholder='Enter Likes' min="0"
-                                             autoComplete='off' />
-                                    </div>
-                        </div>
+                              <label htmlFor='item-hearts' className='block text-amber-200 mb-2 text-base sm:text-lg'>
+                                Popularity
+                                </label> 
+                              <input
+                                type="text"
+                                id='item-hearts'
+                                name="hearts"
+                                value={formData.hearts || ''}
+                                onChange={handleInputChange}
+                                onWheel={(e) => e.currentTarget.blur()}
+                                className={styles.inputField}
+                                placeholder='Enter Likes'
+                                min="0"
+                                autoComplete='off' />
+                          </div>
                     </div>
                     <button type='submit' className={styles.actionBtn}>
                         Add Item

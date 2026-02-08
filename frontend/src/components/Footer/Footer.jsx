@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaRegEnvelope } from 'react-icons/fa'
 import { BiChevronRight } from "react-icons/bi";
-import { socialIcons } from '../../assets/dummydata';
+import { socialIcons } from '../../assets/data';
 
 const navItems = [
   { name: 'Home', link: '/' },

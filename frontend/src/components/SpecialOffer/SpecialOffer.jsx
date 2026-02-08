@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { cardData,additionalData, addButtonBase, addButtonHover, commonTransition } from '../../assets/dummydata';
+import { addButtonBase, addButtonHover, commonTransition } from '../../assets/data';
 import { useCart } from '../../CartContext/CartContext';
 import { FaFire, FaHeart, FaPlus, FaStar } from 'react-icons/fa';
 import axios from 'axios';
@@ -38,13 +38,13 @@ const SpecialOffer = () => {
                     const quantity = cartItem ? cartItem.quantity :0;
                     const cartId = cartItem?._id;   
                     return(
-                        <div key={item._id} className='relative group bg-amber-50 rounded-2xl sm:rounded-3xl
+                        <div key={item._id} className='border-[#4ae02c]/30 backdrop-blur-sm flex flex-col relative group bg-black rounded-2xl sm:rounded-3xl
                         overflow-hidden shadow-2xl transform hover:-translate-y-2 sm:hover:-translate-y-4 transition-all duration-500
-                        hover:shadow-[#048b0b]/40 border-2 border-transparent hover:border-[#048b0b]/20 before:absolute
+                        hover:shadow-[#048b0b]/40 border-2 hover:border-[#048b0b]/20 before:absolute
                         before:inset-0 hover:before:opacity-20'>
                             <div className='relative h-56 sm:h-64 md:h-72 overflow-hidden'>
                                 <img src={item.imageUrl} alt={item.name} className='w-full h-full object-cover
-                                brightness-90 group-hover:brightness-110 transition-all duration-500' />
+                                brightness-90 group-hover:brightness-110 transition-all duration-500 text-gray-800' />
                                 <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent
                                 to-black/90'/>
                                 <div className='absolute bottom-4 left-4 right-4 flex justify-between items-center
@@ -60,13 +60,13 @@ const SpecialOffer = () => {
                                 </div>
                             </div>
 
-                            <div className='p-4 sm:p-6 text-gray-800 relative z-10'>
-                                <h3 className='text-xl sm:text-2xl font-bold mb-2 bg-clip-text font-[Playfair_Display] italic'>
+                            <div className='p-4 sm:p-6 text-gray-800 relative z-10 bg-black/40 backdrop-blur-sm'>
+                                <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Display] italic text-[#d6f6c4] transition-colors'>
                                     {item.name}</h3>
-                                <p className='text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed tracking-wide line-clamp-2'>
+                                <p className='tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 sm:mb-5 font-[Playfair_Display] leading-relaxed line-clamp-2'>
                                     {item.description}</p>
                                 <div className='flex justify-between items-center gap-2 sm:gap-4'>
-                                    <span className='text-lg sm:text-xl md:text-2xl font-bold text-[#048b0b] flex-1'>
+                                    <span className='text-lg sm:text-xl md:text-2xl font-bold text-[#d6f6c4] flex-1 font-[Playfair_Display] italic'>
                                         Rs {Number(item.price).toFixed(2)}</span>
                                     
                                     {quantity > 0 ? (
@@ -89,11 +89,11 @@ const SpecialOffer = () => {
                                         </div>
                                     ):(
                                         <button onClick={() => addToCart(item,1)}
-                                        className={`${addButtonBase} ${addButtonHover} ${commonTransition}`}>
-                                            <div className='absolute inset-0 bg-gradient-to-r from-[#048b0b] to-transparent 
-                                            opacity-0 hover:opacity-100 transition-opacity duration-300'/>
-                                            <FaPlus className='text-lg transition-transform'/>
-                                            <span className='relative z-10 '>Add</span>
+                                        className='bg-[#4cf452]/40 px-4 sm:px-6 py-1.5 rounded-full font-[Playfair_Display] text-xs uppercase sm:text-sm tracking-wider transition-all duration-500
+                                        hover:scale-110 hover:shadow-lg hover:shadow-amber-900/20 relative overflow-hidden border border-[#048b0b]/50'>
+                                            <span className='relative z-20 text-xs text-[#d6f6c4]'>
+                                                Add to cart
+                                            </span>
                                         </button>
                                     ) }
                                     

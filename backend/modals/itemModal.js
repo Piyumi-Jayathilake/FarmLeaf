@@ -12,7 +12,9 @@ const itemSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: true
+        required: function () {
+            return this.featured === 'Fresh Picks';
+        }
     },
     price: {
         type: Number,

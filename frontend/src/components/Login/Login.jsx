@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaArrowRight, FaCheckCircle, FaEye, FaEyeSlash, FaLock, FaUser, FaUserPlus } from 'react-icons/fa';
-import { iconClass, inputBase } from '../../assets/dummydata';
+import { iconClass, inputBase } from '../../assets/data';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

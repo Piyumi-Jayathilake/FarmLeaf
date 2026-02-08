@@ -1,5 +1,5 @@
 import React from 'react'
-import { aboutfeature } from '../../assets/dummydata'
+import { aboutfeature } from '../../assets/data'
 import { Link } from 'react-router-dom'
 import { FaInfoCircle } from 'react-icons/fa'
 import AboutImage from '../../assets/AboutImage.png'

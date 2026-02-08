@@ -2,7 +2,7 @@ import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { FaMapPin, FaPhone } from 'react-icons/fa'
 import { FiArrowRight, FiGlobe, FiMail, FiMessageSquare } from 'react-icons/fi'
-import { contactFormFields } from '../../assets/dummydata'
+import { contactFormFields } from '../../assets/data'
 const Contact = () => {
 
   const[formData,setFormData]=React.useState({

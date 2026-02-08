@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 import { FaDownload, FaPlay, FaSearch, FaTimes } from 'react-icons/fa';
-import {bannerAssets} from '../../assets/dummydata'
+import {bannerAssets} from '../../assets/data'
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
 
   const [searchQuery,setSearchQuery] = useState('');
+  const navigate = useNavigate();
   const [showVideo, setShowVideo] = useState(false);
   const {bannerImage,orbitImages,video} = bannerAssets;
 
   const handleSearch = (e) =>{
     e.preventDefault();
-    console.log('Searching for: ',searchQuery);
+    const query = searchQuery.trim();
+    if (!query) {
+      navigate('/menu');
+      return;
+    }
+    navigate(`/menu?search=${encodeURIComponent(query)}`);
   }
   return (
     <div className='relative font-[Playfair_Display]'>

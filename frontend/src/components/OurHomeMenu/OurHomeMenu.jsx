@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useCart} from '../../CartContext/CartContext'
-import {dummyMenuData} from '../../assets/OmhDD'
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FaMinus, FaPlus, FaStar, FaHeart } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './OurHomeMenu.css'
@@ -78,9 +77,23 @@ const OurHomeMenu = () => {
     <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Display] italic text-[#d6f6c4] transition-colors'>
           {item.name}
         </h3>
-      <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Display] leading-relaxed'>
+      <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-3 font-[Playfair_Display] leading-relaxed'>
       {item.description}
       </p>
+      <div className='flex items-center justify-between mb-4'>
+        <div className='flex items-center gap-1'>
+          {[1,2,3,4,5].map(star => (
+            <FaStar
+              key={star}
+              className={star <= Number(item.rating || 0) ? 'text-amber-400' : 'text-amber-700'}
+            />
+          ))}
+        </div>
+        <div className='flex items-center gap-2 text-red-400'>
+          <FaHeart className='text-lg'/>
+          <span className='text-sm font-[Playfair_Display]'>{Number(item.hearts || 0)}</span>
+        </div>
+      </div>
       <div className='mt-auto flex items-center justify-between'>
         
           <span className='text-xl font-bold text-[#d6f6c4] font-[Playfair_Display] italic'>

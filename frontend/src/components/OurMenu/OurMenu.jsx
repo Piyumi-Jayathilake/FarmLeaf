@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import {useCart} from '../../CartContext/CartContext'
-import {dummyMenuData} from '../../assets/OmDD'
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FaMinus, FaPlus, FaStar, FaHeart } from 'react-icons/fa';
 import './OurMenu.css'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const categories =['Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'];
 const OurMenu = () => {
   const [activityCategory,setActivityCategory] = useState(categories[0]);
   const {cartItems, addToCart, removeFromCart, updateQuantity} = useCart();
   const [menuData, setMenuData] = useState({});
+  const { search } = useLocation();
+  const searchTerm = (new URLSearchParams(search).get('search') || '').trim().toLowerCase();
 
   useEffect(()=>{
     const fetchMenu = async () => {
@@ -36,7 +38,17 @@ const OurMenu = () => {
   const getQuantity = id => getCartEntry(id)?.quantity || 0;
   //display items
 
-  const displayItems = (menuData[activityCategory] ?? []).slice(0,12);
+  const allItems = Object.values(menuData).flat();
+  const filteredItems = searchTerm
+    ? allItems.filter(item =>
+        `${item.name ?? ''} ${item.description ?? ''} ${item.category ?? ''}`
+          .toLowerCase()
+          .includes(searchTerm)
+      )
+    : [];
+  const displayItems = searchTerm
+    ? filteredItems
+    : (menuData[activityCategory] ?? []).slice(0,12);
 
     return (
       <div className='bg-gradient-to-br from-[#1b2226]  via-[#133215] to-[#065302] min-h-screen py-16
@@ -84,8 +96,22 @@ const OurMenu = () => {
       <h3 className='text-xl sm:text-2xl mb-2 font-[Playfair_Display] italic text-[#d6f6c4] transition-colors'>
             {item.name}
           </h3>
-        <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-4 font-[Playfair_Display] leading-relaxed'>
+        <p className=' tracking-wide text-[#d6f6c4]/80 text-xs sm:text-sm mb-3 font-[Playfair_Display] leading-relaxed'>
         {item.description}</p>
+        <div className='flex items-center justify-between mb-4'>
+          <div className='flex items-center gap-1'>
+            {[1,2,3,4,5].map(star => (
+              <FaStar
+                key={star}
+                className={star <= Number(item.rating || 0) ? 'text-amber-400' : 'text-amber-700'}
+              />
+            ))}
+          </div>
+          <div className='flex items-center gap-2 text-red-400'>
+            <FaHeart className='text-lg'/>
+            <span className='text-sm font-[Playfair_Display]'>{Number(item.hearts || 0)}</span>
+          </div>
+        </div>
         <div className='mt-auto flex items-center justify-between'>
           
          
