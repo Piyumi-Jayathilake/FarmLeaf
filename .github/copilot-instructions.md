@@ -15,6 +15,7 @@
 - Models live in backend/modals (intentional typo): userModal.js, itemModal.js, cartModal.js, orderModal.js.
 - Stripe flow: POST /api/orders (paymentMethod=online) returns checkoutUrl; frontend redirects; confirm via POST /api/orders/confirm.
 - Uploads: multer saves to backend/uploads; static served at /uploads/<filename>.
+- Backend envs: MONGODB_URI is required (backend/config/db.js). Stripe uses STRIPE_SECRET_KEY and optional LKR_TO_USD; redirect uses FRONTEND_URL fallback http://localhost:5173.
 
 ## Frontend patterns (frontend)
 - App bootstrap in frontend/src/main.jsx wraps CartProvider → BrowserRouter → App.

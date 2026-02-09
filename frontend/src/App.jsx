@@ -6,6 +6,7 @@ import Cart from './pages/Cart/Cart'
 import Home from './pages/Home/Home'
 import ContactPage from './pages/ContactPage/ContactPage'
 import SignUp from './components/SignUp/SignUp'
+import LoginPage from './pages/LoginPage/LoginPage'
 import PrivateRoute from './components/PivetRoute/PrivetRout'
 import VerifyPaymentPage from './pages/VerifyPaymentPage/VerifyPaymentPage'
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
@@ -22,7 +23,7 @@ const App = () => {
         <Route path='/about' element={<AboutPage/>}/>
         <Route path='/menu' element={<Menu/>}/>
 
-        <Route path='/login' element={<Home/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
         <Route path='/signup' element={<SignUp/>}/>
 
         {/* PAYMENT VERIFICATION */}

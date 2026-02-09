@@ -38,6 +38,8 @@ const Order = () => {
       }
     };
     fetchOrders();
+    const intervalId = setInterval(fetchOrders, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleStatusChange = async (orderId, newStatus) => {

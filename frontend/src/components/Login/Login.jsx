@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const url = 'http://localhost:4000';
-const Login = ({onLoginSuccess, onclose}) => {
+const Login = ({onLoginSuccess, onClose}) => {
   const [showToast, setShowToast] = useState({visible:false, message:'',isError: false});
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({username:'',password:'',rememberMe: false});
@@ -117,7 +117,7 @@ const Login = ({onLoginSuccess, onclose}) => {
           </button>
         </form>
         <div className='text-center'>
-          <Link to='/signup' onClick={onclose} className='inline-flex items-center gap-2
+          <Link to='/signup' onClick={onClose} className='inline-flex items-center gap-2
           text-[#d6f6c4] hover:text-[#ccf9b2] transition-colors font-[Playfair_Display] '>
             <FaUserPlus /> Create New Account 
           </Link>
