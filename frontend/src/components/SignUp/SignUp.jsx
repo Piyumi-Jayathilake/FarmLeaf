@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaEye, FaEyeSlash, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
-const url = 'http://localhost:4000';
+const url = 'https://farmleaf-backend.onrender.com';
 
 const AwesomeToast =({message,icon}) =>(
     <div className='animate-slide-in fixed bottom-6 right-6 flex items-center bg-gradient-to-br from-[#048b0b] to-[#04720b]
