@@ -12,7 +12,7 @@ const Order = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4000/api/orders/getall'
+          'https://farmleaf-backend.onrender.com/api/orders/getall'
         );
 
         const formatted = (response.data.orders || []).map(order => ({
@@ -45,7 +45,7 @@ const Order = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       const response = await axios.put(
-        `http://localhost:4000/api/orders/getall/${orderId}`,
+        `https://farmleaf-backend.onrender.com/api/orders/getall/${orderId}`,
         { status: newStatus }
       );
       const updated = response.data?.order;
@@ -127,7 +127,7 @@ if (loading) return (
                               <img
                                   src={itm.item?.imageUrl?.startsWith('http')
                                     ? itm.item.imageUrl
-                                    : `http://localhost:4000${itm.item?.imageUrl || ''}`}
+                                    : `https://farmleaf-backend.onrender.com${itm.item?.imageUrl || ''}`}
                                 alt={itm.item?.name || 'Item'}
                                 className='w-10 h-10 object-cover rounded-lg'
                               />
