@@ -26,7 +26,7 @@ const List = () => {
   useEffect(() => {
     fetchItems();
     // Refresh items every 3 seconds to catch new additions
-    const interval = setInterval(fetchItems, 3000);
+    const interval = setInterval(fetchItems, 15000);
     return () => clearInterval(interval);
   }, []);
 
