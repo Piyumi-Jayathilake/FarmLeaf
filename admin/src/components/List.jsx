@@ -12,7 +12,7 @@ const List = () => {
   
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/items');
+      const response = await axios.get('https://farmleaf-backend.onrender.com/api/items');
       setItems(response.data.items || []);
     } catch (error) { 
       console.error('Error fetching items:', error);
@@ -33,7 +33,7 @@ const List = () => {
 //DLT
 const handleDelete = async (itemId) => {
   try {
-    await axios.delete(`http://localhost:4000/api/items/${itemId}`);
+    await axios.delete(`https://farmleaf-backend.onrender.com/api/items/${itemId}`);
     setItems(prev => prev.filter(item => item._id !== itemId));
     setNotification({ type: 'success', message: 'Item Deleted Successfully!' });
     setTimeout(() => setNotification(null), 3000);
