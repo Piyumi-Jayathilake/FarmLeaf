@@ -85,8 +85,8 @@ if(normalizedPaymentMethod === 'online'){
     };
 }),
 customer_email: email,
-        success_url: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/myorder/verify?success=true&session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${process.env.FRONTEND_URL || 'http://localhost:5173'}/checkout?payment_status=cancel`,
+        success_url: `${process.env.FRONTEND_URL || 'https://farmleaf-frontend.onrender.com'}/myorder/verify?success=true&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.FRONTEND_URL || 'https://farmleaf-frontend.onrender.com'}/checkout?payment_status=cancel`,
         metadata:{
             firstName,
             lastName,
