@@ -33,7 +33,17 @@ const List = () => {
 //DLT
 const handleDelete = async (itemId) => {
   try {
-    await axios.delete(`https://farmleaf-backend.onrender.com/api/items/${itemId}`);
+    const token = localStorage.getItem('authToken');
+
+await axios.delete(
+  `https://farmleaf-backend.onrender.com/api/items/${itemId}`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
+
     setItems(prev => prev.filter(item => item._id !== itemId));
     setNotification({ type: 'success', message: 'Item Deleted Successfully!' });
     setTimeout(() => setNotification(null), 3000);
@@ -133,8 +143,12 @@ const closeDeleteModal = () => {
                 {items.map(item => (
                   <tr key={item._id} className={styles.tr}>
                     <td className={styles.imgCell}>
-                      <img src={item.imageUrl} alt={item.name} 
-                      className={styles.img}/>
+                      <img
+                        src={`https://farmleaf-backend.onrender.com${item.imageUrl}`}
+                        alt={item.name}
+                        className={styles.img}
+                      />
+
                     </td>
                     <td className={styles.nameCell}>
                       <div className='space-y-2'>
