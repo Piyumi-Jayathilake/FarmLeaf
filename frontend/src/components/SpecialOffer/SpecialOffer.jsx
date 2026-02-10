@@ -13,7 +13,7 @@ const SpecialOffer = () => {
     const {addToCart, removeFromCart, updateQuantity, cartItems} = useCart();
 
     useEffect(() => {
-        axios.get('http://localhost:4000/api/items?featured=Special Offer')
+        axios.get('https://farmleaf-backend.onrender.com/api/items?featured=Special Offer')
         .then(res => setItems(res.data.items ?? res.data))
         .catch(err => console.error(err));
     }, [])
