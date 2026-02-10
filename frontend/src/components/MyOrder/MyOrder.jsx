@@ -22,7 +22,7 @@ const MyOrder = () => {
                                         }
                                         return;
                                 }
-                                const response = await axios.get('http://localhost:4000/api/orders',{
+                                const response = await axios.get('https://farmleaf-backend.onrender.com/api/orders',{
                                         headers: {
                                                 Authorization: `Bearer ${token}`
                                 }
@@ -121,7 +121,7 @@ const handleCancelOrder = async (orderId) => {
     if (!token || !orderId) return;
     setCancelingId(orderId);
     try {
-        await axios.put(`http://localhost:4000/api/orders/${orderId}`,
+        await axios.put(`https://farmleaf-backend.onrender.com/api/orders/${orderId}`,
             { status: 'cancelled' },
             { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -225,7 +225,7 @@ if(error) return (
                                             <img
                                                 src={entry.item?.imageUrl?.startsWith('http')
                                                     ? entry.item.imageUrl
-                                                    : `http://localhost:4000${entry.item?.imageUrl || ''}`}
+                                                    : `https://farmleaf-backend.onrender.com${entry.item?.imageUrl || ''}`}
                                                 alt={entry.item?.name || 'Item'}
                                                 className="w-10 h-10 object-cover rounded-lg"/>
                                             <div className='flex-1'>
@@ -334,7 +334,7 @@ if(error) return (
                                                         <img
                                                         src={entry.item?.imageUrl?.startsWith('http')
                                                             ? entry.item.imageUrl
-                                                            : `http://localhost:4000${entry.item?.imageUrl || ''}`}
+                                                            : `https://farmleaf-backend.onrender.com${entry.item?.imageUrl || ''}`}
                                                         alt={entry.item?.name || 'Item'} 
                                                         className="w-10 h-10 object-cover rounded-lg"/>
                                                         <div className='flex-1'>
