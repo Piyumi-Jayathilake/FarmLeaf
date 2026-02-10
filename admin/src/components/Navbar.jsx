@@ -1,6 +1,5 @@
 import React from 'react'
 import { navLinks, styles } from '../assets/admindetails'
-import { GiCurledLeaf } from "react-icons/gi";
 import { FiX, FiMenu } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 import FarmLeaf from '../FarmLeaf.png';
