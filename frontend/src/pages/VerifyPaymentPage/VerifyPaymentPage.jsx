@@ -30,7 +30,7 @@ const VerifyPaymentPage = () => {
         return;
       }
       //sripe succcc=true
-      axios.get('http://localhost:4000/api/orders/confirm', {
+      axios.get('https://farmleaf-backend.onrender.com/api/orders/confirm', {
         params: { sessionId },
         headers: authHeaders
       })
