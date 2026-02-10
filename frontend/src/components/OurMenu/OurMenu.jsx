@@ -16,7 +16,7 @@ const OurMenu = () => {
   useEffect(()=>{
     const fetchMenu = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/api/items?featured=Fresh Picks');
+        const res = await axios.get('https://farmleaf-backend.onrender.com/api/items?featured=Fresh Picks');
         const items = Array.isArray(res.data) ? res.data : res.data.items || [];
         const byCategory = items.reduce((acc,item) => {
           const cat = item.category || 'Uncategorized';
