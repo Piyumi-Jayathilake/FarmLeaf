@@ -11,8 +11,17 @@ const Order = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(
-          'https://farmleaf-backend.onrender.com/api/orders/getall'
+       const token = localStorage.getItem('authToken');
+
+const response = await axios.get(
+  'https://farmleaf-backend.onrender.com/api/orders/getall',
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
+
         );
 
         const formatted = (response.data.orders || []).map(order => ({
@@ -22,7 +31,7 @@ const Order = () => {
           zipCode: order.zipCode ?? order.shippingAddress?.zipCode ?? '',
           phone: order.phone ?? '',
           items: order.items?.map(e => ({ _id: e._id, item: e.item, quantity: e.quantity })) || [],
-          createdAt: new Date(order.createdAt).toLocaleDateString('en-IN', {
+          createdAt: new Date(order.createdAt).toLocaleString('en-IN', {
             year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit',
           }),
         }));
@@ -38,15 +47,22 @@ const Order = () => {
       }
     };
     fetchOrders();
-    const intervalId = setInterval(fetchOrders, 5000);
+    const intervalId = setInterval(fetchOrders, 20000);
     return () => clearInterval(intervalId);
   }, []);
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const response = await axios.put(
-        `https://farmleaf-backend.onrender.com/api/orders/getall/${orderId}`,
-        { status: newStatus }
+      await axios.put(
+  `https://farmleaf-backend.onrender.com/api/orders/getall/${orderId}`,
+  { status: newStatus },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+);
+
       );
       const updated = response.data?.order;
       if (updated) {
@@ -91,7 +107,7 @@ if (loading) return (
                   // Sum up the quantities of all items in the order
                   const totalItems = order.items.reduce((s, i) => s + i.quantity, 0);
                   // Use the precomputed total if available; otherwise calculate price × quantity for each item
-                  const totalPrice = order.total ?? order.items.reduce((s, i) => s + i.item.price * i.quantity, 0);
+                  const totalPrice = order.total ?? order.items.reduce((s, i) => s + (i.item?.price || 0) * (i.quantity || 0));
                   // Look up the display details for the payment method (lowercased), defaulting if not found
                   const payMethod = paymentMethodDetails[order.paymentMethod?.toLowerCase()] || paymentMethodDetails.default;
                   // Pick the style for the order’s overall status, falling back to “processing” if unknown
@@ -123,7 +139,7 @@ if (loading) return (
                         <td className={tableClasses.cellBase}>
                         <div className='space-y-1 max-h-52 overflow-auto'>
                           {order.items.map((itm, idx) => (
-                            <div key={idx} className='flex items-center pa-3 p-2 rounded-lg'>
+                            <div key={idx} className='flex items-center px-3 p-2 rounded-lg'>
                               <img
                                   src={itm.item?.imageUrl?.startsWith('http')
                                     ? itm.item.imageUrl
@@ -200,4 +216,4 @@ if (loading) return (
   )
 }
 
-export default Order
+export default Order;
