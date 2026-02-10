@@ -33,7 +33,7 @@ const Checkout = () => {
 
         if(paymentStatus === 'true' && sessionId){
 
-            axios.post('http://localhost:4000/api/orders/confirm',
+            axios.post('https://farmleaf-backend.onrender.com/api/orders/confirm',
                 { sessionId },
                 { headers: authHeaders })
                 .then(({ data }) => {
@@ -93,14 +93,14 @@ const Checkout = () => {
               
 
                 const { data } = await axios.post(
-                    'http://localhost:4000/api/orders',
+                    'https://farmleaf-backend.onrender.com/api/orders',
                     payload,
                     { headers: authHeaders }
                 );
                 window.location.href =data.checkoutUrl;
             } else {
                 const { data } = await axios.post(
-                    'http://localhost:4000/api/orders',
+                    'https://farmleaf-backend.onrender.com/api/orders',
                     payload,
                     { headers: authHeaders }
                 );
