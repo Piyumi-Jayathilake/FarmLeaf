@@ -49,7 +49,7 @@ export const CartProvider = ({children}) =>{
     useEffect(()=>{
         const token = localStorage.getItem('authToken');
         if (token) {
-            axios.get('http://localhost:4000/api/cart',{
+            axios.get('https://farmleaf-backend.onrender.com/api/cart',{
                 withCredentials:true,
                 headers:{
                     Authorization: `Bearer ${token}`
@@ -72,7 +72,7 @@ export const CartProvider = ({children}) =>{
     //Dispatcher wrapper with useCallback for performance
     const addToCart = useCallback(async(item,quantity) =>{
         const token = localStorage.getItem('authToken');
-        const res = await axios.post('http://localhost:4000/api/cart',{
+        const res = await axios.post('https://farmleaf-backend.onrender.com/api/cart',{
             itemId: item._id,
             quantity: quantity},{
             withCredentials:true,
@@ -84,7 +84,7 @@ export const CartProvider = ({children}) =>{
     },[])
     const removeFromCart = useCallback(async _id =>{
         const token = localStorage.getItem('authToken');
-        await axios.delete(`http://localhost:4000/api/cart/${_id}`,{
+        await axios.delete(`https://farmleaf-backend.onrender.com/api/cart/${_id}`,{
             withCredentials:true,
             headers:{
                 Authorization: `Bearer ${token}`
@@ -95,7 +95,7 @@ export const CartProvider = ({children}) =>{
 
     const updateQuantity = useCallback(async (_id, qantity) =>{
         const token = localStorage.getItem('authToken');
-        const res = await axios.put(`http://localhost:4000/api/cart/${_id}`,{
+        const res = await axios.put(`https://farmleaf-backend.onrender.com/api/cart/${_id}`,{
             quantity:qantity},{
             withCredentials:true,
             headers:{
@@ -106,7 +106,7 @@ export const CartProvider = ({children}) =>{
     },[])
     const clearCart = useCallback(async () => {
         const token = localStorage.getItem('authToken');
-        await axios.post('http://localhost:4000/api/cart/clear', {}, {
+        await axios.post('https://farmleaf-backend.onrender.com/api/cart/clear', {}, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${token}`
