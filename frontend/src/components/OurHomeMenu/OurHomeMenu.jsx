@@ -13,7 +13,7 @@ const OurHomeMenu = () => {
   const [menuData, setMenuData] = useState({});
  
   useEffect(()=>{
-    axios.get('http://localhost:4000/api/items?featured=Fresh Picks')
+    axios.get('https://farmleaf-backend.onrender.com/api/items?featured=Fresh Picks')
     .then(res => {
       const items = Array.isArray(res.data) ? res.data : res.data.items || [];
       const grouped = items.reduce((acc,item) => {
