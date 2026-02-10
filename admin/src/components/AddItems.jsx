@@ -102,7 +102,7 @@ const AddItems = () => {
             if(key === 'preview') return;
             payload.append(key, value);
         });
-        const res = await axios.post('http://localhost:4000/api/items',
+        const res = await axios.post('https://farmleaf-backend.onrender.com/api/items',
             payload,
             {headers: {'Content-Type': 'multipart/form-data'}}
         );
