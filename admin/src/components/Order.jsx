@@ -22,8 +22,6 @@ const response = await axios.get(
   }
 );
 
-        );
-
         const formatted = (response.data.orders || []).map(order => ({
           ...order,
           address: order.address ?? order.shippingAddress?.address ?? '',
