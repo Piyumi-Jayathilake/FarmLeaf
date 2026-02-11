@@ -21,7 +21,7 @@ const AddItems = () => {
   const [categories] = useState([
     'Fresh Veges', 'Leafy Greens', 'Fresh Fruits', 'Roots & Bulbs', 'Local Sri Lankan', 'Exotic & Imported', 'Herbs & Spices'
   ]);
-  const[type] = useState([
+  const[featuredTypes] = useState([
     'Special Offer', 'Fresh Picks'
   ]);
   const [hoverRating, setHoverRating] = useState(0);
@@ -52,14 +52,18 @@ const AddItems = () => {
   const handleRating = rating => 
     setFormData(prev => ({ ...prev, rating }));
   
-  const handleDeleteImage = () => {
-    setFormData(prev => ({
-      ...prev,
-      image: null,
-      preview: ''
-    }));
-    setShowDeleteModal(false);
-  };
+const handleDeleteImage = () => {
+  if (formData.preview) {
+    URL.revokeObjectURL(formData.preview);
+  }
+  setFormData(prev => ({
+    ...prev,
+    image: null,
+    preview: ''
+  }));
+  setShowDeleteModal(false);
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,15 +101,28 @@ const AddItems = () => {
     }
     
     try{
-        const payload = new FormData();
-        Object.entries(formData).forEach(([key, value]) => {
-            if(key === 'preview') return;
-            payload.append(key, value);
-        });
-        const res = await axios.post('https://farmleaf-backend.onrender.com/api/items',
-            payload,
-            {headers: {'Content-Type': 'multipart/form-data'}}
-        );
+        const token = localStorage.getItem('authToken');
+      const payload = new FormData();
+
+      payload.append('name', formData.name);
+      payload.append('description', formData.description);
+      payload.append('category', formData.category);
+      payload.append('featured', formData.featured);
+      payload.append('price', Number(formData.price));
+      payload.append('rating', Number(formData.rating));
+      payload.append('hearts', Number(formData.hearts || 0));
+      payload.append('image', formData.image);
+
+      await axios.post(
+        'https://farmleaf-backend.onrender.com/api/items',
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
         setNotification({ type: 'success', message: 'Item Added Successfully!' });
         setFormData({
           name: '',
@@ -282,7 +299,7 @@ const AddItems = () => {
                             onChange={handleInputChange}
                             className={styles.selectField}>
                               <option value='' disabled className='bg-[#263238]'>Select featured type</option>
-                              {type.map(ft => (
+                              {featuredTypes.map(ft => (
                                 <option key={ft} value={ft} className='bg-[#263238]'>{ft}
                                 </option>
                               ))}
