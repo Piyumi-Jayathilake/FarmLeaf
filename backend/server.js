@@ -17,7 +17,9 @@ const __dirname = path.dirname(__filename);
 //MIDDLEWARE
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'];
+        const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'
+                              , 'https://farmleaf-frontend.onrender.com'
+                               ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
     }     else {
