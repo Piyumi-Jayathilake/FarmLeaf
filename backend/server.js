@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors({
     origin: (origin, callback) => {
         const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176'
-                              , 'https://farmleaf-frontend.onrender.com'
+                              , 'https://farmleaf-frontend.onrender.com', 'https://farmleaf-admin.onrender.com'
                                ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
@@ -39,7 +39,7 @@ app.use('/api/user', userRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use('/api/items', itemRouter);
 app.use('/api/cart', cartRouter);
-app.use('/api/orders', orderRouter); // Temporary until order routes are created
+app.use('/api/orders', orderRouter); 
 
 app.get('/', (req, res) => {
     res.send('FarmLeaf Backend is running');
