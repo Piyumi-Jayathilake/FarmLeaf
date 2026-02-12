@@ -105,7 +105,14 @@ if (loading) return (
                   // Sum up the quantities of all items in the order
                   const totalItems = order.items.reduce((s, i) => s + i.quantity, 0);
                   // Use the precomputed total if available; otherwise calculate price × quantity for each item
-                  const totalPrice = order.total ?? order.items.reduce((s, i) => s + (i.item?.price || 0) * (i.quantity || 0));
+                  const totalPrice =
+                  order.total ??
+                  order.items.reduce(
+                    (sum, i) =>
+                      sum + (Number(i.item?.price) || 0) * (Number(i.quantity) || 0),
+                    0
+                  );
+
                   // Look up the display details for the payment method (lowercased), defaulting if not found
                   const payMethod = paymentMethodDetails[order.paymentMethod?.toLowerCase()] || paymentMethodDetails.default;
                   // Pick the style for the order’s overall status, falling back to “processing” if unknown
