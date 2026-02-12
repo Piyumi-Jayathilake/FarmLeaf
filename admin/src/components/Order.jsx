@@ -51,7 +51,8 @@ const response = await axios.get(
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.put(
+       const token = localStorage.getItem('authToken');
+      const response = await axios.put(
   `https://farmleaf-backend.onrender.com/api/orders/getall/${orderId}`,
   { status: newStatus },
   {
