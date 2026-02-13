@@ -117,6 +117,10 @@ const Footer = () => {
         </div>
         {/*BOTTOM SECTION */}
         <div className='border-t border-[#05c30e] pt-8 mt-8 text-center'>
+            <p>
+              This website is developed for educational purposes only as part of a university project.
+            </p>
+            <p>Not intended for commercial use.</p>
             <p className='text-[#05c30e] text-lg mb-2 font-[Playfair_Display]'>
                     &copy; 2025 FarmLeaf. All Rights Reserved.
             </p>
