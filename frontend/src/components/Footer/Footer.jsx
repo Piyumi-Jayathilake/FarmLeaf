@@ -122,7 +122,7 @@ const Footer = () => {
             </p>
             <p>Not intended for commercial use.</p>
             <p className='text-[#05c30e] text-lg mb-2 font-[Playfair_Display]'>
-                    &copy; 2025 FarmLeaf. All Rights Reserved.
+                    &copy; 2026 FarmLeaf. All Rights Reserved.
             </p>
             <div className=' group inline-block'>
                 <a href="https://lk.linkedin.com/in/piyumi-jayathilake"
