@@ -144,7 +144,7 @@ const closeDeleteModal = () => {
                   <tr key={item._id} className={styles.tr}>
                     <td className={styles.imgCell}>
                       <img
-                        src={`https://farmleaf-backend.onrender.com${item.imageUrl}`}
+                        src={item.imageUrl}
                         alt={item.name}
                         className={styles.img}
                       />
