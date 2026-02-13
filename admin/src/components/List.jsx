@@ -187,6 +187,10 @@ const closeDeleteModal = () => {
           
         </div>
       </div>
+      <div className="fixed bottom-0 left-0 w-full text-center text-xs text-gray-400 py-2 bg-[#1b2226] border-t border-gray-700">
+      Admin Panel – Educational Demo Project | Not for commercial use
+</div>
+
     </div>
   )
 }
