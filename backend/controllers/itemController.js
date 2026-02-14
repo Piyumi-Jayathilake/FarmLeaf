@@ -40,7 +40,7 @@ export const getItems = async (req, res) => {
             query.featured = featured;
         }
         const items = await itemModal.find(query).sort({ createdAt: -1 }); 
-        const host = `${req.protocol}://${req.get('host')}`;
+        const host = `https://${req.get('host')}`;
 
         const withFullUrl = items.map(i => ({
             ...i.toObject(),
