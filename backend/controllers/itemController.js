@@ -3,7 +3,7 @@ import itemModal from "../modals/itemModal.js";
 export const createItem = async (req, res) => {
     try {
         const { name, description, category, price, rating, hearts, featured } = req.body;
-        const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
+        const imageUrl = req.file ? req.file.path : '';
         const total = Number(price) * 1;
         const newItem = new itemModal({
             name,
