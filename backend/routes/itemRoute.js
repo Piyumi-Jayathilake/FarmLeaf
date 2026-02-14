@@ -1,12 +1,10 @@
 import express from 'express';
 import multer from 'multer';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import cloudinary from '../config/cloudinary.js';
 import {createItem, getItems, deleteItem} from '../controllers/itemController.js';
 
 const itemRouter = express.Router()
-
-
-import { CloudinaryStorage } from 'multer-storage-cloudinary';
-import cloudinary from '../config/cloudinary.js';
 
 const storage = new CloudinaryStorage({
   cloudinary,
