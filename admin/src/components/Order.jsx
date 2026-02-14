@@ -147,9 +147,8 @@ if (loading) return (
                           {order.items.map((itm, idx) => (
                             <div key={idx} className='flex items-center px-3 p-2 rounded-lg'>
                               <img
-                                  src={itm.item?.imageUrl?.startsWith('http')
-                                    ? itm.item.imageUrl
-                                    : `https://farmleaf-backend.onrender.com${itm.item?.imageUrl || ''}`}
+                                  src={itm.item?.imageUrl}
+
                                 alt={itm.item?.name || 'Item'}
                                 className='w-10 h-10 object-cover rounded-lg'
                               />
