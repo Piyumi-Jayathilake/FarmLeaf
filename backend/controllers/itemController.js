@@ -33,26 +33,14 @@ export const createItem = async (req, res) => {
 
 //GET ALL ITEMS
 export const getItems = async (req, res) => {
-    try {
-        const { featured } = req.query;
-        const query = {};
-        if (featured) {
-            query.featured = featured;
-        }
-        const items = await itemModal.find(query).sort({ createdAt: -1 }); 
-        const host = `https://${req.get('host')}`;
+  try {
+    const items = await itemModal.find().sort({ createdAt: -1 });
+    res.json({ success: true, items });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Failed to fetch items' });
+  }
+};
 
-        const withFullUrl = items.map(i => ({
-            ...i.toObject(),
-            imageUrl: i.imageUrl ? host + i.imageUrl : '',
-
-        }))
-        res.json({ success: true, items: withFullUrl });
-    } catch (error) {
-        console.error('Get Items Error:', error);
-        res.status(500).json({ success: false, message: 'Failed to fetch items' });
-    }
-}
 
 //DLT FUNC
 export const deleteItem = async (req, res) => {
