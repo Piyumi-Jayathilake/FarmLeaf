@@ -34,7 +34,12 @@ export const createItem = async (req, res) => {
 //GET ALL ITEMS
 export const getItems = async (req, res) => {
   try {
-    const items = await itemModal.find().sort({ createdAt: -1 });
+        const { featured } = req.query;
+        const filter = {};
+        if (featured) {
+            filter.featured = featured;
+        }
+        const items = await itemModal.find(filter).sort({ createdAt: -1 });
     res.json({ success: true, items });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Failed to fetch items' });
